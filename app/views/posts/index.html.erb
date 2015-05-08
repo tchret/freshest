@@ -4,7 +4,7 @@
       <% @posts.each do |post| %>
         <div class="post">
           <%= link_to post.influencer.name, influencer_path(post.influencer), class: "influencer-link" %>
-          <%= simple_format post.content %>
+          <%= post.content.html_safe %>
         </div>
       <% end %>
     </div>
