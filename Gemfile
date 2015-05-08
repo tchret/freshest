@@ -11,6 +11,7 @@ gem "high_voltage"
 gem "devise"
 gem "pundit"
 gem "paperclip"
+gem 'react-rails', '~> 1.0'
 gem "aws-sdk", "< 2.0"
 
 gem "jquery-rails"
