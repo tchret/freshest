@@ -9,7 +9,8 @@ class PostsController < ApplicationController
       html_doc = Nokogiri::HTML(html_file)
       freshest_post = html_doc.search('.ProfileTweet-text').first
       freshest_post.css('span.invisible').remove
-      array << Post.find_or_create_by(content: freshest_post, influencer: influencer)
+      image_url = html_doc.search('.ProfileAvatar-image').attr('src')
+      array << Post.find_or_create_by(content: freshest_post, influencer: influencer, image_url: image_url)
     end
   end
 end

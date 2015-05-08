@@ -34,3 +34,27 @@
 .invisible {
   display: none;
 }
+.img-40 {
+  width: 40px;
+}
+.influencer-link {
+  font-weight: bold;
+  color: rgb(79, 79, 79)
+}
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.panel-default {
+  margin-bottom: 10px;
+}
+.post:hover {
+  background-color: whitesmoke;
+}
+span.link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
