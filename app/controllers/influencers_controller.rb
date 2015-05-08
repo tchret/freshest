@@ -2,6 +2,8 @@ require 'open-uri'
 require 'nokogiri'
 
 class InfluencersController < ApplicationController
+  before_action :authenticate_user!, only: :create
+
   def index
     @influencers = Influencer.all
   end
@@ -21,6 +23,7 @@ class InfluencersController < ApplicationController
       @post.influencer = @influencer
       @post.content = html_doc.search('.ProfileTweet-text').first.text
       @post.save
+      redirect_to 'posts/index'
     else
       redirect_to :back
     end
