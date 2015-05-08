@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <% @posts.each do |post| %>
+        <div class="post">
+          <%= link_to post.influencer.name, influencer_path(post.influencer), class: "influencer-link" %>
+          <%= simple_format post.content %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
