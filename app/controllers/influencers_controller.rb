@@ -21,7 +21,7 @@ class InfluencersController < ApplicationController
     if @influencer.save
       @post = Post.new
       @post.influencer = @influencer
-      @post.content = html_doc.search('.ProfileTweet-text').first.text
+      @post.content = html_doc.search('.ProfileTweet-text').first.html
       @post.save
       redirect_to 'posts/index'
     else
