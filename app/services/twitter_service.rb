@@ -10,16 +10,14 @@ class TwitterService
     end
   end
 
-  def get_last_tweet(user)
+  def get_last_tweet(user_name)
     i = 0
-    timeline = ts.client.user_timeline("Lewagonparis", {include_rts: false})
+    timeline = @client.user_timeline(user_name, {include_rts: false})
     while timeline.size == 0
       i += 1
-      timeline = ts.client.user_timeline("Lewagonparis", {include_rts: false, count: 20 + i})
+      timeline = @client.user_timeline(user_name, {include_rts: false, count: 20 + i})
     end
     last_tweet = timeline.first
-    last_tweet.full_text
   end
-
 
 end

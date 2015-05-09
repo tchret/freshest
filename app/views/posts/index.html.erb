@@ -1,22 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <% @posts.each do |post| %>
-        <%= link_to influencer_path(post.influencer) do %>
-          <span class="link">
-          </span>
-        <% end %>
+      <% @tweets_with_user.each do |tweet_with_user| %>
         <div class="panel panel-default post">
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-1">
-                <%= image_tag post.image_url, class: "img img-40" %>
+                <%= image_tag tweet_with_user[:user].profile_image_url.to_s.gsub('_normal', ''), class: "img img-40" %>
               </div>
               <div class="col-xs-11">
                 <p class="influencer-link">
-                  <%= post.influencer.name %>
+                  <%= link_to tweet_with_user[:user].name, influencer_path(tweet_with_user[:influencer]) %>
                 </p>
-                <%= simple_format post.content.html_safe %>
+                <%= simple_format tweet_with_user[:tweet].full_text.html_safe %>
               </div>
             </div>
           </div>
