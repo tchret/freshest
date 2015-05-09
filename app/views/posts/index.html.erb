@@ -2,9 +2,24 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <% @posts.each do |post| %>
-        <div class="post">
-          <%= link_to post.influencer.name, influencer_path(post.influencer), class: "influencer-link" %>
-          <%= post.content.html_safe %>
+        <%= link_to influencer_path(post.influencer) do %>
+          <span class="link">
+          </span>
+        <% end %>
+        <div class="panel panel-default post">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-1">
+                <%= image_tag post.image_url, class: "img img-40" %>
+              </div>
+              <div class="col-xs-11">
+                <p class="influencer-link">
+                  <%= post.influencer.name %>
+                </p>
+                <%= simple_format post.content.html_safe %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
