@@ -20,4 +20,8 @@ class TwitterService
     last_tweet = timeline.first
   end
 
+  def get_last_from_list(slug, size |= 2)
+    @client.list_timeline(slug)[0..(size - 1)]
+  end
+
 end
