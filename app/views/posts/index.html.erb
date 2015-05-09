@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <% @tweets_with_user.each do |tweet_with_user| %>
+      <% @last_tweets.each do |tweet_with_user| %>
         <div class="panel panel-default post">
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-1">
-                <%= image_tag tweet_with_user[:user].profile_image_url.to_s.gsub('normal', '400x400'), class: "img img-40" %>
+                <%= image_tag tweet_with_user[:influencer].avatar_url, class: "img img-40" %>
               </div>
               <div class="col-xs-11">
                 <p class="influencer-link">
-                  <%= link_to tweet_with_user[:user].name, influencer_path(tweet_with_user[:influencer]) %>
+                  <%= link_to tweet_with_user[:influencer].name, influencer_path(tweet_with_user[:influencer]) %>
                 </p>
                 <%= simple_format tweet_with_user[:tweet].full_text.html_safe %>
               </div>

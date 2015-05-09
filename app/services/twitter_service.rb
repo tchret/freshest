@@ -20,8 +20,22 @@ class TwitterService
     last_tweet = timeline.first
   end
 
-  def get_last_from_list(slug, size |= 2)
+  def get_last_from_list(slug, size = 2)
     @client.list_timeline(slug)[0..(size - 1)]
+  end
+
+  def add_influencers_to_list(list, users)
+    @client.add_list_members(list, users)
+  end
+
+  def add_influencer_to_list(list, user)
+    @client.add_list_member(list, user)
+
+  end
+
+  def need_update?
+    get_last_from_list("freshst-dev", 1)
+    @client.list
   end
 
 end
