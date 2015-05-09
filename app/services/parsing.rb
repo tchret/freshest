@@ -10,6 +10,10 @@ class Parsing
 
   private
 
+  def is_pinned?(post)
+
+  end
+
   def get_twitter_profile
     twitter_path = @user.twitter_id[1..-1]
     open("https://twitter.com/#{twitter_path}")
