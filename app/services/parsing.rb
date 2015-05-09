@@ -4,22 +4,22 @@ class Parsing
   end
 
   def freshest_post
-    get_freshest_post(html_doc)
+    get_freshest_post(twitter_profile)
   end
 
   def get_twitter_image
-    image_url = html_doc.search('.ProfileAvatar-image').attr('src')
+    image_url = twitter_profile.search('.ProfileAvatar-image').attr('src')
+  end
+
+  def get_twitter_profile
+    twitter_profile
   end
 
   private
 
-  def get_twitter_profile
+  def twitter_profile
     twitter_path = @user.twitter_id[1..-1]
-    open("https://twitter.com/#{twitter_path}")
-  end
-
-  def html_doc
-    Nokogiri::HTML(get_twitter_profile)
+    Nokogiri::HTML(open("https://twitter.com/#{twitter_path}"))
   end
 
   def get_freshest_post(html_doc)
