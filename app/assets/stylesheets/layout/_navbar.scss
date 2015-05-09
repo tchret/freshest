@@ -39,6 +39,9 @@ $navbar-profile-border-width: 2px;
 /* -------------------------------------
  * SCSS code
  * ------------------------------------- */
+.navbar {
+  margin-bottom: 10px;
+}
 .navbar-wagon {
   background: $navbar-bg;
   font-family: $navbar-font-family;
