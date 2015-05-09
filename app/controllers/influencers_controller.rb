@@ -9,7 +9,7 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
+    @influencer = Influencer.where(twitter_id: params[:twitter_id])
   end
 
   def create
