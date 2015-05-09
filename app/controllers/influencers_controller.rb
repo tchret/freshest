@@ -9,7 +9,9 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
+    influencer = Influencer.where(twitter_id: params[:id])[0]
+    parsing = Parsing.new(influencer)
+    @post = Post.find_or_create_by(content: parsing.freshest_post, influencer: influencer)
   end
 
   def create
