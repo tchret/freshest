@@ -23,8 +23,14 @@ class Parsing
   end
 
   def get_freshest_post(html_doc)
-    freshest_post = html_doc.search('.ProfileTweet-text').first
+    freshest_post = html_doc.search('.ProfileTweet').first
     freshest_post.css('span.invisible').remove
+    skip_service
     freshest_post
   end
+
+  def skip_service
+  end
+
+
 end
