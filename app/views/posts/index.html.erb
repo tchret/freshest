@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <% @fresh_tweet.each do |tweet| %>
+      <% @fresh_tweets.each do |tweet| %>
         <div class="panel panel-default post">
           <div class="panel-body">
             <div class="row">
@@ -11,7 +11,7 @@
               <div class="col-xs-11">
                 <p class="influencer-link">
                   <%= link_to tweet[:user_name], "#" %>
-                  <%= time_ago_in_words(tweet[:created_at]) %>
+                  <%= time_ago_in_words(tweet[:created_at]) + " ago" %>
                 </p>
                 <%= simple_format tweet[:content].html_safe %>
               </div>
