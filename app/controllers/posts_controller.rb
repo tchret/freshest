@@ -1,21 +1,28 @@
 class PostsController < ApplicationController
-  before_action :initialize_service, only: :index
+  before_action :initialize_kimono_service, only: :index
   def index
-    @twitter_service.get_last_from_list('freshst-dev').reduce(@last_tweets = Array.new) do |array, tweet|
-      influencer = Influencer.find_or_create_by(twitter_id: "#{tweet.user.user_name}", name: "#{tweet.user.name}")
-      influencer.update_avatar(tweet.user.profile_image_url.to_s.gsub('normal', '400x400'))
-      @last_tweets << {tweet: tweet, influencer: influencer}
+
+
+    @kimono_service.list_fresh_tweets.reduce(@last_tweets = Array.new) do |array, tweet|
+      tweet = {
+        content: tweet["content"]["text"],
+        href: tweet["link"].class == Array ? tweet["link"].first["href"] : false,
+        user_image: tweet["avatar"]["src"].gsub('bigger', '400x400'),
+        user_id: tweet["username"]["text"],
+        user_name: tweet["full_name"]["text"]
+      }
+      @last_tweets << tweet
     end
   end
 
   private
 
-  def need_update?
-    true
+  def initialize_twitter_service
+    @twitter_service = TwitterService.new
   end
 
-  def initialize_service
-    @twitter_service = TwitterService.new
+  def initialize_kimono_service
+    @kimono_service = KimonoService.new
   end
 
 end
