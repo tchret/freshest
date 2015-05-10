@@ -29,9 +29,7 @@ class KimonoService
   end
 
   def remove_doubloon(list)
-    list.uniq do |tweet|
-      tweet[:user_id]
-    end
+    list.uniq { |tweet| tweet[:user_id] }
   end
 
   def remove_retweet(list)

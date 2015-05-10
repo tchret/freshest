@@ -14,6 +14,12 @@
                   <%= time_ago_in_words(tweet[:created_at]) + " ago" %>
                 </p>
                 <%= simple_format tweet[:content].html_safe %>
+                <% if tweet[:href] %>
+                  <% page = MetaInspector.new(tweet[:href]) %>
+                  <%= image_tag page.images.best, class: "img total-width" %>
+                  <h4><%= page.best_title %></h4>
+                  <p><%= page.description %></p>
+                <% end %>
               </div>
             </div>
           </div>
