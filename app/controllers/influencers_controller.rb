@@ -22,7 +22,9 @@ class InfluencersController < ApplicationController
 
   def create
     @influencer = Influencer.new(influencer_params)
-    last_tweet = @twitter_service.get_last_tweet(influencer.twitter_id)
+    last_tweet = @twitter_service.get_last_tweet(@influencer.twitter_id)
+    @twitter_service.add_influencer_to_list('freshst-dev', @influencer.twitter_id)
+
     if @influencer.save
       @post = Post.new(
         influencer: @influencer,
