@@ -1,6 +1,6 @@
 class Influencer < ActiveRecord::Base
   has_many :posts
-  after_create :add_user_to_list
+  # after_create :add_user_to_list
 
   validates_presence_of :name, :twitter_id
   validates_uniqueness_of :twitter_id
@@ -13,8 +13,8 @@ class Influencer < ActiveRecord::Base
     self.avatar_url = url
   end
 
-  def add_user_to_list
-    TwitterService.new.add_influencer_to_list('freshst-dev', self.twitter_id)
-  end
+  # def add_user_to_list
+  #   TwitterService.new.add_influencer_to_list('freshst-dev', self.twitter_id)
+  # end
 
 end
