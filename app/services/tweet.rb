@@ -40,7 +40,6 @@ class Tweet
     elsif string.include? "h" # deal_with_hours
       date = date_in_seconds - (value * 3600)
       DateTime.strptime(date.to_s,'%s')
-
     end
   end
 end
