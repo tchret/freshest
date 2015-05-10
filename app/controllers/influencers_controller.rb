@@ -1,23 +1,10 @@
-require 'open-uri'
-require 'nokogiri'
-
 class InfluencersController < ApplicationController
   before_action :authenticate_user!, only: :create
-  before_action :initialize_service
-
-  def index
-    @influencers = Influencer.all
-  end
+  before_action :initialize_kimono_service, only: :show
 
   def show
     influencer = Influencer.where(twitter_id: params[:id])[0]
-    twitter_service = TwitterService.new
-    twitter_user = twitter_service.client.user(influencer.twitter_id)
-    @post = Post.find_or_create_by(
-      content: twitter_service.get_last_tweet(influencer.twitter_id).full_text,
-      influencer: influencer,
-      image_url: twitter_user.profile_image_url.to_s.gsub('normal', '400x400')
-    )
+    @kimono_service.get_last_tweet(influencer.twitter_id)
   end
 
   def create
@@ -43,7 +30,7 @@ class InfluencersController < ApplicationController
     params.require(:influencer).permit(:twitter_id)
   end
 
-  def initialize_service
-    @twitter_service = TwitterService.new
+  def initialize_kimono_service
+    @kimono_service = KimonoService.new
   end
 end
