@@ -14,7 +14,7 @@ gem "paperclip"
 gem 'react-rails', '~> 1.0'
 gem "aws-sdk", "< 2.0"
 gem "twitter"
-
+gem "rest-client"
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
