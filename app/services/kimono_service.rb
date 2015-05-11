@@ -12,15 +12,15 @@ class KimonoService
 
   def fresh_tweets(data_path)
     clean_list = clean_list(data_path)
-    tweet_list(clean_list)
+    post_list(clean_list)
   end
 
   private
 
-  def tweet_list(data_path)
+  def post_list(data_path)
     data_path.reduce(Array.new) do |array, tweet_from_kimono|
-      tweet = Tweet.new(tweet_from_kimono).generate
-      array << tweet
+      last_post = LastPost.new(tweet_from_kimono).generate
+      array << last_post
     end
   end
 
