@@ -10,7 +10,7 @@ class KimonoService
     @response["results"]["collection1"]
   end
 
-  def fresh_tweets(data_path)
+  def last_posts(data_path)
     clean_list = clean_list(data_path)
     post_list(clean_list)
   end
