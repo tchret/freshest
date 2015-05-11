@@ -26,9 +26,9 @@ class Tweet
     end
     text_array.each_with_index do |word, index|
       if word[0..6] == "http://"
-        text_array[index] = "<a href=#{content["href"]} target='_blank'>" + word.gsub('http://', '') + "</a>"
+        text_array[index] = "<a href=#{content["href"]} target='_blank'>" + word[7..31] + "</a>"
       elsif word[0..7] == "https://"
-        text_array[index] = "<a href=#{content["href"]}>" + word.gsub('https://', '') + "</a>"
+        text_array[index] = "<a href=#{content["href"]}>" + word[8..32] + "</a>"
       elsif word[0..10] == "pic.twitter"
         text_array[index] = ""
       end
