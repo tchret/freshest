@@ -1,9 +1,16 @@
 .post {
-  max-width: 30%;
+  max-width: 50%;
+
   &-container {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &-image {
+    height: 200px;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
