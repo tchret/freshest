@@ -48,9 +48,9 @@
 .panel-default {
   margin-bottom: 10px;
 }
-.post:hover {
-  background-color: whitesmoke;
-}
+// .post:hover {
+//   background-color: whitesmoke;
+// }
 span.link {
   position: absolute;
   top: 0;
@@ -60,4 +60,25 @@ span.link {
 }
 .total-width {
   width: 100%;
+}
+.font-light {
+  font-weight: light;
+}
+.color-light {
+  color: rgb(119, 119, 119)
+}
+.small {
+  font-size: 13px;
+}
+.border {
+  border: 1px solid rgb(221, 221, 221)
+}
+.border-radius-1 {
+  border-radius: 1px;
+}
+.padding-left-10 {
+  padding-left: 10px;
+}
+.padding-left-15 {
+  padding-left: 15px;
 }

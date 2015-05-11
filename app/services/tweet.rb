@@ -11,6 +11,7 @@ class Tweet
         user_image: t["avatar"]["src"].gsub('bigger', '400x400'),
         user_id: t["username"]["text"],
         user_name: t["full_name"]["text"],
+        small_link: t["small_link"]["text"],
         created_at: get_date(t["time_ago"]["text"])
       }
   end
@@ -21,10 +22,18 @@ class Tweet
     if content.class == Array
       # TODO : deal with cited tweet
     else
-      content = content["text"]
+      text_array = content["text"].split(" ")
     end
-
-    content
+    text_array.each_with_index do |word, index|
+      if word[0..6] == "http://"
+        text_array[index] = "<a href=#{content["href"]} target='_blank'>" + word.gsub('http://', '') + "</a>"
+      elsif word[0..7] == "https://"
+        text_array[index] = "<a href=#{content["href"]}>" + word.gsub('https://', '') + "</a>"
+      elsif word[0..10] == "pic.twitter"
+        text_array[index] = ""
+      end
+    end
+    text_array.join(" ")
   end
 
   def get_date(string)
