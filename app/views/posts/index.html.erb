@@ -6,14 +6,26 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-xs-1">
-                <%= image_tag tweet[:user_image], class: "img img-40" %>
+                <%= image_tag tweet[:user_image], class: "img total-width border-radius-1" %>
               </div>
-              <div class="col-xs-11">
-                <p class="influencer-link">
-                  <%= link_to tweet[:user_name], "#" %>
-                  <%= time_ago_in_words(tweet[:created_at]) + " ago" %>
-                </p>
+              <div class="col-xs-11 padding-left-10">
+                <ul class="list-unstyled list-inline">
+                  <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
+                  <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
+                </ul>
                 <%= simple_format tweet[:content].html_safe %>
+                <% if tweet[:href] %>
+                  <% page = MetaInspector.new(tweet[:href]) %>
+                  <%= link_to tweet[:href], target: "_blank" do %>
+                    <% if tweet[:user_name] == "Product Hunt" %>
+                      <%= image_tag page.images.largest, class: "img total-width border border-radius-1" %>
+                    <% else %>
+                      <%= image_tag page.images.best, class: "img total-width border border-radius-1" %>
+                    <% end %>
+                    <h4><%= page.best_title %></h4>
+                    <p><%= page.description %></p>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
