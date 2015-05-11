@@ -25,13 +25,16 @@ class KimonoService
 
   def clean_list(list)
     list_without_doubloon = remove_doubloon(list)
-    remove_retweet(list_without_doubloon)
+    list_without_retweet = remove_retweet(list_without_doubloon)
+    remove_conversation(list_without_retweet)
   end
 
   def remove_doubloon(list)
-    list.uniq do |tweet|
-      tweet[:user_id]
-    end
+    list.uniq { |tweet| tweet[:user_id] }
+  end
+
+  def remove_conversation(list)
+    list.reject { |tweet| tweet[:small_link] == "View conversation" }
   end
 
   def remove_retweet(list)
