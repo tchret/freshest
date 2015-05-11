@@ -7,30 +7,11 @@
   padding-top: 8em;
   padding-bottom: 8em;
 }
-.bg-red {
-  background: $red;
-  color: white;
+
+.clear {
+  clear: both;
 }
-.bg-blue {
-  background: $blue;
-  color: white;
-}
-.bg-yellow {
-  background: $yellow;
-  color: white;
-}
-.bg-orange {
-  background: $orange;
-  color: white;
-}
-.bg-green {
-  background: $green;
-  color: white;
-}
-.bg-purple {
-  background: $purple;
-  color: white;
-}
+
 .invisible {
   display: none;
 }
@@ -51,7 +32,7 @@
 // .post:hover {
 //   background-color: whitesmoke;
 // }
-span.link {
+.link-hack {
   position: absolute;
   top: 0;
   left: 0;

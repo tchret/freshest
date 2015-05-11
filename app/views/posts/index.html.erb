@@ -1,35 +1,27 @@
 <% @fresh_tweets.each do |tweet| %>
-<% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
-
-<div class="post-container">
-    <div class="panel-default post">
-      <div class="col-xs-1">
-        <%= image_tag tweet[:user_image], class: "img total-width border-radius-1" %>
-      </div>
-      <ul class="list-unstyled list-inline">
-        <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
-        <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
-      </ul>
-      <% if tweet[:user_name] == "Product Hunt" && tweet[:href] %>
-        <div class='post-image' style='<%= "background:url(" + image_url(page.images.best) + ")" if tweet[:href] %>'>
-        </div>
-      <% elsif tweet[:href]  %>
-        <div class='post-image' style='<%= "background:url(" + image_url(page.images.best) + ")" if tweet[:href] %>'>
-        </div>
-      <% end %>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-12">
-            <%= simple_format tweet[:content].html_safe %>
-            <% if tweet[:href] %>
-              <%= link_to tweet[:href], target: "_blank" do %>
-                <h4><%= page.best_title %></h4>
-                <p><%= page.description %></p>
-              <% end %>
-            <% end %>
+  <% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
+  <% if tweet[:href] %>
+    <div class="post-container">
+      <div class="container">
+        <div class="post">
+          <%= link_to "", tweet[:href], target: "_blank", class: 'link-hack' if tweet[:href] %>
+          <div class="post-avatar">
+            <%= image_tag tweet[:user_image], class: "img total-width border-radius-1" %>
+          </div>
+          <ul class="list-unstyled list-inline">
+            <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
+            <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
+          </ul>
+          <div class="post-content">
+            <h4><%= page.best_title %></h4>
+            <p><%= page.description %></p>
           </div>
         </div>
       </div>
     </div>
-  </div>
   <% end %>
+<% end %>
+
+<%#= simple_format tweet[:content].html_safe %>
+
+
