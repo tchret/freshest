@@ -1,5 +1,13 @@
 .navigation-bar {
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
+  /* height: 100%; */
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  bottom: 0;
+  padding: 10px 0 10px 0;
+
   .logo {
     span {
       font-size: 35px;
