@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source "https://rails-assets.org"
 
 ruby "2.2.0"
 
@@ -25,6 +26,8 @@ gem "metainspector"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
+gem 'rails-assets-headroom.js'
+
 
 group :development, :test do
   gem "spring"
