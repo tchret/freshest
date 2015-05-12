@@ -34,6 +34,15 @@
     }
   }
 
+  .link-title {
+    h4 {
+      color: black;
+      &:visited {
+        color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
   h4 {
     font-weight: bold;
     font-size: 30px;
