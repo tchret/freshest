@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @fresh_tweets = IndexData.new.generate
+    @last_posts = IndexData.new.generate
   end
 end
