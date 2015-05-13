@@ -10,16 +10,17 @@ class KimonoService
     @response["results"]["collection1"]
   end
 
-  def fresh_tweets(data_path)
-    clean_list(tweet_list(data_path))
+  def last_posts(data_path)
+    clean_list = clean_list(data_path)
+    post_list(clean_list)
   end
 
   private
 
-  def tweet_list(data_path)
+  def post_list(data_path)
     data_path.reduce(Array.new) do |array, tweet_from_kimono|
-      tweet = Tweet.new(tweet_from_kimono).generate
-      array << tweet
+      last_post = LastPost.new(tweet_from_kimono).generate
+      array << last_post
     end
   end
 
@@ -30,16 +31,16 @@ class KimonoService
   end
 
   def remove_doubloon(list)
-    list.uniq { |tweet| tweet[:user_id] }
+    list.uniq { |t|  t["username"]["text"]}
   end
 
   def remove_conversation(list)
-    list.reject { |tweet| tweet[:small_link] == "View conversation" }
+    list.reject { |t| t["small_link"]["text"] == "View conversation" }
   end
 
   def remove_retweet(list)
     list.select do |t|
-      Influencer.exists?(:twitter_id => t[:user_id])
+      Influencer.exists?(:twitter_id => t["username"]["text"])
     end
   end
 end

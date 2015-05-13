@@ -2,7 +2,7 @@
   FRESHEST - Short-lived news from the modern Web
 <% end %>
 
-<% @fresh_tweets.each do |tweet| %>
+<% @last_posts.each do |tweet| %>
   <% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
   <% if tweet[:href] %>
     <div class="post-container">

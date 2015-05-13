@@ -9,7 +9,7 @@ class IndexData < KimonoService
   end
 
   def generate
-    fresh_tweets(@response["results"]["collection1"])
+    last_posts(@response["results"]["collection1"])
   end
 
 end
