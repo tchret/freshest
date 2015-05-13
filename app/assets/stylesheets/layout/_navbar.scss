@@ -4,6 +4,11 @@
   padding: 10px 0 10px 0;
   .brand {
     float: left;
+
+    @media (max-width: $screen-sm){
+      text-align: center;
+      width: 100%;
+    }
     .logo {
       span {
         font-size: 35px;
@@ -23,6 +28,10 @@
   }
 
   .bar-right {
-    padding-top: 22px;
+    @media (max-width: $screen-sm) {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
   }
 }

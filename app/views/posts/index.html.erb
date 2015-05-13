@@ -1,5 +1,5 @@
 <%= content_for :title do %>
-  Frshst
+  FRESHEST - Short-lived news from the modern Web
 <% end %>
 
 <% @fresh_tweets.each do |tweet| %>
@@ -10,7 +10,7 @@
         <div class="post">
           <%= link_to "", tweet[:href], target: "_blank", class: 'link-hack' if tweet[:href] %>
           <div class="post-avatar">
-            <%= image_tag tweet[:user_image], class: "img total-width border-radius-1" %>
+            <%= image_tag tweet[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
           </div>
           <ul class="list-unstyled list-inline">
             <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
