@@ -13,7 +13,7 @@
             <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
           </ul>
           <div class="post-content">
-            <h4><%= page.best_title %></h4>
+            <h4><%= page.title.split(" | ").first %></h4>
             <p><%= page.description %></p>
           </div>
         </div>
