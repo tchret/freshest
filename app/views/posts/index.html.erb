@@ -1,3 +1,7 @@
+<%= content_for :title do %>
+  Frshst
+<% end %>
+
 <% @fresh_tweets.each do |tweet| %>
   <% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
   <% if tweet[:href] %>

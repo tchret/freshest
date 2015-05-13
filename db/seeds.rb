@@ -17,10 +17,16 @@ Influencer.create(name: "Per Stenius", twitter_id: "Fimpen")
 Influencer.create(name: "Richard Branson", twitter_id: "richardbranson")
 Influencer.create(name: "Marc Andreessen", twitter_id: "pmarca")
 Influencer.create(name: "WIRED", twitter_id: "WIRED")
-Influencer.create(name: "Mashable", twitter_id: "mashable")
+Influencer.create(name: "Fast Company", twitter_id: "FastCompany")
+Influencer.create(name: "Entrepreneur", twitter_id: "Entrepreneur")
 Influencer.create(name: "TechCrunch", twitter_id: "TechCrunch")
 Influencer.create(name: "Aral Balkan", twitter_id: "aral")
 Influencer.create(name: "Sam Altman", twitter_id: "sama")
+Influencer.create(name: "A List Apart", twitter_id: "alistapart")
+Influencer.create(name: "Kottke", twitter_id: "kottke")
+Influencer.create(name: "The Latest", twitter_id: "latest_is")
+Influencer.create(name: "Business Insider", twitter_id: "businessinsider")
+Influencer.create(name: "Harvard Biz Review", twitter_id: "HarvardBiz")
 
 
 
