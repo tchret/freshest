@@ -3,8 +3,9 @@ class InfluencersController < ApplicationController
   before_action :initialize_kimono_service, only: :show
 
   def show
-    influencer = Influencer.where(twitter_id: params[:id])[0]
-    @kimono_service.get_last_tweet(influencer.twitter_id)
+    @influencer = Influencer.where(twitter_id: params[:id])[0]
+    @last_posts = IndexData.new.generate
+    @last_post = @last_posts.select {|post| post[:user_id] == @influencer.twitter_id}.first
   end
 
   def create

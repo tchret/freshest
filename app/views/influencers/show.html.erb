@@ -1,2 +1,35 @@
-<%= @post.content.html_safe %>
-<%= @post.influencer.name %>
+<div class="post-container">
+  <div class="container">
+    <% if @last_post %>
+      <% if @last_post[:href] %>
+        <% page = MetaInspector.new(@last_post[:href]) if @last_post[:href] %>
+        <div class="post">
+          <%= link_to "", @last_post[:href], target: "_blank", class: 'link-hack' if @last_post[:href] %>
+          <div class="post-avatar">
+            <%= image_tag @last_post[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
+          </div>
+          <ul class="list-unstyled list-inline">
+            <li><%= link_to @last_post[:user_name], "#", class: "influencer-link" %></li>
+            <li class="font-light color-light small"><%= time_ago_in_words(@last_post[:created_at]) + " ago" %></li>
+          </ul>
+          <div class="post-content">
+            <%= link_to @last_post[:href], target: "_blank", class: 'link-title' do %>
+              <h4>
+                <%= page.title.split(" | ").first %>
+              </h4>
+            <% end %>
+            <p><%= page.description %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="post-content">
+          <p>No fresh post from <%= @influencer.name %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="post-content">
+        <p>No fresh post from <%= @influencer.name %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
