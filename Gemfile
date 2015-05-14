@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source "https://rails-assets.org"
 
 ruby "2.2.0"
 
@@ -19,11 +20,14 @@ gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
+gem "autoprefixer-rails"
 gem "font-awesome-sass"
 gem "metainspector"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
+gem 'rails-assets-headroom.js'
+
 
 group :development, :test do
   gem "spring"
