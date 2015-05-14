@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= (params[:controller] + "_" + params[:action]).gsub('/', '_') %>">
 <head>
-  <title><%= yield(:title) || "Wagon Rails" %></title>
+  <title><%= yield(:title) || "FRSHST - Short lived news from the modern web" %></title>
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
 
   <meta charset="utf-8" />
@@ -12,6 +12,8 @@
 </head>
 <body>
   <%= render "shared/flashes" %>
+  <%= render "shared/navbar" %>
+
 
   <%= yield %>
 
