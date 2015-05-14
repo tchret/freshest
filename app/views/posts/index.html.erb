@@ -1,36 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <% @fresh_tweets.each do |tweet| %>
-        <div class="panel panel-default post">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-1">
-                <%= image_tag tweet[:user_image], class: "img total-width border-radius-1" %>
-              </div>
-              <div class="col-xs-11 padding-left-10">
-                <ul class="list-unstyled list-inline">
-                  <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
-                  <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
-                </ul>
-                <%= simple_format tweet[:content].html_safe %>
-                <% if tweet[:href] %>
-                  <% page = MetaInspector.new(tweet[:href]) %>
-                  <%= link_to tweet[:href], target: "_blank" do %>
-                    <% if tweet[:user_name] == "Product Hunt" %>
-                      <%= image_tag page.images.largest, class: "img total-width border border-radius-1" %>
-                    <% else %>
-                      <%= image_tag page.images.best, class: "img total-width border border-radius-1" %>
-                    <% end %>
-                    <h4><%= page.best_title %></h4>
-                    <p><%= page.description %></p>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
+<%= content_for :title do %>
+  FRESHEST - Short-lived news from the modern Web
+<% end %>
+
+<% @last_posts.each do |tweet| %>
+  <% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
+  <% if tweet[:href] %>
+    <div class="post-container">
+      <div class="container">
+        <div class="post">
+          <%= link_to "", tweet[:href], target: "_blank", class: 'link-hack' if tweet[:href] %>
+          <div class="post-avatar">
+            <%= image_tag tweet[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
+          </div>
+          <ul class="list-unstyled list-inline">
+            <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
+            <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
+          </ul>
+          <div class="post-content">
+            <%= link_to tweet[:href], target: "_blank", class: 'link-title' do %>
+              <h4>
+                <%= page.title.split(" | ").first %>
+              </h4>
+            <% end %>
+            <p><%= page.description %></p>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>
+<% end %>
+
+<%#= simple_format tweet[:content].html_safe %>
+
+
