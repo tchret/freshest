@@ -27,6 +27,7 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 gem 'rails-assets-headroom.js'
+gem "omniauth-twitter"
 
 
 group :development, :test do
