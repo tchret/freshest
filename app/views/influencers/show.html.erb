@@ -18,7 +18,8 @@
                 <%= page.title.split(" | ").first %>
               </h4>
             <% end %>
-            <p><%= page.description %></p>
+            <p><%= page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : page.description %></p>
+            <%= image_tag (page.meta_tags["name"]["twitter:image:src"] ? page.meta_tags["name"]["twitter:image:src"].first : page.images.best), class: "img total-width" %>
           </div>
         </div>
       <% else %>

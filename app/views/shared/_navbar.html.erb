@@ -9,11 +9,16 @@
       </div>
     </div>
     <div class="bar-right pull-right">
-      <div class="button">
+      <div class="button margin-right-0">
         <%= link_to(user_signed_in? ? "#" : user_omniauth_authorize_path(:twitter)) do %>
           <span>
             Suggest an Influencer
           </span>
+        <% end %>
+      </div>
+      <div class="nav-link">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
         <% end %>
       </div>
     </div>
