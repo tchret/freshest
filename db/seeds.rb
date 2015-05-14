@@ -21,11 +21,3 @@ Influencer.create(name: "Mashable", twitter_id: "mashable")
 Influencer.create(name: "TechCrunch", twitter_id: "TechCrunch")
 Influencer.create(name: "Aral Balkan", twitter_id: "aral")
 Influencer.create(name: "Sam Altman", twitter_id: "sama")
-
-
-
-
-
-
-
-
