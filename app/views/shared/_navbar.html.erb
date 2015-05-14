@@ -10,9 +10,11 @@
     </div>
     <div class="bar-right pull-right">
       <div class="button">
-        <span>
-          Suggest an Influencer
-        </span>
+        <%= link_to(user_signed_in? ? "#" : user_omniauth_authorize_path(:twitter)) do %>
+          <span>
+            Suggest an Influencer
+          </span>
+        <% end %>
       </div>
     </div>
   </div>
