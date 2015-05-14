@@ -28,6 +28,7 @@ gem "devise-i18n"
 gem "devise-i18n-views"
 gem 'rails-assets-headroom.js'
 gem "omniauth-twitter"
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 
 group :development, :test do
