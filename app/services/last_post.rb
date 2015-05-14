@@ -1,4 +1,4 @@
-class Tweet
+class LastPost
   def initialize(tweet_from_kimono)
     @tweet_from_kimono = tweet_from_kimono
   end
