@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       user.name = auth.info.name
+      user.twitter_id = auth.info.nickname
       user.picture = auth.info.image
       user.token = auth.credentials.token
       user.secret = auth.credentials.secret
