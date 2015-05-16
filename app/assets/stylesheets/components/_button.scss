@@ -20,6 +20,7 @@
   margin: 11px 8px;
   text-align: center;
   background: none;
+  cursor: pointer;
 
   &-twitter {
     background: #55acee;
@@ -51,6 +52,6 @@
 
   &:active {
     background: #191919;
-
+    color: white;
   }
 }
