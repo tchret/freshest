@@ -38,3 +38,26 @@
     }
   }
 }
+
+.nav > li > a {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus,
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background: none
+}
+
+.dropdown-menu {
+  box-shadow: none;
+  border-radius: 9px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
