@@ -40,7 +40,7 @@ var ConnectModal = React.createClass({
               Join the community today by adding your favorite influencer
             </h3>
             <div className='text-center'>
-              <a className='button button-twitter'>
+              <a className='button button-twitter' href={this.props.href}>
                 <i className='fa fa-twitter'></i> Sign up with Twitter
               </a>
             </div>
