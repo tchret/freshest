@@ -2,9 +2,9 @@
   <div class="container">
     <% if @last_post %>
       <% if @last_post[:href] %>
-        <% page = MetaInspector.new(@last_post[:href]) if @last_post[:href] %>
+        <% page = MetaInspector.new(@last_post[:href]) %>
         <div class="post">
-          <%= link_to "", @last_post[:href], target: "_blank", class: 'link-hack' if @last_post[:href] %>
+          <%= link_to "", @last_post[:href], target: "_blank", class: 'link-hack' %>
           <div class="post-avatar">
             <%= image_tag @last_post[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
           </div>
@@ -18,18 +18,38 @@
                 <%= page.title.split(" | ").first %>
               </h4>
             <% end %>
-            <p><%= page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : page.description %></p>
+            <p><%= page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : page.parsed.search('.content').text.split(" ")[0..100].join(" ") + " ..." %></p>
             <%= image_tag (page.meta_tags["name"]["twitter:image:src"] ? page.meta_tags["name"]["twitter:image:src"].first : page.images.best), class: "img total-width" %>
           </div>
         </div>
       <% else %>
-        <div class="post-content">
-          <p>No fresh post from <%= @influencer.name %></p>
+        <% page = MetaInspector.new("http://twitter.com/#{@influencer.twitter_id}") %>
+        <div class="post">
+          <%= link_to "", "http://twitter.com/#{@influencer.twitter_id}", target: "_blank", class: 'link-hack' %>
+          <div class="post-avatar">
+            <%= image_tag page.meta_tags["images"][1], class: "img total-width border-radius-1" %>
+          </div>
+          <ul class="list-unstyled list-inline">
+            <li><%= link_to @influencer.name, "#", class: "influencer-link" %></li>
+          </ul>
+          <div class="post-content">
+            <p>No fresh post from <%= @influencer.name %></p>
+          </div>
         </div>
       <% end %>
     <% else %>
-      <div class="post-content">
-        <p>No fresh post from <%= @influencer.name %></p>
+      <% page = MetaInspector.new("http://twitter.com/#{@influencer.twitter_id}") %>
+      <div class="post">
+        <%= link_to "", "http://twitter.com/#{@influencer.twitter_id}", target: "_blank", class: 'link-hack' %>
+        <div class="post-avatar">
+          <%= image_tag page.to_hash["images"][1], class: "img total-width border-radius-1" %>
+        </div>
+        <ul class="list-unstyled list-inline">
+          <li><%= link_to @influencer.name, "#", class: "influencer-link" %></li>
+        </ul>
+        <div class="post-content">
+          <p>No fresh post from <%= @influencer.name %></p>
+        </div>
       </div>
     <% end %>
   </div>
