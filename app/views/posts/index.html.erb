@@ -12,7 +12,7 @@
           <div class="post-avatar">
             <%= image_tag tweet[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
           </div>
-          <ul class="list-unstyled list-inline">
+          <ul class="list-unstyled list-inline influencer-infos">
             <li><%= link_to tweet[:user_name], influencer_path(tweet[:user_id]), class: "influencer-link" %></li>
             <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
           </ul>
