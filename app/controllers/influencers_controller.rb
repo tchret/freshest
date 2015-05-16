@@ -6,6 +6,7 @@ class InfluencersController < ApplicationController
     @influencer = Influencer.where(twitter_id: params[:id])[0]
     @last_posts = IndexData.new.generate
     @last_post = @last_posts.select {|post| post[:user_id] == @influencer.twitter_id}.first
+    # update_avatar(@last_post[:user_image])
   end
 
   def create
