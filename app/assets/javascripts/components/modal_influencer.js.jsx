@@ -1,8 +1,7 @@
 var ModalInfluencer = React.createClass({
   getInitialState: function() {
     return {
-      opened: false,
-      labelClosed: false
+      opened: false
     };
   },
 
@@ -19,12 +18,6 @@ var ModalInfluencer = React.createClass({
       "pullUp": this.state.opened
     })
 
-    var labelClasses = React.addons.classSet({
-      "label-twitter-username": true,
-      "text-center": true,
-      "active": this.state.labelClosed
-    })
-
     return(
       <div className="modal-component">
         <a className='button' onClick={this.handleClick}>
@@ -34,8 +27,7 @@ var ModalInfluencer = React.createClass({
         </a>
         <div className={modalClasses}  onClick={this.handleClick}>
           <div className={modalContentClasses}>
-            <div className={labelClasses}>please add him</div>
-            <input className="input-twitter-username" placeholder="twitter_username" onClick={this.stopPropagation} />
+            <input className="input-twitter-username" ref='twitter' placeholder="twitter_username" onClick={this.stopPropagation} />
             <div className='text-center'>
               <a className='button button-influencer-modal'>SUGGEST</a>
             </div>
@@ -48,16 +40,17 @@ var ModalInfluencer = React.createClass({
   stopPropagation: function(e){
      e.stopPropagation();
      e.nativeEvent.stopImmediatePropagation();
-     this.setState({
-       labelClosed: true
-     })
-
   },
 
   handleClick: function(){
     this.setState({
       opened: this.state.opened? false : true
     })
+
+    if (!this.state.opened) {
+      this.refs.twitter.getDOMNode().focus();
+    }
+
   }
 })
 
