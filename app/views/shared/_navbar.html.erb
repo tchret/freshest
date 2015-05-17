@@ -34,6 +34,10 @@
       <% end %>
       <div class="nav-link">
       </div>
+      <%= react_component("ConnectModal", {
+        href: user_omniauth_authorize_path(:twitter),
+        influencer_avatars: @last_posts[0..4].map {|post| post[:user_image]}
+        }) %>
     </div>
   </div>
 </div>
