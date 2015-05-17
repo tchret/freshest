@@ -11,15 +11,15 @@
       </div>
     <% end %>
     <div class="bar-right pull-right">
-      <div class="button margin-right-0">
-        <%= link_to(user_signed_in? ? "#" : user_omniauth_authorize_path(:twitter)) do %>
-          <span>
-            Suggest an Influencer
-          </span>
-        <% end %>
-      </div>
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= react_component("ModalInfluencer", {
+              href: user_omniauth_authorize_path(:twitter),
+              influencer_avatars: @last_posts[0..4].map {|post| post[:user_image]}
+              }) %>
+            <% end %>
+          </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               <div class="post-avatar">
@@ -31,13 +31,12 @@
             </ul>
           </li>
         </ul>
-      <% end %>
-      <div class="nav-link">
-      </div>
-      <%= react_component("ConnectModal", {
+      <% else %>
+      <%= react_component("ModalConnect", {
         href: user_omniauth_authorize_path(:twitter),
         influencer_avatars: @last_posts[0..4].map {|post| post[:user_image]}
         }) %>
+      <% end %>
     </div>
   </div>
 </div>

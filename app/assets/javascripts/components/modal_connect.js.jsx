@@ -1,10 +1,9 @@
-var ConnectModal = React.createClass({
+var ModalConnect = React.createClass({
   getInitialState: function() {
     return {
       opened: false
     };
   },
-
 
   render: function(){
 
