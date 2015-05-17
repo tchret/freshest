@@ -1,0 +1,105 @@
+html.influencers_show {
+  height: 100%;
+
+  .navigation-bar {
+    display: none;
+  }
+
+  .navigation-bar-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  body {
+    height: 100%;
+  }
+}
+
+.post-container-profile {
+  position: relative;
+  height: 100%;
+  display:flex;
+  overflow: auto;
+  flex:0 0 auto;
+  flex-direction:column;
+  justify-content:center;
+  border-bottom: 0;
+
+  @media (max-width: $screen-xs) {
+    padding-top: 40px;
+  }
+
+  .col-sm-6 {
+    padding: 0;
+  }
+
+  .post {
+    padding-top: 0;
+  }
+
+  .post-author {
+    .post-info {
+      padding: 5px;
+      padding-left: 10px;
+    }
+
+    .post-time {
+      font-size: 13px;
+    }
+
+    img {
+      width: 50px;
+      border-radius: 3px;
+    }
+
+    a {
+      color: black;
+    }
+  }
+
+  .post-tribute {
+    padding-top: 10px;
+    font-size: 22px;
+    text-align: right;
+    .freshest-network {
+      font-weight: bold;
+      color: black;
+      box-shadow: inset 0 -6px 0 #00FFC6;
+      transition: 0.1s ease box-shadow;
+
+      &:hover {
+        box-shadow: inset 0 -13px 0 #00FFC6;
+
+      }
+    }
+
+    img {
+      margin-bottom: 0;
+    }
+  }
+
+  .post-content {
+    h4 {
+    }
+    p {
+      font-size: 22px;
+      line-height: 1.5;
+      padding-top: 40px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  .con {
+    display: flex;
+    flex:0 0 auto;
+    flex-direction:column;
+    max-height:100%;
+  }
+
+  .post {
+    flex:0 0 auto;
+    align-self:center;
+  }
+}

@@ -1,5 +1,5 @@
 <%= content_for :title do %>
-  FRESHEST - Short-lived news from the modern Web
+  Freshest - Short-lived news from the modern Web
 <% end %>
 
 
@@ -13,8 +13,8 @@
           <div class="post-avatar">
             <%= image_tag tweet[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
           </div>
-          <ul class="list-unstyled list-inline">
-            <li><%= link_to tweet[:user_name], "#", class: "influencer-link" %></li>
+          <ul class="list-unstyled list-inline influencer-infos">
+            <li><%= link_to tweet[:user_name], influencer_path(tweet[:user_id]), class: "influencer-link" %></li>
             <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
           </ul>
           <div class="post-content">
@@ -30,7 +30,3 @@
     </div>
   <% end %>
 <% end %>
-
-<%#= simple_format tweet[:content].html_safe %>
-
-
