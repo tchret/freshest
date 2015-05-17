@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def email_required?
     false
   end
+
+  def first_name
+    self.split(' ')[0]
+  end
 end
