@@ -8,7 +8,8 @@ var ModalConnect = React.createClass({
   render: function(){
 
     var modalClasses = React.addons.classSet({
-      "modal-connect": true,
+      "modl-connect": true,
+      "modl": true,
       "active": this.state.opened
     })
 

@@ -14,10 +14,7 @@
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= react_component("ModalInfluencer", {
-              href: user_omniauth_authorize_path(:twitter),
-              influencer_avatars: @last_posts[0..4].map {|post| post[:user_image]}
-              }) %>
+            <%= react_component("ModalInfluencer") %>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

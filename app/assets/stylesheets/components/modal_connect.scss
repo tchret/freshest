@@ -1,24 +1,78 @@
-.modal-connect {
+.modl {
   opacity: 0;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
   z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
 
-  &.active {
-    opacity: 1;
-    z-index: 2;
-  }
-}
+  &-connect {
+    background: rgba(255, 255, 255, 0.95);
+    &.active {
+      opacity: 1;
+      z-index: 2;
+    }
 
-.modl-content {
-  height: auto;
-  max-width: 500px;
+
+    .modl-content {
+      height: auto;
+      max-width: 500px;
+    }
+  }
+
+  &-influencer {
+    background: rgba(85, 172, 238, 0.99);
+
+    &.active {
+      opacity: 1;
+      z-index: 3;
+    }
+
+    .modl-content {
+      height: auto;
+      max-width: 800px;
+      font-size: 60px;
+      color: white;
+    }
+
+    .label-twitter-username {
+      transition: all 0.2s ease;
+      height: 74px;
+      &.active {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+    }
+
+    .input-twitter-username {
+      background: none;
+      border: none;
+      text-align: center;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color:    rgba(255, 255, 255, 0.52);
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color:    rgba(255, 255, 255, 0.52);
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color:    rgba(255, 255, 255, 0.52);
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+       color:    rgba(255, 255, 255, 0.52);
+    }
+  }
 }
