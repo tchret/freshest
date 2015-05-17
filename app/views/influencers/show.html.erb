@@ -1,2 +1,92 @@
-<%= @post.content.html_safe %>
-<%= @post.influencer.name %>
+<div class="post-container post-container-profile">
+  <div class="con">
+    <div class="container">
+      <% if @last_post && @last_post[:href]  %>
+        <% page = MetaInspector.new(@last_post[:href]) %>
+        <div class="post">
+          <%= link_to "", @last_post[:href], target: "_blank", class: 'link-hack' %>
+          <div class="post-content">
+            <%= link_to @last_post[:href], target: "_blank", class: 'link-title' do %>
+              <h4>
+                <span>
+                  <%= page.title.split(" | ").first %>
+                </span>
+              </h4>
+            <% end %>
+            <p><%= page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : page.parsed.search('.content').text.split(" ")[0..100].join(" ") + " ..." %></p>
+          </div>
+        </div>
+      <% else %>
+        <% page = MetaInspector.new("http://twitter.com/#{@influencer.twitter_id}") %>
+        <div class="post no-fresh-post">
+          <%= link_to "", "http://twitter.com/#{@influencer.twitter_id}", target: "_blank", class: 'link-hack' %>
+          <div class="post-content">
+            <p class='color-xl-light'>No fresh post from <%= @influencer.name %>.</p>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="col-sm-6 col-xs-12">
+        <div class="post-author">
+          <%= image_tag @last_post ? @last_post[:user_image] : page.to_hash["images"][1], class: "avatar pull-left" %>
+          <div class="pull-left post-info">
+            <div>
+              <%= link_to @influencer.name, "#", class: "influencer-link" %>
+            </div>
+            <% if @last_post %>
+              <div class='font-light color-x-light post-time'>
+                <%= time_ago_in_words(@last_post[:created_at]) + " ago" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xs-12">
+        <div class="post-tribute hidden-xs">
+          featured on the <%= link_to 'Freshest', root_path, class: 'freshest-network' %> network
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="navigation-bar navigation-bar-bottom">
+  <div class="container">
+    <%= link_to root_path, class: 'brand-link' do %>
+      <div class="brand">
+        <div class="logo">
+          <span>Freshest</span>
+        </div>
+        <div class='slogan'>
+          Short-lived fresh news from the modern Web
+        </div>
+      </div>
+    <% end %>
+    <div class="bar-right pull-right">
+      <div class="button margin-right-0">
+        <%= link_to(user_signed_in? ? "#" : user_omniauth_authorize_path(:twitter)) do %>
+          <span>
+            Suggest an Influencer
+          </span>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <div class="post-avatar">
+                <%= image_tag current_user.picture, { class: "img total-width border-radius-1" } %>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+            </ul>
+          </li>
+        </ul>
+      <% end %>
+      <div class="nav-link">
+      </div>
+    </div>
+  </div>
+</div>
