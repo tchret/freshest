@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.name = auth.info.name
       user.twitter_id = auth.info.nickname
-      user.picture = auth.info.image
+      user.picture = auth.info.image.gsub('normal', '400x400')
+      raise
       user.token = auth.credentials.token
       user.secret = auth.credentials.secret
     end
