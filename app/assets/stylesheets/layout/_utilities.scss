@@ -22,6 +22,11 @@
 .avatar {
   border-radius: 3px;
   width: 36px;
+
+  &-user{
+    border-radius: 50%;
+    width: 36px;
+  }
 }
 
 .container {
