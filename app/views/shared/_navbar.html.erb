@@ -9,13 +9,10 @@
       </div>
     </div>
     <div class="bar-right pull-right">
-      <div class="button">
-        <%= link_to(user_signed_in? ? "#" : user_omniauth_authorize_path(:twitter)) do %>
-          <span>
-            Suggest an Influencer
-          </span>
-        <% end %>
-      </div>
+      <%= react_component("ConnectModal", {
+        href: user_omniauth_authorize_path(:twitter),
+        influencer_avatars: @last_posts[0..4].map {|post| post[:user_image]}
+        }) %>
     </div>
   </div>
 </div>
