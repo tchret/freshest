@@ -42,6 +42,8 @@
   }
 
   .bar-right {
+    padding-top: 11px;
+
     @media (max-width: $screen-sm) {
       width: 100%;
       text-align: center;
