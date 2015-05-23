@@ -24,7 +24,7 @@ InfluencerListElement = React.createClass({
       type: 'GET',
       url: this.props.href,
       success: function(data) {
-        that.props.parentSidebar.handlePostChange();
+        that.props.parentComponent.displayPost(data)
       }
     })
   }
