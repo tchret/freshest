@@ -11,6 +11,7 @@ class KimonoWorker
       influencer = Influencer.find_by(twitter_id: post[:user_id])
       logger.info "BEGINNING UPDATE ON #{influencer.name.upcase}"
       influencer.article_url = post[:href]
+      influencer.last_post_time_ago = post[:created_at]
       page = MetaInspector.new(post[:href], allow_redirections: false)
       influencer.title = page.title.split(" | ").first
       influencer.description = page.description
