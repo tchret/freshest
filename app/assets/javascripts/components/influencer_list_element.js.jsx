@@ -1,16 +1,12 @@
-var InfluencerListElement = React.createClass({
-  // getInitialState: function() {
-
-  // },
-
-  render: function() {
+InfluencerListElement = React.createClass({
+  render: function () {
     return(
-      <div className='influencer'>
+      <div className='infuencer'>
         <div className="pull-left">
           <img src={this.props.influencer.user_image} className='avatar' />
         </div>
         <div className="pull-left">
-          <a onClick={this.handleClick} data-remote='true'>
+          <a data-remote='true' onClick={this.handleClick} >
             {this.props.influencer.user_name}
           </a>
         </div>
@@ -22,13 +18,15 @@ var InfluencerListElement = React.createClass({
     )
   },
 
-  handleClick: function() {
+  handleClick: function(){
+    var that = this;
     $.ajax({
       type: 'GET',
       url: this.props.href,
       success: function(data) {
-        console.log(data)
+        that.props.parentSidebar.handlePostChange();
       }
-    });
+    })
   }
 })
+
