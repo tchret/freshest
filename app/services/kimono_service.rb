@@ -27,7 +27,12 @@ class KimonoService
   def clean_list(list)
     list_without_doubloon = remove_doubloon(list)
     list_without_retweet = remove_retweet(list_without_doubloon)
-    remove_conversation(list_without_retweet)
+    list_without_link = remove_link(list_without_retweet)
+    remove_conversation(list_without_link)
+  end
+
+  def remove_link(list)
+    list.reject { |t| t["link"].class != Array }
   end
 
   def remove_doubloon(list)
