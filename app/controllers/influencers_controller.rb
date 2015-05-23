@@ -26,6 +26,10 @@ class InfluencersController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
   private
 
   def influencer_params
