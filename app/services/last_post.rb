@@ -14,7 +14,7 @@ class LastPost
         user_id: t["username"]["text"],
         user_name: t["full_name"]["text"],
         small_link: t["small_link"]["text"],
-        created_at: time_ago_in_words(get_date(t["time_ago"]["text"]))
+        created_at: get_date(t["time_ago"]["text"])
       }
   end
 
