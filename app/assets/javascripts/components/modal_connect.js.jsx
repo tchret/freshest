@@ -28,7 +28,7 @@ var ModalConnect = React.createClass({
         <div className={modalClasses} onClick={this.handleClick}>
           <div className={modalContentClasses}>
             <ul className='influencers-avatar list-inline text-center'>
-              { this.props.influencer_avatars.map(function(influencer_avatar) {
+              { this.props.last_influencers_images.map(function(influencer_avatar) {
                 return (
                   <li>
                     <img src={influencer_avatar} className='avatar' />

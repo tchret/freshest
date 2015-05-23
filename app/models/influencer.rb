@@ -9,8 +9,10 @@ class Influencer < ActiveRecord::Base
     twitter_id
   end
 
-  def update_avatar(url)
-    self.avatar_url = url
+  def update_avatars
+    Influencer.all.each do |influencer|
+
+    end
   end
 
   # def add_user_to_list
