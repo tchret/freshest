@@ -11,6 +11,7 @@ InfluencerListElement = React.createClass({
           </a>
         </div>
         <div className='time pull-right'>
+          {this.props.influencer.last_post_at}
         </div>
         <div className='clear'></div>
       </div>

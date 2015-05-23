@@ -1,4 +1,10 @@
-.posts_index, .posts_index body {
+.posts_index, .posts_index body, [data-react-class="Layout"], .layout-container {
   height: 100%;
 }
 
+.layout-container {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  z-index: 2;
+}
