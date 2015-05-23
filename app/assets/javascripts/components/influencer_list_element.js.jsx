@@ -3,15 +3,14 @@ InfluencerListElement = React.createClass({
     return(
       <div className='infuencer'>
         <div className="pull-left">
-          <img src={this.props.influencer.user_image} className='avatar' />
+          <img src={this.props.influencer.avtar_url} className='avatar' />
         </div>
         <div className="pull-left">
           <a data-remote='true' onClick={this.handleClick} >
-            {this.props.influencer.user_name}
+            {this.props.influencer.name}
           </a>
         </div>
         <div className='time pull-right'>
-          {this.props.influencer.created_at} ago
         </div>
         <div className='clear'></div>
       </div>
