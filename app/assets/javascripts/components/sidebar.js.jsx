@@ -7,6 +7,7 @@ var Sidebar = React.createClass({
               <InfluencerListElement href={'/meta?href=' + influencer.href} parentComponent={this} influencer={influencer} />
             )
         }, this.props.layout)}
+        <div className='clear'/>
       </div>
     )
   }
