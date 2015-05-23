@@ -2,30 +2,7 @@
   Freshest - Short-lived news from the modern Web
 <% end %>
 
-<% @last_posts.each do |tweet| %>
-  <% page = MetaInspector.new(tweet[:href]) if tweet[:href] %>
-  <% if tweet[:href] %>
-    <div class="post-container">
-      <div class="container">
-        <div class="post">
-          <%= link_to "", tweet[:href], target: "_blank", class: 'link-hack' if tweet[:href] %>
-          <div class="post-avatar">
-            <%= image_tag tweet[:user_image], class: "img total-width border-radius-1 hidden-xs" %>
-          </div>
-          <ul class="list-unstyled list-inline influencer-infos">
-            <li><%= link_to tweet[:user_name], influencer_path(tweet[:user_id]), class: "influencer-link" %></li>
-            <li class="font-light color-light small"><%= time_ago_in_words(tweet[:created_at]) + " ago" %></li>
-          </ul>
-          <div class="post-content">
-            <%= link_to tweet[:href], target: "_blank", class: 'link-title' do %>
-              <h4>
-                <%= page.title.split(" | ").first %>
-              </h4>
-            <% end %>
-            <p><%= page.description %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<%= react_component('Layout', {
+    posts: @last_posts
+  })
+%>
