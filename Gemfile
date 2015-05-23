@@ -30,6 +30,7 @@ gem 'rails-assets-headroom.js'
 gem "omniauth-twitter"
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'jbuilder'
+gem 'sidekiq'
 
 
 group :development, :test do
