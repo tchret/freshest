@@ -21,5 +21,5 @@
 
 
 every 1.minute do
-  runner "KimonoWorker.perform_async"
+  runner "FreshestWorker.perform_async"
 end
