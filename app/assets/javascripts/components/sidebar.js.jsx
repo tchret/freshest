@@ -1,19 +1,18 @@
 var Sidebar = React.createClass({
-  // getInitialState: function() {
-
-  // },
-
-  render: function() {
-    return(
+  render: function (){
+    return (
       <div className='sidebar'>
-        <div className='influencers'>
-          {this.props.influencers.map(function (influencer) {
+        {this.props.influencers.map(function (influencer) {
             return (
-              <InfluencerListElement href={'/meta?href=' + influencer.href} influencer={influencer} />
+              <InfluencerListElement href={'/meta?href=' + influencer.href} parentSidebar={this} influencer={influencer} />
             )
-          })}
-        </div>
+        })}
       </div>
     )
+  },
+
+  handlePostChange: function(post) {
+    // this.props.layout.displayPost(post)
+    console.log(post)
   }
 })

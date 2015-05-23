@@ -1,12 +1,12 @@
 var Layout = React.createClass({
-  // getInitialState: function() {
-
-  // },
 
   render: function() {
-    return (
-      <Sidebar influencers={this.props.posts}/>
+    return(
+      <Sidebar influencers={this.props.influencers} layout={this} />
     )
-  }
+  },
 
+  displayPost: function(post) {
+    console.log(post)
+  }
 })
