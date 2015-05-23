@@ -1,4 +1,9 @@
 var Layout = React.createClass({
+  getInitialState: function() {
+    return {
+      heroPost: this.props.heroPost
+    };
+  },
 
   render: function() {
     return(
