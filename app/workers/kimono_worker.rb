@@ -1,6 +1,5 @@
 class KimonoWorker
   include Sidekiq::Worker
-
   def perform
     logger.info "*" * 20
     logger.info "STARTING TASK"
