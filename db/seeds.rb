@@ -28,3 +28,5 @@ Influencer.create(name: "Harvard Biz Review", twitter_id: "HarvardBiz")
 Influencer.create(name: "Fast Company", twitter_id: "FastCompany")
 Influencer.create(name: "Entrepreneur", twitter_id: "Entrepreneur")
 Influencer.create(name: "Edward Schults", twitter_id: "EdwardSchults")
+
+FreshestWorker.perform_async
