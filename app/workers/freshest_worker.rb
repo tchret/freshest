@@ -2,9 +2,9 @@ class FreshestWorker
   include Sidekiq::Worker
 
   def perform
-    logger.info "*" * 20
+    logger.info "*" * 40
     logger.info "STARTING TASK"
-    logger.info "*" * 20
+    logger.info "*" * 40
     last_posts = TwitterService.new.client.list_timeline('freshst-dev', {include_rts: false})
     logger.info "LAST POSTS ARRAY GENERATED"
     last_posts.uniq(&:user).each do |tweet|
