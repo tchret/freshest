@@ -3,7 +3,7 @@ InfluencerListElement = React.createClass({
     return(
       <div className='infuencer'>
         <div className="pull-left">
-          <img src={this.props.influencer.avtar_url} className='avatar' />
+          <img src={this.props.influencer.avatar_url} className='avatar' />
         </div>
         <div className="pull-left">
           <a data-remote='true' onClick={this.handleClick} >
