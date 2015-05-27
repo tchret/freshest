@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150523140210) do
+=======
+ActiveRecord::Schema.define(version: 20150524111527) do
+>>>>>>> 7b5d46c8db4cf749e18f564d8db5fc7155f071c2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +31,11 @@ ActiveRecord::Schema.define(version: 20150523140210) do
     t.text     "description"
     t.string   "article_picture"
     t.text     "content"
+<<<<<<< HEAD
     t.string   "last_post_at"
+=======
+    t.datetime "last_post_at"
+>>>>>>> 7b5d46c8db4cf749e18f564d8db5fc7155f071c2
   end
 
   create_table "posts", force: :cascade do |t|
