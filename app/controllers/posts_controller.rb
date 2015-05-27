@@ -6,6 +6,6 @@ class PostsController < ApplicationController
   end
 
   def get_meta
-    @influencer = Influencer.find_by(twitter_id: params[:twitter_id])
+    @meta = MetaInspector.new(params[:href])
   end
 end
