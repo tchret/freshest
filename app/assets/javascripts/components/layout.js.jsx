@@ -7,28 +7,42 @@ var Layout = React.createClass({
 
   render: function() {
     if (this.state.heroPost) {
-
       heroPost = <HeroPost heroPost={this.state.heroPost} />
-
+      $('body').addClass('no-scroll')
     } else {
-
+      $('body').removeClass('no-scroll')
       heroPost = ''
 
     }
 
+    heroPostClasses= React.addons.classSet({
+      'hero-post-modal': true,
+      'is-active': this.state.heroPost == null ? false : true
+    })
+
     return(
       <div className='layout-container'>
-        <Sidebar influencers={this.props.influencers} layout={this} />
-        {heroPost}
-        <div clasName='clear' />
+        {this.props.influencers.map(function (influencer) {
+          return(<Post influencer={influencer} parentComponent={this} />)
+        }, this)}
+        <div className={heroPostClasses} onClick={this.removeHeroPostState}>
+          <div className="hero-post-container">
+            {heroPost}
+          </div>
+        </div>
       </div>
     )
   },
 
-  displayPost: function(post) {
-    console.log(post)
-    this.setState ({
+  handleHeroPostDisplay: function(post) {
+    this.setState({
       heroPost: post
+    })
+  },
+
+  removeHeroPostState: function(post) {
+    this.setState({
+      heroPost: null
     })
   }
 })

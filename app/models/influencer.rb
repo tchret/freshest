@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: influencers
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  twitter_id      :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  avatar_url      :string
+#  article_url     :string
+#  title           :string
+#  description     :text
+#  article_picture :string
+#  content         :text
+#  last_post_at    :string
+#
+
 class Influencer < ActiveRecord::Base
   has_many :posts
   # after_create :add_user_to_list
