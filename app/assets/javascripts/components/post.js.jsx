@@ -16,7 +16,7 @@ var Post = React.createClass({
                 </a>
               </li>
               <li className="font-light color-light small">
-                10minutes ago
+                {timeSince(new Date(influencer.last_post_at))} ago
               </li>
             </ul>
             <div className="post-content">
