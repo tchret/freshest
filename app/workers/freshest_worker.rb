@@ -20,7 +20,7 @@ class FreshestWorker
         influencer.title = page.title.split(" | ").first
         influencer.description = page.description
         influencer.article_picture = page.meta_tags["name"]["twitter:image:src"] ? page.meta_tags["name"]["twitter:image:src"].first : page.images.best
-        influencer.content = page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : page.description
+        influencer.content = page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : (page.parsed.search(".#{influencer.content_class}").first.nil? ? page.description : page.parsed.search(".#{influencer.content_class}").to_s)
         if influencer.save
           logger.info "#{influencer.name.upcase} WAS UPDATED"
         else
