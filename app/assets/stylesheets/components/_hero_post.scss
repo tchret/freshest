@@ -1,0 +1,40 @@
+.hero-post-modal {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(255,255,255,0.8);
+  z-index: -1;
+
+  .hero-post-container {
+    padding: 10px;
+    overflow: scroll;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    width: 600px;
+    bottom: 0;
+    top: 0;
+    box-shadow: 0 0 1px rgba(0,0,0,0.15);
+    transform: translateX(100%);
+    transition: 0.2s ease transform;
+
+    .hero-post-link {
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      z-index: 11;
+    }
+  }
+
+  &.is-active {
+    z-index: 10;
+
+    .hero-post-container {
+      transform: translateX(0)
+    }
+  }
+}

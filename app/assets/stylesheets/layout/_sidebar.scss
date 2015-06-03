@@ -1,9 +1,12 @@
 .sidebar {
-  position: absolute;
-  right: 0;
-  top: 0;
   bottom: 0;
-  width: 300px;
-  background-color: black;
-  overflow: scroll;
+
+  .influencer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  a {
+    font-size: 20px;
+  }
 }
