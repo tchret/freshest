@@ -39,3 +39,10 @@ $gray-dark:    lighten(#000, 20%);   // #333
 $gray:         lighten(#000, 33.5%); // #555
 $gray-light:   lighten(#000, 46.7%); // #777
 $gray-lighter: lighten(#000, 93.5%); // #eee
+
+// z-index
+
+$z-hidden: -1;
+$z-background-0: 0;
+$z-background-1: 1;
+$z-content: 2;

@@ -11,7 +11,7 @@ var Post = React.createClass({
             </div>
             <ul className="list-unstyled list-inline influencer-infos">
               <li>
-                <a className="influencer-link">
+                <a className="influencer-link" href={'/i/' + influencer.twitter_id}>
                   {influencer.name}
                 </a>
               </li>
@@ -34,8 +34,14 @@ var Post = React.createClass({
       </div>
     )
   },
+  updateUrl: function(twitterId, name) {
+
+  },
 
   displayPost: function() {
     this.props.parentComponent.handleHeroPostDisplay(this.props.influencer)
+
   }
+
+
 })

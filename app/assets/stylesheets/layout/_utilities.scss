@@ -3,14 +3,36 @@
  * These are examples of utilities classes
  * Feel free to change them and create your own
  * ------------------------------------- */
-.padded {
-  padding-top: 8em;
-  padding-bottom: 8em;
+
+.p20 {
+  padding: 20px;
+}
+
+.p25 {
+  padding: 25px;
 }
 
 .clear {
   clear: both;
 }
+
+.l-hidden {
+  z-index: $z-hidden;
+}
+
+.l-background-0 {
+  z-index: $z-background-0;
+}
+
+.l-background-1 {
+  z-index: $z-background-1;
+}
+
+.l-content {
+  z-index: $z-content;
+  position: relative;
+}
+
 
 .no-scroll {
   overflow: hidden;

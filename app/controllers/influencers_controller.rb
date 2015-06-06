@@ -4,6 +4,7 @@ class InfluencersController < ApplicationController
 
   def show
     @influencer = Influencer.where(twitter_id: params[:id])[0]
+    @influencers = Influencer.all.reject { |influencer| influencer.last_post_at.nil? }.sort_by(&:last_post_at).reverse.first(5)
     @last_posts = IndexData.new.generate
     @last_post = @last_posts.select {|post| post[:user_id] == @influencer.twitter_id}.first
     # update_avatar(@last_post[:user_image])

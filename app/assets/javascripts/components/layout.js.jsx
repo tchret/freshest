@@ -1,7 +1,7 @@
 var Layout = React.createClass({
   getInitialState: function() {
     return {
-      heroPost: null
+      heroPost: this.props.heroPost
     };
   },
 
@@ -12,10 +12,9 @@ var Layout = React.createClass({
     } else {
       $('body').removeClass('no-scroll')
       heroPost = ''
-
     }
 
-    heroPostClasses= React.addons.classSet({
+    heroPostClasses = React.addons.classSet({
       'hero-post-modal': true,
       'is-active': this.state.heroPost == null ? false : true
     })
@@ -38,11 +37,18 @@ var Layout = React.createClass({
     this.setState({
       heroPost: post
     })
+    console.log(post)
+
+    urlPath = '/i/' + post.twitter_id
+    pageTitle = post.name + 'on Freshest'
+    window.history.pushState('', pageTitle, urlPath)
   },
 
   removeHeroPostState: function(post) {
     this.setState({
       heroPost: null
     })
+    window.history.pushState('', "Freshest", '/')
+
   }
 })
