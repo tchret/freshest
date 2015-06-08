@@ -25,6 +25,7 @@ class FreshestWorker
         else
           influencer.content = page.meta_tags["name"]["content"] ? page.meta_tags["name"]["content"].first : (page.parsed.search(".#{influencer.content_class}").first.nil? ? page.description : page.parsed.search(".#{influencer.content_class}").to_s)
         end
+        influencer.html = page.parsed.to_s
         if influencer.save
           logger.info "#{influencer.name.upcase} WAS UPDATED"
         else
