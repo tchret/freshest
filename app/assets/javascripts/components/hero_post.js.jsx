@@ -21,6 +21,9 @@ var HeroPost = React.createClass({
             <div className='clear' />
           </div>
         </div>
+        <div className='hero-submitted'>
+          {timeSince(new Date(heroPost.last_post_at))} ago
+        </div>
         <a className="hero-post-link" href={heroPost.article_url} target="_blank">
         </a>
 
