@@ -25,6 +25,7 @@ var Layout = React.createClass({
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
+          <div className='cross' />
           <div className="hero-post-container">
             {heroPost}
           </div>
