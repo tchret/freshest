@@ -1,7 +1,8 @@
 var ModalConnect = React.createClass({
   getInitialState: function() {
     return {
-      opened: false
+      opened: false,
+      redirection: false
     };
   },
 
@@ -21,7 +22,12 @@ var ModalConnect = React.createClass({
 
     var modalContentClasses = React.addons.classSet({
       "modl-content": true,
-      "pullUp": this.state.opened
+      "pullUp": this.state.opened,
+      "hidden": this.state.redirection
+    })
+
+    var redirectionClasses = React.addons.classSet({
+      "hidden": !this.state.redirection
     })
 
     return(
@@ -32,6 +38,9 @@ var ModalConnect = React.createClass({
           </span>
         </a>
         <div className={modalClasses} onClick={this.handleClick}>
+          <div className={redirectionClasses}>
+            You should have been prompted to sign in within a popup window.
+          </div>
           <div className={modalContentClasses}>
             <ul className='influencers-avatar list-inline text-center'>
               { this.props.last_influencers_images.map(function(influencer_avatar) {
@@ -46,7 +55,7 @@ var ModalConnect = React.createClass({
               Join the community today by adding your favorite influencer
             </h3>
             <div className='text-center'>
-              <a className='button button-twitter' href={this.props.href}>
+              <a className='button button-twitter' href={this.props.href} onClick={this.handleConnect}>
                 <i className='fa fa-twitter'></i> Sign up with Twitter
               </a>
             </div>
@@ -54,6 +63,14 @@ var ModalConnect = React.createClass({
         </div>
       </div>
     )
+  },
+
+  handleConnect: function(){
+    this.setState({
+      redirection: true
+    })
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
   },
 
   handleClick: function(){
