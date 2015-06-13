@@ -32,6 +32,12 @@
 
 .hero-post {
   height: 100%;
+
+  .iframe-container {
+    height: 100%;
+    position: relative;
+  }
+
   iframe {
     border: none;
     height: 100%;
@@ -48,6 +54,7 @@
   top: 0;
   display: flex;
   align-items: center;
+  z-index: $z-loader;
   justify-content: center;
 }
 

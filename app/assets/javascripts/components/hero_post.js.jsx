@@ -14,12 +14,15 @@ var HeroPost = React.createClass({
             <div className="text-center">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
           </div>
         </div>
-        <iframe ref="embedArticle" src={heroPost.article_url} />
+        <div className='iframe-container'>
+          <iframe ref="embedArticle" src={heroPost.article_url} />
+        </div>
       </div>
     )
   },
 
   componentDidMount: function(){
+    var iframe = $('.hero-post iframe')
     $('.hero-post iframe').on('load', function(){
       $('.l-loader').remove()
     })
