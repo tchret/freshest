@@ -19,13 +19,21 @@ var Layout = React.createClass({
       'is-active': this.state.heroPost == null ? false : true
     })
 
+    crossClasses = React.addons.classSet ({
+      "cross-container": true,
+      "pointer": true,
+      'visible': this.state.heroPost
+    })
+
     return(
       <div className='layout-container'>
         {this.props.influencers.map(function (influencer) {
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
-          <div className='cross' />
+          <div className={crossClasses}>
+            <div id='cross'></div>
+          </div>
           <div className="hero-post-container">
             {heroPost}
           </div>
