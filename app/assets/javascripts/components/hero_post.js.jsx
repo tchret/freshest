@@ -7,7 +7,7 @@ var HeroPost = React.createClass({
     }
 
     return (
-      <div className='hero-post'>
+      <div className='hero-post' onClick={this.stopPropagation}>
 
         <div className='l-loader'>
           <div className="spinner" />
@@ -21,5 +21,10 @@ var HeroPost = React.createClass({
     $('.hero-post iframe').on('load', function(){
       $('.l-loader').remove()
     })
+  },
+
+  stopPropagation: function(e){
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
   }
 })

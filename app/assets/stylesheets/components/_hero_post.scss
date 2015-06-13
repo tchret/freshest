@@ -7,63 +7,13 @@
   background: rgba(255, 255, 255, 0.95);
   z-index: -1;
 
-  .cross-container {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    z-index: 200;
-    background: black;
-    border-radius: 50%;
-    width: 40px;
-    padding: 9px;
-    height: 40px;
-    transform: rotate(45deg);
-    opacity: 0.1;
-    display: none;
-
-    &.visible {
-      display: block;
-    }
-
-    &:hover {
-      opacity: 0.2;
-    }
-
-    #cross {
-       width: 100%;
-       height: 100%;
-       position: relative;
-    }
-
-    #cross:before, #cross:after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      background: white;
-    }
-
-    #cross:before {
-      left: 50%;
-      width: 13%;
-      margin-left: -3%;
-      height: 100%;
-    }
-
-    #cross:after {
-      top: 50%;
-      height: 13%;
-      margin-top: -3%;
-      width: 100%;
-    }
-
-  }
-
   .hero-post-container {
     overflow: scroll;
     background-color: white;
     position: absolute;
     right: 0;
-    min-width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     bottom: 0;
     top: 0;
     box-shadow: 0 0 1px rgba(0,0,0,0.15);
@@ -79,57 +29,6 @@
     }
   }
 }
-
-.hero-header {
-  min-height: 300px;
-  position: relative;
-  overflow: hidden;
-
-  &:after {
-    background: linear-gradient(90deg, #283048 10%, #859398 90%);
-    opacity: 0.7;
-    content: " ";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: $z-background-1;
-  }
-
-  .bg-blur {
-    background-position: center center;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    filter: blur(3px);
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-  }
-}
-
-.hero-header-content {
-  padding: 170px 30px 30px 30px;
-
-  img {
-    border-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-  }
-
-  h3 {
-    color: white;
-    font-size: 2.3em;
-  }
-
-  p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 20px;
-  }
-}
-
 
 .hero-post {
   height: 100%;
