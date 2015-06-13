@@ -1,3 +1,8 @@
+.avatar-user {
+  width: 44px;
+  margin: 1px 0px 0px 20px;
+}
+
 .navigation-bar {
   z-index: 2;
   padding: 10px 0 10px 0;
@@ -68,6 +73,12 @@
 .dropdown-menu {
   box-shadow: none;
   border-radius: 9px;
+}
+
+.dropdown {
+  .dropdown-toggle {
+    padding: 0;
+  }
 }
 
 .navbar-nav > li > .dropdown-menu {
