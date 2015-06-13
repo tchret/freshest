@@ -31,6 +31,7 @@ gem "omniauth-twitter"
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'jbuilder'
 gem 'sidekiq'
+gem 'intercom-rails'
 
 
 group :development, :test do
