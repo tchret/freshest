@@ -41,7 +41,10 @@
   &-avatar {
     padding: 40px;
     padding-top: 0;
+    padding-right: 0;
+
     img {
+      float: right;
       border-radius: 3px;
       width: 36px;
       margin-bottom: 10px;

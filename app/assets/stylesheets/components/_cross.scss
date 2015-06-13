@@ -9,7 +9,6 @@
   padding: 9px;
   height: 40px;
   transform: rotate(45deg);
-  opacity: 0.1;
   display: none;
 
   &.visible {
@@ -17,7 +16,7 @@
   }
 
   &:hover {
-    opacity: 0.2;
+    background: $brand-color;
   }
 
   #cross {

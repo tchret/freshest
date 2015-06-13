@@ -6,7 +6,7 @@ var Post = React.createClass({
       <div className="post-container">
         <div className="container">
           <div className="post" onClick={this.displayPost}>
-            <div className='col-xs-11'>
+            <div className='col-xs-12 col-sm-10'>
               <ul className="list-unstyled list-inline influencer-infos">
                 <li>
                   {influencer.name}
@@ -26,8 +26,8 @@ var Post = React.createClass({
                 </p>
               </div>
             </div>
-            <div className="col-xs-1 post-avatar p20 kill-pr">
-              <img src={influencer.avatar_url} className="img total-width shadowed border-radius-2 hidden-xs" />
+            <div className="col-sm-2 hidden-xs post-avatar p20 kill-pr">
+              <img src={influencer.avatar_url} className="img total-width shadowed border-radius-2" />
             </div>
             <div className='clear' />
           </div>

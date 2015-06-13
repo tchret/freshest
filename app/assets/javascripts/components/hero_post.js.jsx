@@ -8,9 +8,11 @@ var HeroPost = React.createClass({
 
     return (
       <div className='hero-post' onClick={this.stopPropagation}>
-
         <div className='l-loader'>
-          <div className="spinner" />
+          <div>
+            <div className="spinner" />
+            <div className="text-center">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
+          </div>
         </div>
         <iframe ref="embedArticle" src={heroPost.article_url} />
       </div>
