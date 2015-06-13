@@ -1,7 +1,7 @@
 var Layout = React.createClass({
   getInitialState: function() {
     return {
-      heroPost: null
+      heroPost: this.props.heroPost
     };
   },
 
@@ -12,12 +12,17 @@ var Layout = React.createClass({
     } else {
       $('body').removeClass('no-scroll')
       heroPost = ''
-
     }
 
-    heroPostClasses= React.addons.classSet({
+    heroPostClasses = React.addons.classSet({
       'hero-post-modal': true,
       'is-active': this.state.heroPost == null ? false : true
+    })
+
+    crossClasses = React.addons.classSet ({
+      "cross-container": true,
+      "pointer": true,
+      'visible': this.state.heroPost
     })
 
     return(
@@ -26,6 +31,9 @@ var Layout = React.createClass({
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
+          <div className={crossClasses}>
+            <div id='cross'></div>
+          </div>
           <div className="hero-post-container">
             {heroPost}
           </div>
@@ -38,11 +46,18 @@ var Layout = React.createClass({
     this.setState({
       heroPost: post
     })
+    console.log(post)
+
+    urlPath = '/i/' + post.twitter_id
+    pageTitle = post.name + 'on Freshest'
+    window.history.pushState('', pageTitle, urlPath)
   },
 
   removeHeroPostState: function(post) {
     this.setState({
       heroPost: null
     })
+    window.history.pushState('', "Freshest", '/')
+
   }
 })

@@ -7,6 +7,12 @@ var ModalConnect = React.createClass({
 
   render: function(){
 
+    if (this.state.opened) {
+      $('body').addClass('no-scroll')
+    } else {
+      $('body').removeClass('no-scroll')
+    }
+
     var modalClasses = React.addons.classSet({
       "modl-connect": true,
       "modl": true,

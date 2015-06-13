@@ -8,17 +8,24 @@
   display: inline-block;
   text-decoration: none;
   border-radius: 9px;
-  transition: all, 0.15s;
+  // transition: all, 0.15s;
   box-shadow: none;
   color: black;
+  font-weight: lighter;
+  padding: 10px 21px;
+  background: #FF5439;
   cursor: default;
   font-size: 16px;
   background: white;
-  font-weight: bold;
-  margin: 11px 8px;
+  font-weight: lighter;
+  margin: 1px 0;
   text-align: center;
   background: none;
+  border: 1px solid ;
+  color: rgba(0,0,0,0.6);
+  border-color: rgba(0,0,0,0.3);
   cursor: pointer;
+  text-shadow: none;
 
   &-twitter {
     background: #55acee;
@@ -33,6 +40,7 @@
     &:hover {
       background: lighten(#55acee, 10%);
       color: white !important;
+      border-color: rgb(86, 172, 238);
     }
 
     &:focus {
@@ -50,18 +58,11 @@
     background: white;
   }
 
-  span {
-    box-shadow: inset 0 -6px 0 #00FFC6;
-    transition: box-shadow 0.3s ease;
-  }
-
   &:hover {
-    color: black;
-
-    span {
-      box-shadow: inset 0 -12px 0 #00FFC6;
-    }
+    border-color: rgba(0,0,0,0.7);
+    color: rgba(0,0,0,0.6);
   }
+
 
   &:active {
     transform: scale(0.99);
