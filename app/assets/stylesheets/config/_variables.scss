@@ -1,24 +1,44 @@
 /* -------------------------------------
  * Fonts
  * ------------------------------------- */
-// Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "sans-serif";
-$navbar-font: 'Raleway', "sans-serif";
 
-// Local fonts (uncomment following lines)
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
+@font-face {
+  font-family: "Avenir";
+  font-weight: 900;
+  src: font-url('avenirltstd-black-webfont.eot');
+  src: font-url('avenirltstd-black-webfont.svg'),
+       font-url('avenirltstd-black-webfont.woff') format('woff'),
+       font-url('avenirltstd-black-webfont.woff.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Avenir";
+  font-weight: 400;
+  src: font-url('avenirltstd-book-webfont.eot');
+  src: font-url('avenirltstd-book-webfont.svg'),
+       font-url('avenirltstd-book-webfont.woff') format('woff'),
+       font-url('avenirltstd-book-webfont.woff.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Avenir";
+  font-weight: 600;
+  src: font-url('avenirltstd-heavy-webfont.eot');
+  src: font-url('avenirltstd-heavy-webfont.svg'),
+       font-url('avenirltstd-heavy-webfont.woff') format('woff'),
+       font-url('avenirltstd-heavy-webfont.woff.ttf') format('truetype');
+}
+
+
+$header-font: "Avenir", "sans-serif";
+$base-font: "Avenir", "Helvetica", "sans-serif";
+
+
+
 // $my-font: "Font Name";
 
 // Font-size and line-height
-$base-size: 16px;
+$base-size: 18px;
 $base-height: 1.4;
 
 /* -------------------------------------
@@ -31,7 +51,7 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $purple: #6452BD;
-$brand-color: #69bbff;
+$brand-color: #00FFC6;
 
 // Gray scale
 $gray-darker:  lighten(#000, 13.5%); // #222
@@ -39,3 +59,11 @@ $gray-dark:    lighten(#000, 20%);   // #333
 $gray:         lighten(#000, 33.5%); // #555
 $gray-light:   lighten(#000, 46.7%); // #777
 $gray-lighter: lighten(#000, 93.5%); // #eee
+
+// z-index
+
+$z-hidden: -1;
+$z-background-0: 0;
+$z-background-1: 1;
+$z-content: 2;
+$z-loader: 10;

@@ -1,0 +1,49 @@
+.cross-container {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 200;
+  background: black;
+  border-radius: 50%;
+  width: 40px;
+  padding: 9px;
+  height: 40px;
+  transform: rotate(45deg);
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+
+  &:hover {
+    background: $brand-color;
+  }
+
+  #cross {
+     width: 100%;
+     height: 100%;
+     position: relative;
+  }
+
+  #cross:before, #cross:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: white;
+  }
+
+  #cross:before {
+    left: 50%;
+    width: 13%;
+    margin-left: -3%;
+    height: 100%;
+  }
+
+  #cross:after {
+    top: 50%;
+    height: 13%;
+    margin-top: -3%;
+    width: 100%;
+  }
+
+}

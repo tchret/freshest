@@ -27,9 +27,12 @@ class Influencer < ActiveRecord::Base
     twitter_id
   end
 
-  def update_avatars
+  def self.update_avatars
     Influencer.all.each do |influencer|
-
+      if influencer.avatar_url
+        influencer.avatar_url = influencer.avatar_url.gsub('normal', '400x400')
+      end
+      influencer.save
     end
   end
 
