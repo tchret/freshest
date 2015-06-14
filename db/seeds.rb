@@ -6,23 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Influencer.create(name: "TechCrunch", twitter_id: "TechCrunch", content: "article-entry text")
-Influencer.create(name: "Mashable Tech", twitter_id: "mashabletech", content_class: "article-content")
-Influencer.create(name: "WIRED", twitter_id: "WIRED", content_class: "content")
-Influencer.create(name: "Fast Company", twitter_id: "FastCompany", content_class: "article-prose")
-Influencer.create(name: "Entrepreneur", twitter_id: "Entrepreneur", content_class: "bodycopy")
-Influencer.create(name: "Business Insider", twitter_id: "businessinsider", content_class: "post-content")
-Influencer.create(name: "Harvard Biz Review", twitter_id: "HarvardBiz", content_class: "article-first-row")
-Influencer.create(name: "Kottke", twitter_id: "kottke", content_class: "post")
-Influencer.create(name: "Medium", twitter_id: "Medium", content_class: "graf--p")
-Influencer.create(name: "ProductHunt", twitter_id: "ProductHunt", content_class: "modal-post")
-
-Influencer.create(name: "The Next Web", twitter_id: "TheNextWeb", content_class: "postContent")
+Influencer.create(name: "TechCrunch", twitter_id: "TechCrunch")
+Influencer.create(name: "Mashable Tech", twitter_id: "mashabletech")
+Influencer.create(name: "WIRED", twitter_id: "WIRED")
+Influencer.create(name: "Fast Company", twitter_id: "FastCompany")
+Influencer.create(name: "Entrepreneur", twitter_id: "Entrepreneur")
+Influencer.create(name: "Business Insider", twitter_id: "businessinsider")
+Influencer.create(name: "Harvard Biz Review", twitter_id: "HarvardBiz")
+Influencer.create(name: "Kottke", twitter_id: "kottke")
+Influencer.create(name: "Medium", twitter_id: "Medium")
+Influencer.create(name: "ProductHunt", twitter_id: "ProductHunt")
+Influencer.create(name: "The Next Web", twitter_id: "TheNextWeb")
 Influencer.create(name: "Hacker News", twitter_id: "newsycombinator")
-Influencer.create(name: "The Verge", twitter_id: "verge", content_class: "m-article__entry")
+Influencer.create(name: "The Verge", twitter_id: "verge")
+Influencer.create(name: "The Latest", twitter_id: "latest_is")
+Influencer.create(name: "A List Apart", twitter_id: "alistapart")
+Influencer.create(name: "Re/code", twitter_id: "Recode")
 
 
-# Influencer.create(name: "The Latest", twitter_id: "latest_is")
+
 # Influencer.create(name: "Thomas Chrétien", twitter_id: "tchret")
 # Influencer.create(name: "Paul Graham", twitter_id: "paulg")
 # Influencer.create(name: "Sébastien Saunier", twitter_id: "ssaunier")
@@ -33,6 +35,5 @@ Influencer.create(name: "The Verge", twitter_id: "verge", content_class: "m-arti
 # Influencer.create(name: "Marc Andreessen", twitter_id: "pmarca")
 # Influencer.create(name: "Aral Balkan", twitter_id: "aral")
 # Influencer.create(name: "Sam Altman", twitter_id: "sama")
-# Influencer.create(name: "A List Apart", twitter_id: "alistapart")
 
 FreshestWorker.perform_async
