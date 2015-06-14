@@ -17,6 +17,13 @@ var HeroPost = React.createClass({
         <div className='iframe-container'>
           <iframe ref="embedArticle" src={heroPost.article_url} />
         </div>
+        <div className='hero-profile'>
+          <div className='col-xs-1'>
+            <img src={heroPost.avatar_url} />
+          </div>
+          <h1>{heroPost.name}</h1>
+
+        </div>
       </div>
     )
   },

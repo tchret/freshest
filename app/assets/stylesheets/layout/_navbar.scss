@@ -5,6 +5,24 @@
   .brand {
     float: left;
 
+    .miniature {
+      background-color: black;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      color: white;
+      margin-left: 0;
+      margin: 13px;
+      margin-left: 0;
+      font-weight: bold;
+      font-size: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: left;
+    }
+
     &-link {
       &:hover {
         .logo {
