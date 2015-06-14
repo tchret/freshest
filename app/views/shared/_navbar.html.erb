@@ -30,6 +30,8 @@
               <%= image_tag current_user.picture, { class: "avatar-user" } %>
             </a>
             <ul class="dropdown-menu" role="menu">
+              <div class='popover-arrow'></div>
+
               <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
             </ul>
           </li>
