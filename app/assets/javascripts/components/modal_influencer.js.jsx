@@ -27,10 +27,14 @@ var ModalInfluencer = React.createClass({
         </a>
         <div className={modalClasses}  onClick={this.handleClick}>
           <div className={modalContentClasses}>
-            <input className="input-twitter-username" ref='twitter' placeholder="twitter_username" onClick={this.stopPropagation} />
-            <div className='text-center'>
-              <a className='button button-influencer-modal'>SUGGEST</a>
-            </div>
+            <form action="//formspree.io/edward.schults@gmail.com"
+                  method="POST">
+              <input type="email" name="_replyto">
+              <input type="text" name="name" className="input-twitter-username" ref='twitter' placeholder="twitter_username" onClick={this.stopPropagation} />
+              <div className='text-center'>
+                <a type="submit" className='button button-influencer-modal'>SUGGEST</a>
+              </div>
+            </form>
           </div>
         </div>
       </div>
