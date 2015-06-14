@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605172521) do
+ActiveRecord::Schema.define(version: 20150614130959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,17 +19,13 @@ ActiveRecord::Schema.define(version: 20150605172521) do
   create_table "influencers", force: :cascade do |t|
     t.string   "name"
     t.string   "twitter_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "avatar_url"
     t.string   "article_url"
     t.string   "title"
     t.text     "description"
-    t.string   "article_picture"
-    t.text     "content"
     t.datetime "last_post_at"
-    t.string   "content_class"
-    t.string   "html"
   end
 
   create_table "posts", force: :cascade do |t|
