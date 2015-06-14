@@ -6,27 +6,36 @@
   font-family: "Avenir";
   font-weight: 900;
   src: font-url('avenir/avenirltstd-black-webfont.eot');
-  src: font-url('avenir/avenirltstd-black-webfont.svg'),
+  src: font-url('avenir/avenirltstd-black-webfont.svg') format('svg'),
        font-url('avenir/avenirltstd-black-webfont.woff') format('woff'),
-       font-url('avenir/avenirltstd-black-webfont.woff.ttf') format('truetype');
+       font-url('avenir/avenirltstd-black-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: "Avenir";
   font-weight: 400;
   src: font-url('avenir/avenirltstd-book-webfont.eot');
-  src: font-url('avenir/avenirltstd-book-webfont.svg'),
+  src: font-url('avenir/avenirltstd-book-webfont.svg') format('svg'),
        font-url('avenir/avenirltstd-book-webfont.woff') format('woff'),
-       font-url('avenir/avenirltstd-book-webfont.woff.ttf') format('truetype');
+       font-url('avenir/avenirltstd-book-webfont.ttf') format('truetype');
 }
 
 @font-face {
   font-family: "Avenir";
   font-weight: 600;
   src: font-url('avenir/avenirltstd-heavy-webfont.eot');
-  src: font-url('avenir/avenirltstd-heavy-webfont.svg'),
+  src: font-url('avenir/avenirltstd-heavy-webfont.svg'), format('svg'),
        font-url('avenir/avenirltstd-heavy-webfont.woff') format('woff'),
-       font-url('avenir/avenirltstd-heavy-webfont.woff.ttf') format('truetype');
+       font-url('avenir/avenirltstd-heavy-webfont.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Avenir";
+  font-weight: 600;
+  src: font-url('avenir/avenir-light.eot');
+  src: font-url('avenir/avenir-light.svg') format('svg'),
+       font-url('avenir/avenir-light.woff') format('woff'),
+       font-url('avenir/avenir-light.ttf') format('truetype');
 }
 
 
