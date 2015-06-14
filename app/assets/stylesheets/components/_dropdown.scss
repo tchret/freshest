@@ -5,6 +5,15 @@
   border: none;
   margin-top: 20px;
 
+  a {
+    opacity: 0.7;
+    font-size: 16px;
+    &:hover {
+      opacity: 1;
+      background: none;
+    }
+  }
+
   .popover-arrow {
     position: absolute;
     top: -14px;
