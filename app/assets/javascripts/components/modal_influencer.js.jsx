@@ -36,7 +36,6 @@ var ModalInfluencer = React.createClass({
                 <input type="hidden" name="_subject" value="New suggestion!" />
                 <input type="hidden" name="_cc" value="edward.schults@gmail.com" />
                 <input type="hidden" name="from" value={this.props.currentUser.twitter_id} />
-
             </form>
             <div className='text-center'>
               <a className='button button-influencer-modal' onClick={this.handleDispatch}>{btnValue}</a>

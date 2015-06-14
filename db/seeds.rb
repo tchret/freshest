@@ -14,7 +14,7 @@ Influencer.create(name: "Entrepreneur", twitter_id: "Entrepreneur", content_clas
 Influencer.create(name: "Business Insider", twitter_id: "businessinsider", content_class: "post-content")
 Influencer.create(name: "Harvard Biz Review", twitter_id: "HarvardBiz", content_class: "article-first-row")
 Influencer.create(name: "Kottke", twitter_id: "kottke", content_class: "post")
-Influencer.create(name: "Medium", twitter_id: "Medium", content_class: "section-content")
+Influencer.create(name: "Medium", twitter_id: "Medium", content_class: "graf--p")
 Influencer.create(name: "ProductHunt", twitter_id: "ProductHunt", content_class: "modal-post")
 
 Influencer.create(name: "The Next Web", twitter_id: "TheNextWeb", content_class: "postContent")
