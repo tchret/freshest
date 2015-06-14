@@ -1,3 +1,5 @@
+//= 'kudos_services.js'
+
 var HeroPost = React.createClass({
   render: function() {
     var heroPost = this.props.heroPost
@@ -15,7 +17,7 @@ var HeroPost = React.createClass({
           </div>
         </div>
         <div className='iframe-container'>
-          <iframe ref="embedArticle" src={heroPost.article_url} />
+          <iframe ref="embedArticle" src={heroPost.article_url} sandbox />
         </div>
         <div className='hero-profile'>
           <div>
@@ -39,7 +41,6 @@ var HeroPost = React.createClass({
     $('.hero-post iframe').on('load', function(){
       $('.l-loader').remove();
       $('.hero-post-container').removeClass('no-scroll')
-      // $('.hero-profile').removeClass('hidden');
     })
   },
 

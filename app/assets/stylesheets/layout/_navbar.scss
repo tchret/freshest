@@ -34,6 +34,8 @@
       &:hover {
         .logo {
           span {
+            box-shadow: inset 0 -6px 0 #00FFC6;
+
           }
         }
       }
@@ -44,14 +46,15 @@
     //   width: 100%;
     // }
     .logo {
-      padding-top: 10px;
+      padding-top: 11px;
 
       span {
         transition: 0.1s box-shadow linear;
         font-size: 25px;
         font-weight: bold;
         color: #000000;
-        box-shadow: inset 0 -6px 0 #00FFC6;
+
+        box-shadow: inset 0 -3px 0 #00FFC6;
         letter-spacing: -1px;
         display: inline-block;
         height: 27px;
@@ -60,7 +63,8 @@
       }
     }
     .slogan {
-      color: rgb(134, 134, 134);
+      color: rgba(134, 134, 134, 0.49);
+      font-size: 16px;
     }
   }
   .nav-link {
