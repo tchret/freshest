@@ -40,7 +40,6 @@ var HeroPost = React.createClass({
     var iframe = $('.hero-post iframe')
     $('.hero-post iframe').on('load', function(){
       $('.l-loader').remove();
-      $('.hero-post-container').removeClass('no-scroll')
     })
   },
 

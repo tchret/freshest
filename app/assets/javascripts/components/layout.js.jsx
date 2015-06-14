@@ -34,7 +34,7 @@ var Layout = React.createClass({
           <div className={crossClasses}>
             <div id='cross'></div>
           </div>
-          <div className="hero-post-container no-scroll" onClick={this.stopPropagation}>
+          <div className="hero-post-container" onClick={this.stopPropagation}>
             {heroPost}
           </div>
         </div>
