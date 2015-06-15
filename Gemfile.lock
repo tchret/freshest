@@ -77,6 +77,9 @@ GEM
       timers (~> 4.0.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    clockwork (1.2.0)
+      activesupport
+      tzinfo
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
@@ -318,6 +321,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  clockwork
   country_select
   devise
   devise-i18n

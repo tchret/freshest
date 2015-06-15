@@ -1,5 +1,6 @@
 class FreshestWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => false
 
   def perform
     logger.info "*" * 40
