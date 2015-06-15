@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :influencers, path: :i, as: :influencers, only: [:index, :show, :create]
   resources :posts, only: [:index]
   get '/meta', to: 'posts#get_meta', as: 'meta'
+  mount Sidekiq::Web => '/sidekiq'
 end
