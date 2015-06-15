@@ -1,13 +1,14 @@
 var Layout = React.createClass({
   getInitialState: function() {
     return {
-      heroPost: this.props.heroPost
+      heroPost: this.props.heroPost,
+      iframeLoaded: false
     };
   },
 
   render: function() {
     if (this.state.heroPost) {
-      heroPost = <HeroPost heroPost={this.state.heroPost} />
+      heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} />
       $('body').addClass('no-scroll')
     } else {
       $('body').removeClass('no-scroll')
@@ -22,8 +23,7 @@ var Layout = React.createClass({
     crossClasses = React.addons.classSet ({
       "cross-container": true,
       "pointer": true,
-      'visible': this.state.heroPost,
-      'hidden': true
+      'visible': this.state.iframeLoaded
     })
 
     return(
@@ -32,7 +32,7 @@ var Layout = React.createClass({
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
-          <div className={crossClasses}>
+          <div className={crossClasses} onClick={this.handleCross}>
             <div id='cross'></div>
           </div>
           <div className="hero-post-container" onClick={this.stopPropagation}>
@@ -59,6 +59,12 @@ var Layout = React.createClass({
       heroPost: null
     })
     window.history.pushState('', "Freshest", '/')
+  },
+
+  handleCross: function() {
+    this.setState({
+      iframeLoaded: this.state.iframeLoaded ? false : true
+    })
   },
 
   stopPropagation: function(e){

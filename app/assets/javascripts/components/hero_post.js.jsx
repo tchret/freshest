@@ -55,6 +55,8 @@ var HeroPost = React.createClass({
     this.setState({
       iframeLoaded: true
     })
+
+    this.props.handleCross()
   },
 
   stopPropagation: function(e){
