@@ -1,6 +1,12 @@
 //= 'kudos_services.js'
 
 var HeroPost = React.createClass({
+  getInitialState: function() {
+    return {
+      iframeLoaded: false
+    };
+  },
+
   render: function() {
     var heroPost = this.props.heroPost
 
@@ -8,16 +14,25 @@ var HeroPost = React.createClass({
       backgroundImage: 'url(' + heroPost.article_picture + ')'
     }
 
+    var loaderClasses = React.addons.classSet({
+      'l-loader': true,
+      'is-hidden': this.state.iframeLoaded
+    })
+
+    var iframeClasses = React.addons.classSet({
+      'is-visible': this.state.iframeLoaded
+    })
+
     return (
       <div className='hero-post'>
-        <div className='l-loader'>
+        <div className={loaderClasses}>
           <div>
             <div className="spinner" />
             <div className="text-center">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
           </div>
         </div>
         <div className='iframe-container'>
-          <iframe ref="embedArticle" src={heroPost.article_url}  />
+          <iframe className={iframeClasses} ref="embedArticle" onLoad={this.handleLoad} src={heroPost.article_url}  />
         </div>
         <div className='hero-profile'>
           <div>
@@ -36,11 +51,12 @@ var HeroPost = React.createClass({
     )
   },
 
-  componentDidMount: function(){
-    var iframe = $('.hero-post iframe')
-    $('.hero-post iframe').on('load', function(){
-      $('.l-loader').remove();
+  handleLoad: function() {
+    this.setState({
+      iframeLoaded: true
     })
+
+    this.props.handleCross()
   },
 
   stopPropagation: function(e){

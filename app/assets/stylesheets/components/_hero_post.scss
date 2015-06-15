@@ -46,6 +46,12 @@
     border: none;
     height: 100%;
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.is-visible {
+      opacity: 1;
+    }
   }
 }
 
@@ -60,6 +66,11 @@
   align-items: center;
   z-index: $z-loader;
   justify-content: center;
+  opacity: 1;
+
+  &.is-hidden {
+    display: none;
+  }
 }
 
 .spinner {
