@@ -22,7 +22,8 @@ var Layout = React.createClass({
     crossClasses = React.addons.classSet ({
       "cross-container": true,
       "pointer": true,
-      'visible': this.state.heroPost
+      'visible': this.state.heroPost,
+      'hidden': true
     })
 
     return(
@@ -58,7 +59,6 @@ var Layout = React.createClass({
       heroPost: null
     })
     window.history.pushState('', "Freshest", '/')
-
   },
 
   stopPropagation: function(e){
