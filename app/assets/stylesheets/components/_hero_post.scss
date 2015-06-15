@@ -19,6 +19,10 @@
     box-shadow: 0 0 1px rgba(0,0,0,0.15);
     transform: translateX(100%);
     // transition: 0.s ease transform;
+
+    &.no-scroll {
+      overflow: hidden;
+    }
   }
 
   &.is-active {
@@ -93,4 +97,9 @@
   padding: 20px;
   position: relative;
   box-shadow: 0 -1px 5px 0 rgba(0,0,0,0.07),0 -1px 0 0 rgba(0,0,0,0.03);
+  background-color: #00FFC6;
+
+  img {
+    border-radius: 3px;
+  }
 }

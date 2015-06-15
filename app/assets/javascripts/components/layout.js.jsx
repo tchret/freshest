@@ -34,7 +34,7 @@ var Layout = React.createClass({
           <div className={crossClasses}>
             <div id='cross'></div>
           </div>
-          <div className="hero-post-container">
+          <div className="hero-post-container" onClick={this.stopPropagation}>
             {heroPost}
           </div>
         </div>
@@ -59,5 +59,10 @@ var Layout = React.createClass({
     })
     window.history.pushState('', "Freshest", '/')
 
+  },
+
+  stopPropagation: function(e){
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
   }
 })

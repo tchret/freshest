@@ -1,3 +1,5 @@
+//= 'kudos_services.js'
+
 var HeroPost = React.createClass({
   render: function() {
     var heroPost = this.props.heroPost
@@ -7,7 +9,7 @@ var HeroPost = React.createClass({
     }
 
     return (
-      <div className='hero-post' onClick={this.stopPropagation}>
+      <div className='hero-post'>
         <div className='l-loader'>
           <div>
             <div className="spinner" />
@@ -15,14 +17,20 @@ var HeroPost = React.createClass({
           </div>
         </div>
         <div className='iframe-container'>
-          <iframe ref="embedArticle" src={heroPost.article_url} />
+          <iframe ref="embedArticle" src={heroPost.article_url} sandbox />
         </div>
         <div className='hero-profile'>
-          <div className='col-xs-1'>
-            <img src={heroPost.avatar_url} />
+          <div>
+            <figure className="kudo kudoable" data-id="1">
+              <a className="kudobject">
+                <div className="opening"><div className="circle">&nbsp;</div></div>
+              </a>
+              <a href="#kudo" className="count">
+                <span className="txt text-center">Did you enjoy the read ?</span>
+              </a>
+            </figure>
           </div>
-          <h1>{heroPost.name}</h1>
-
+          <div className='clear' />
         </div>
       </div>
     )
@@ -31,7 +39,7 @@ var HeroPost = React.createClass({
   componentDidMount: function(){
     var iframe = $('.hero-post iframe')
     $('.hero-post iframe').on('load', function(){
-      $('.l-loader').remove()
+      $('.l-loader').remove();
     })
   },
 
