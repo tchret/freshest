@@ -41,7 +41,7 @@ var HeroPost = React.createClass({
                 <div className="opening"><div className="circle">&nbsp;</div></div>
               </a>
               <a href="#kudo" className="count">
-                <span className="txt text-center">Did you enjoy the read ?</span>
+                <span className="txt text-center">Did you enjoy reading this?</span>
               </a>
             </figure>
           </div>

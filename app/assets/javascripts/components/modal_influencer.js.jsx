@@ -20,13 +20,13 @@ var ModalInfluencer = React.createClass({
       "pullUp": this.state.opened
     })
 
-    btnValue = this.state.submitted ? "THANKS FOR THE SUGGESTION - BACK TO THE SITE" : "SUGGEST THE INFLUENCER"
+    btnValue = this.state.submitted ? "THANKS FOR THE SUGGESTION - BACK TO THE SITE" : "SUGGEST A SOURCE"
 
     return(
       <div className="modal-component">
         <a className='button' onClick={this.handleClick}>
           <span>
-            Suggest an influencer
+            Suggest a source
           </span>
         </a>
         <div className={modalClasses}  onClick={this.handleClick}>
