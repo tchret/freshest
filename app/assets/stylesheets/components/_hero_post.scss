@@ -40,6 +40,8 @@
   .iframe-container {
     height: 100%;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
   }
 
   iframe {
