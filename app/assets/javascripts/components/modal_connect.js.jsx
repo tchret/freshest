@@ -34,7 +34,7 @@ var ModalConnect = React.createClass({
       <div className="modal-component">
         <a className='button' onClick={this.handleClick}>
           <span>
-            Suggest an influencer
+            Suggest a source
           </span>
         </a>
         <div className={modalClasses} onClick={this.handleClick}>
@@ -52,7 +52,7 @@ var ModalConnect = React.createClass({
               }) }
             </ul>
             <h3 className='text-center'>
-              Join the community today by adding your favorite influencer
+              Join the community today by adding your favorite source
             </h3>
             <div className='text-center'>
               <a className='button button-twitter' href={this.props.href} onClick={this.handleConnect}>
