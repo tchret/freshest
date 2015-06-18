@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:twitter]
 
-
+  after_create :follow_all
 
   acts_as_follower
 
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.follow_all
+  def follow_all
     Influencer.all.each do |influencer|
       self.follow(influencer)
     end
