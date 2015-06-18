@@ -6,9 +6,6 @@ class PostsController < ApplicationController
     else
       @influencers = Influencer.all.reject { |influencer| influencer.last_post_at.nil? }.sort_by(&:last_post_at).reverse.first(5)
     end
-
-
-
   end
 
   def get_meta

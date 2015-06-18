@@ -7,13 +7,17 @@ var InfluencerTile = React.createClass({
 
   render: function() {
     var influencer = this.props.influencer
+    tileClasses = React.addons.classSet({
+      "influencer-tile": true,
+      "is-off": !this.state.isOn
+    })
     toggleMenuClasses = React.addons.classSet({
       "influencer-tile-menu": true,
       "is-on": this.state.isOn,
       "is-off": !this.state.isOn
     })
     return (
-      <div className="influencer-tile">
+      <div className={tileClasses}>
         <img src={influencer.avatar_url} />
         <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
           <div className="toggle-switch"></div>
