@@ -1,0 +1,128 @@
+.influencer-tile {
+  background: white;
+  box-sizing: border-box;
+  width: 33.333%;
+  float: left;
+  background-clip: padding-box;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  min-height: 116px;
+  position: relative;
+  position: relative;
+  overflow: hidden;
+  padding: 2.2em;
+  line-height: 0;
+  transition: box-shadow .3s,background-color .3s;
+
+  @media (max-width: $screen-md) {
+    width: 50%
+  }
+  @media (max-width: $screen-sm) {
+    width: 100%
+  }
+
+  &:hover {
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 1px 6px #E3E3E3;
+  }
+
+  img {
+    width: 2em;
+  }
+}
+
+.toggle-switch {
+  background-color: #fff;
+  border: 1px solid transparent;
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+  top: 0;
+  appearance: none;
+  left: 56%;
+  transition: left .2s ease-in,margin .2s ease-in;
+  z-index: 1;
+}
+
+.influencer-tile-menu {
+  display: block;
+  float: right;
+  height: 1.2em;
+  border-radius: 20em;
+  width: 3em;
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+  position: relative;
+  background: #00FFC6;
+  transition: background .3s ease;
+  display: flex;
+  align-items: center;
+
+  label {
+    font-weight: normal;
+    margin: 0;
+    position: absolute;
+    font-size: .7em;
+    color: rgba(0, 0, 0, 0.32);
+    transition: transform .2s ease-in;
+    transform: translateX(0);
+    z-index: 0;
+    line-height: 1.6;
+  }
+
+  &.is-on {
+    background: #00FFC6;
+    .toggle-switch {
+      left: 61%;
+    }
+    .label-on {
+      transform: translateX(0);
+    }
+    .label-off {
+      transform: translateX(100%);
+    }
+  }
+
+  &.is-off {
+    background: rgba(0,0,0,0.1);
+    .toggle-switch {
+      left: 0;
+    }
+    .label-off {
+      transform: translateX(0%);
+
+    }
+
+    .label-on {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.label-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.label-off {
+  right: 0;
+  line-height: 1.8;
+  left: 2em;
+}
+
+.label-on {
+  right: 0;
+  left: 0.9em;
+}
+
+.dashboard {
+  background: rgba(0, 0, 0, 0.05);
+}

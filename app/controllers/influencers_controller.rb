@@ -2,6 +2,10 @@ class InfluencersController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :initialize_kimono_service, only: :show
 
+  def index
+   @influencers = Influencer.all.reject {|influencer| influencer.avatar_url == nil}
+  end
+
   def show
     @influencer = Influencer.where(twitter_id: params[:id])[0]
     @influencers = Influencer.all.reject { |influencer| influencer.last_post_at.nil? }.sort_by(&:last_post_at).reverse.first(5)
