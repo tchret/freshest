@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
 
   def self.follow_all
     Influencer.all.each do |influencer|
-      self.user.follow(influencer)
+      self.follow(influencer)
     end
   end
 

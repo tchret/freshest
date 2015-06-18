@@ -27,16 +27,17 @@ var InfluencerTile = React.createClass({
   },
 
   handleClick: function(){
-    this.setState({
-      isOn: !this.state.isOn
-    })
-
-    if(!this.state.isOn){
-      $.get( this.props.follow_path, function( data ) {
-      });
-    } else {
-      $.get( this.props.stop_following_path, function( data ) {
-      });
+    if(this.props.toggleable) {
+      this.setState({
+        isOn: !this.state.isOn
+      })
+      if(!this.state.isOn){
+        $.get( this.props.follow_path, function( data ) {
+        });
+      } else {
+        $.get( this.props.stop_following_path, function( data ) {
+        });
+      }
     }
   }
 })
