@@ -1,16 +1,12 @@
 <div class="container">
   <div class="dashboard">
     <% @influencers.each do |influencer| %>
-      <div class="influencer-tile">
-        <%= image_tag influencer.avatar_url %>
-        <menu class="influencer-tile-menu is-on" type="toolbar">
-          <div class="toggle-switch"></div>
-          <div class="label-container">
-          <label class='label-on'>on</label>
-          <label class='label-off'>off</label>
-          </div>
-        </menu>
-      </div>
+      <%= react_component('InfluencerTile', {
+        influencer: influencer,
+        isOn: user_signed_in? ? current_user.following?(influencer) : true,
+        follow_path: follow_influencer_path(influencer),
+        stop_following_path: stop_following_influencer_path(influencer)
+      })%>
     <% end %>
     <div class="clear"></div>
   </div>

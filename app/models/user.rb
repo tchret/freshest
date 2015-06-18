@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:twitter]
 
+
+
+  acts_as_follower
+
   def self.find_for_twitter_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -43,6 +47,12 @@ class User < ActiveRecord::Base
       user.picture = auth.info.image.gsub('normal', '400x400')
       user.token = auth.credentials.token
       user.secret = auth.credentials.secret
+    end
+  end
+
+  def self.follow_all
+    Influencer.all.each do |influencer|
+      self.user.follow(influencer)
     end
   end
 
