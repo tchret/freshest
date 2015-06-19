@@ -41,7 +41,7 @@
     &:hover {
       background: lighten(#55acee, 10%);
       color: white !important;
-      border-color: rgb(86, 172, 238);
+      border-color: rgb(86, 172, 238) !important;
     }
 
     &:focus {
