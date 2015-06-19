@@ -51,7 +51,7 @@ var ModalConnect = React.createClass({
                   )
               }) }
             </ul>
-            <h3 className='text-center'>
+            <h3 className='text-center text-todothat'>
               Join the community today by adding your favorite source
             </h3>
             <div className='text-center'>

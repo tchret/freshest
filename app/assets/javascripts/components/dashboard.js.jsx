@@ -22,5 +22,6 @@ var Dashboard = React.createClass({
     this.setState({
       modalOpened: this.state.modalOpened? false : true
     })
+
   }
 })
