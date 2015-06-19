@@ -33,7 +33,9 @@ var InfluencerTile = React.createClass({
   },
 
   handleClick: function(){
-    if(this.props.toggleable) {
+    if(!this.props.toggleable) {
+      $('.modl').addClass('active')
+    } else {
       this.setState({
         isOn: !this.state.isOn
       })
@@ -42,10 +44,8 @@ var InfluencerTile = React.createClass({
         });
       } else {
         $.get( this.props.stop_following_path, function( data ) {
-        });
+      });
       }
-    } else {
-
     }
   }
 })
