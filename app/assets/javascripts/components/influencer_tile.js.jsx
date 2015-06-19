@@ -17,21 +17,27 @@ var InfluencerTile = React.createClass({
       "is-off": !this.state.isOn
     })
     return (
-      <div className={tileClasses}>
-        <img src={influencer.avatar_url} />
-        <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
-          <div className="toggle-switch"></div>
-          <div className="label-container">
-            <label className='label-on'>on</label>
-            <label className='label-off'>off</label>
-          </div>
-        </menu>
+      <div>
+        <div className={tileClasses}>
+          <img src={influencer.avatar_url} />
+          <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
+            <div className="toggle-switch"></div>
+            <div className="label-container">
+              <label className='label-on'>on</label>
+              <label className='label-off'>off</label>
+            </div>
+          </menu>
+        </div>
       </div>
     )
   },
 
   handleClick: function(){
-    if(this.props.toggleable) {
+    if(!this.props.toggleable) {
+      $('.modl').addClass('active')
+      $('.modl-content').addClass('pullUp')
+      $('.text-todothat').text("Join the community today to manage your sources")
+    } else {
       this.setState({
         isOn: !this.state.isOn
       })
@@ -40,7 +46,7 @@ var InfluencerTile = React.createClass({
         });
       } else {
         $.get( this.props.stop_following_path, function( data ) {
-        });
+      });
       }
     }
   }
