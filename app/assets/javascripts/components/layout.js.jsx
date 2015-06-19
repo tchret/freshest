@@ -2,7 +2,8 @@ var Layout = React.createClass({
   getInitialState: function() {
     return {
       heroPost: this.props.heroPost,
-      iframeLoaded: false
+      iframeLoaded: false,
+      redirection: false
     };
   },
 
@@ -58,6 +59,8 @@ var Layout = React.createClass({
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
+
+
   },
 
   removeHeroPostState: function(post) {

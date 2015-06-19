@@ -8,8 +8,13 @@
   width: 40px;
   padding: 9px;
   height: 40px;
-  transform: rotate(45deg);
   display: none;
+
+  @media (max-width: 1200px) {
+    background: $brand-color;
+    border-radius: 0 50% 50% 0;
+    left:0;
+  }
 
   &.visible {
     display: block;
@@ -21,6 +26,8 @@
 
   #cross {
      width: 100%;
+     transform: rotate(45deg);
+
      height: 100%;
      position: relative;
   }
