@@ -48,7 +48,8 @@
     }
 
     &:hover {
-      background: lighten(#55acee, 10%);
+      background: lighten(#55acee, 10%) !important;
+
       color: white !important;
       border-color: rgb(86, 172, 238) !important;
     }
