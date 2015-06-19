@@ -2,6 +2,7 @@
  * You killer button SASS module
  * ------------------------------------- */
 
+
 .button {
   width: auto;
   letter-spacing: 0px;
@@ -76,4 +77,10 @@
     opacity: 0.9;
   }
 
+}
+
+.button-white {
+  background: white;
+  border: white;
+  font-weight: 600;
 }

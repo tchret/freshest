@@ -3,6 +3,7 @@ source "https://rails-assets.org"
 
 ruby "2.2.0"
 
+gem "acts_as_follower"
 gem "rails", "4.2.0"
 gem "pg"
 gem "figaro"

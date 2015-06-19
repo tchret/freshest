@@ -19,6 +19,7 @@
 class Influencer < ActiveRecord::Base
   has_many :posts
   # after_create :add_user_to_list
+  acts_as_followable
 
   validates_presence_of :name, :twitter_id
   validates_uniqueness_of :twitter_id

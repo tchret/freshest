@@ -31,6 +31,14 @@ var Layout = React.createClass({
         {this.props.influencers.map(function (influencer) {
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
+        <div className='interstitial-twitter'>
+          <div className='container'>
+              <p>
+                Get the freshest news of the best sources on Twitter !
+              </p>
+              <a className='button button-white'>Follow us on Twitter</a>
+          </div>
+        </div>
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
           <div className={crossClasses} onClick={this.handleCross}>
             <div id='cross'></div>
@@ -47,8 +55,6 @@ var Layout = React.createClass({
     this.setState({
       heroPost: post
     })
-    console.log(post)
-
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
