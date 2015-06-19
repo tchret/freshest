@@ -219,6 +219,7 @@ GEM
       railties (= 4.2.0)
       sprockets-rails
     rails-assets-headroom.js (0.7.0)
+    rails-assets-pubsub-js (1.5.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -356,6 +357,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.2.0)
   rails-assets-headroom.js
+  rails-assets-pubsub-js
   rails-i18n
   rails_12factor
   react-rails (~> 1.0)

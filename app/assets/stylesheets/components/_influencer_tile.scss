@@ -16,6 +16,8 @@
 
   &.is-off {
     background: #FAFAFA;
+    border-right: 1px solid rgb(243, 243, 243);
+    border-bottom: 1px solid rgb(243, 243, 243);
   }
 
   @media (max-width: $screen-md) {
@@ -129,4 +131,8 @@
 
 .dashboard {
   background: rgba(0, 0, 0, 0.05);
+
+  .button {
+    display: none;
+  }
 }

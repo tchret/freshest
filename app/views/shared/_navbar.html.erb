@@ -37,7 +37,8 @@
       <% else %>
       <%= react_component("ModalConnect", {
         href: user_omniauth_authorize_path(:twitter),
-        last_influencers_images: @influencers[0..4].map {|influencer| influencer.avatar_url}
+        last_influencers_images: @influencers[0..4].map {|influencer| influencer.avatar_url},
+        opened: false
         }) %>
       <% end %>
     </div>

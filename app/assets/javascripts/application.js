@@ -4,6 +4,8 @@
 
 //= require react
 //= require react_ujs
+//= require pubsub-js
+
 //= require components
 //= require_tree ./app
 

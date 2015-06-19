@@ -1,7 +1,7 @@
 var ModalConnect = React.createClass({
   getInitialState: function() {
     return {
-      opened: false,
+      opened: this.props.opened,
       redirection: false
     };
   },
