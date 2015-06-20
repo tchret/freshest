@@ -37,6 +37,28 @@ class Influencer < ActiveRecord::Base
     end
   end
 
+  def self.update_link
+    Influencer.all.each do |influencer|
+      if influencer.article_url
+        open(influencer.article_url) do |resp|
+          puts resp.base_uri.to_s
+          influencer.article_url = resp.base_uri.to_s
+          influencer.save
+        end
+
+      end
+    end
+  end
+
+  def self.update_iframeable
+    Influencer.all.each do |influencer|
+      if influencer.article_url
+        influencer.iframeable = open(influencer.article_url) {|f| !f.meta.has_key?("x-frame-options") }
+        influencer.save
+      end
+    end
+  end
+
   # def add_user_to_list
   #   TwitterService.new.add_influencer_to_list('freshst-dev', self.twitter_id)
   # end

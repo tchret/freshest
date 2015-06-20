@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618202327) do
+ActiveRecord::Schema.define(version: 20150620213408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150618202327) do
     t.string   "title"
     t.text     "description"
     t.datetime "last_post_at"
+    t.boolean  "iframeable"
   end
 
   create_table "posts", force: :cascade do |t|

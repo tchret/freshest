@@ -60,8 +60,6 @@ var Layout = React.createClass({
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
-
-
   },
 
   removeHeroPostState: function(post) {
