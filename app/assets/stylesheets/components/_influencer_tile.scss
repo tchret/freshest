@@ -34,15 +34,16 @@
   }
 
   img {
-    width: 2em;
+    border-radius: 3px;
+    width: 3em;
   }
 }
 
 .toggle-switch {
   background-color: #fff;
   border: 1px solid transparent;
-  height: 1.2em;
-  width: 1.2em;
+  height: 1.4em;
+  width: 1.4em;
   border-radius: 50%;
   position: absolute;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
@@ -56,11 +57,11 @@
 .influencer-tile-menu {
   display: block;
   float: right;
-  height: 1.2em;
+  height: 1.5em;
   border-radius: 20em;
   width: 3em;
   margin: 0;
-  margin-top: 6px;
+  margin-top: 14px;
   padding: 0;
   position: relative;
   background: #00FFC6;
@@ -72,12 +73,12 @@
     font-weight: normal;
     margin: 0;
     position: absolute;
-    font-size: .7em;
+    font-size: .8em;
     color: rgba(0, 0, 0, 0.32);
     transition: transform .2s ease-in;
     transform: translateX(0);
     z-index: 0;
-    line-height: 1.6;
+    line-height: 1.8;
   }
 
   &.is-on {

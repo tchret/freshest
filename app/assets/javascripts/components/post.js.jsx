@@ -16,11 +16,9 @@ var Post = React.createClass({
                 </li>
               </ul>
               <div className="post-content">
-                <a href={influencer.article_url} target='_blank' className='link-title'>
                   <h4>
                     {influencer.title}
                   </h4>
-                </a>
                 <p>
                   {influencer.description}
                 </p>

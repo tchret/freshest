@@ -2,13 +2,15 @@ var Layout = React.createClass({
   getInitialState: function() {
     return {
       heroPost: this.props.heroPost,
-      iframeLoaded: false
+      heroPostPresent: this.props.heroPost ? true : false,
+      iframeLoaded: false,
+      redirection: false
     };
   },
 
   render: function() {
     if (this.state.heroPost) {
-      heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} />
+      heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} closeModal={this.removeHeroPostState} />
       $('body').addClass('no-scroll')
     } else {
       $('body').removeClass('no-scroll')
@@ -23,7 +25,7 @@ var Layout = React.createClass({
     crossClasses = React.addons.classSet ({
       "cross-container": true,
       "pointer": true,
-      'visible': this.state.iframeLoaded
+      'visible': this.state.iframeLoaded,
     })
 
     return(
@@ -53,16 +55,20 @@ var Layout = React.createClass({
 
   handleHeroPostDisplay: function(post) {
     this.setState({
-      heroPost: post
-    })
+      heroPost: post,
+     })
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
+
+
   },
 
   removeHeroPostState: function(post) {
     this.setState({
-      heroPost: null
+      heroPost: null,
+      iframeLoaded: false
+
     })
     window.history.pushState('', "Freshest", '/')
   },

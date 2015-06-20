@@ -1,3 +1,22 @@
+.helper-container {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    padding-bottom: 40px;
+  }
+
+  .text-center {
+    max-width: 700px;
+  }
+}
+
 .hero-post-modal {
   position: fixed;
   top: 0px;
@@ -42,6 +61,7 @@
     position: relative;
     -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
+    z-index: 1;
   }
 
   iframe {
@@ -73,6 +93,10 @@
   &.is-hidden {
     display: none;
   }
+}
+
+.catch-waiting {
+  padding-bottom: 20px;
 }
 
 .spinner {
