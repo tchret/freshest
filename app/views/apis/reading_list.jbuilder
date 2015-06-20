@@ -1,4 +1,5 @@
 if @influencers
+  # json.picture @user.picture
   json.array!(@influencers) do |influencer|
     json.name influencer.name
     json.avatar_url influencer.avatar_url
