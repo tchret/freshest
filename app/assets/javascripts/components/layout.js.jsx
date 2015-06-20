@@ -3,7 +3,6 @@ var Layout = React.createClass({
     return {
       heroPost: this.props.heroPost,
       heroPostPresent: this.props.heroPost ? true : false,
-      iframeLoaded: false,
       redirection: false
     };
   },
@@ -25,7 +24,7 @@ var Layout = React.createClass({
     crossClasses = React.addons.classSet ({
       "cross-container": true,
       "pointer": true,
-      'visible': this.state.iframeLoaded,
+      'visible': this.state.heroPost ? true : false,
     })
 
     return(
@@ -56,27 +55,23 @@ var Layout = React.createClass({
   handleHeroPostDisplay: function(post) {
     this.setState({
       heroPost: post,
+      heroPostPresent: true
      })
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
-
-
   },
 
   removeHeroPostState: function(post) {
     this.setState({
       heroPost: null,
-      iframeLoaded: false
-
+      heroPostPresent: true
     })
     window.history.pushState('', "Freshest", '/')
   },
 
-  handleCross: function() {
-    this.setState({
-      iframeLoaded: this.state.iframeLoaded ? false : true
-    })
+  handleCross: function(){
+    this.removeHeroPostState()
   },
 
   stopPropagation: function(e){
