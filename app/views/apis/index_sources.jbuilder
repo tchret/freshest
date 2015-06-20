@@ -3,4 +3,5 @@ json.array!(@influencers) do |influencer|
   json.avatar_url influencer.avatar_url
   json.title influencer.title
   json.url influencer.article_url
+  json.description influencer.description
 end

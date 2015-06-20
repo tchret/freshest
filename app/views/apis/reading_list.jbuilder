@@ -4,6 +4,7 @@ if @influencers
     json.avatar_url influencer.avatar_url
     json.title influencer.title
     json.url influencer.article_url
+    json.description influencer.description
   end
 else
   json.error "user not found"
