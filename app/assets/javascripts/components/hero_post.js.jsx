@@ -20,10 +20,6 @@ var HeroPost = React.createClass({
       'is-hidden': this.state.iframeLoaded
     })
 
-    var iframeClasses = React.addons.classSet({
-      'is-visible': this.state.iframeLoaded
-    })
-
     var btnClasses = React.addons.classSet({
       'button': true,
       'button-wait': true,
@@ -32,7 +28,7 @@ var HeroPost = React.createClass({
 
     return (
       <div className='hero-post' onLoad={this.handleRedirection}>
-        <div className={loaderClasses}>
+        <div className="l-loader is-hidden">
           <div>
             <div className="spinner" />
             <div className="text-center catch-waiting">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
@@ -42,9 +38,9 @@ var HeroPost = React.createClass({
           </div>
         </div>
         <div className='iframe-container'>
-          <iframe className={iframeClasses} ref="embedArticle" onLoad={this.handleLoad} src={heroPost.article_url}  />
+          <iframe className="is-visible" ref="embedArticle" onLoad={this.handleLoad} src={heroPost.article_url}  />
         </div>
-        <div className='helper-container'>
+        <div className='helper-container hidden'>
           <div className='text-center'>
             <p>
               Oops, the content of <strong>{heroPost.title}</strong> could not be opened here
@@ -54,14 +50,6 @@ var HeroPost = React.createClass({
         </div>
       </div>
     )
-  },
-
-  handleLoad: function() {
-    this.setState({
-      iframeLoaded: true
-    })
-
-    this.props.handleCross()
   },
 
   handleModal: function(){

@@ -33,13 +33,9 @@ var Post = React.createClass({
       </div>
     )
   },
-  updateUrl: function(twitterId, name) {
-
-  },
 
   displayPost: function() {
     this.props.parentComponent.handleHeroPostDisplay(this.props.influencer)
-
   }
 
 
