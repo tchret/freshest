@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :posts, only: [:index]
   get '/meta', to: 'posts#get_meta', as: 'meta'
   get '/sources', to: 'influencers#index', as: 'sources'
+  get '/api/reading_list/all', to: 'apis#index_sources'
+  get '/api/reading_list/:id', to: 'apis#reading_list'
+
 
 
   mount Sidekiq::Web => '/sidekiq'
