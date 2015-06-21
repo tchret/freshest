@@ -11,8 +11,8 @@ var Dashboard = React.createClass({
 
     return(
       <div className='dashboard'>
-        {this.props.influencers.map(function (influencer) {
-          return(<InfluencerTile influencer={influencer.infos} parent={this} isOn={influencer.isOn} follow_path={influencer.follow_path} toggleable={that.props.toggleable} stop_following_path={influencer.stop_following_path}/>)
+        {this.props.sources.map(function (source) {
+          return(<SourceTile source={source.infos} parent={this} isOn={source.isOn} follow_path={source.follow_path} toggleable={that.props.toggleable} stop_following_path={source.stop_following_path}/>)
         }, that)}
       </div>
     )

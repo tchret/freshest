@@ -1,4 +1,4 @@
-var InfluencerTile = React.createClass({
+var SourceTile = React.createClass({
   getInitialState: function() {
     return {
       isOn: this.props.isOn
@@ -6,20 +6,20 @@ var InfluencerTile = React.createClass({
   },
 
   render: function() {
-    var influencer = this.props.influencer
+    var source = this.props.source
     tileClasses = React.addons.classSet({
-      "influencer-tile": true,
+      "source-tile": true,
       "is-off": !this.state.isOn
     })
     toggleMenuClasses = React.addons.classSet({
-      "influencer-tile-menu": true,
+      "source-tile-menu": true,
       "is-on": this.state.isOn,
       "is-off": !this.state.isOn
     })
     return (
-      <div className='influencer-tile-container'>
+      <div className='source-tile-container'>
         <div className={tileClasses}>
-          <img src={influencer.avatar_url} className='shadowed' />
+          <img src={source.avatar_url} className='shadowed' />
           <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
             <div className="toggle-switch"></div>
             <div className="label-container">

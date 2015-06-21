@@ -1,4 +1,4 @@
-var ModalInfluencer = React.createClass({
+var ModalSource = React.createClass({
   getInitialState: function() {
     return {
       opened: false,
@@ -9,7 +9,7 @@ var ModalInfluencer = React.createClass({
   render: function(){
 
     var modalClasses = React.addons.classSet({
-      "modl-influencer": true,
+      "modl-source": true,
       "modl": true,
       "active": this.state.opened,
       'is-submitted': this.state.submitted

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: influencers
+# Table name: sources
 #
 #  id              :integer          not null, primary key
 #  name            :string
@@ -16,7 +16,7 @@
 #  last_post_at    :string
 #
 
-class Influencer < ActiveRecord::Base
+class Source < ActiveRecord::Base
   has_many :posts
   # after_create :add_user_to_list
   acts_as_followable
@@ -29,21 +29,21 @@ class Influencer < ActiveRecord::Base
   end
 
   def self.update_avatars
-    Influencer.all.each do |influencer|
-      if influencer.avatar_url
-        influencer.avatar_url = influencer.avatar_url.gsub('normal', '400x400')
+    Source.all.each do |source|
+      if source.avatar_url
+        source.avatar_url = source.avatar_url.gsub('normal', '400x400')
       end
-      influencer.save
+      source.save
     end
   end
 
   def self.update_link
-    Influencer.all.each do |influencer|
-      if influencer.article_url
-        open(influencer.article_url) do |resp|
+    Source.all.each do |source|
+      if source.article_url
+        open(source.article_url) do |resp|
           puts resp.base_uri.to_s
-          influencer.article_url = resp.base_uri.to_s
-          influencer.save
+          source.article_url = resp.base_uri.to_s
+          source.save
         end
 
       end
@@ -51,17 +51,17 @@ class Influencer < ActiveRecord::Base
   end
 
   def self.update_iframeable
-    Influencer.all.each do |influencer|
-      if influencer.article_url
-        influencer.iframeable = open(influencer.article_url) {|f| !f.meta.has_key?("x-frame-options") }
-        puts  influencer.iframeable
-        influencer.save
+    Source.all.each do |source|
+      if source.article_url
+        source.iframeable = open(source.article_url) {|f| !f.meta.has_key?("x-frame-options") }
+        puts  source.iframeable
+        source.save
       end
     end
   end
 
   # def add_user_to_list
-  #   TwitterService.new.add_influencer_to_list('freshst-dev', self.twitter_id)
+  #   TwitterService.new.add_source_to_list('freshst-dev', self.twitter_id)
   # end
 
 end

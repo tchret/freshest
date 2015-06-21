@@ -5,35 +5,32 @@ var Post = React.createClass({
     };
   },
   render: function() {
-    var influencer = this.props.influencer
-    var iframeable = influencer.iframeable
-
+    var source = this.props.source
+    var iframeable = source.iframeable
     return (
       <div className="post-container">
         <div className="container">
-            <div className={"post post-" + influencer.id } onClick={this.displayPost}>
-              <div className='col-xs-10 col-sm-10'>
-                <ul className="list-unstyled list-inline influencer-infos">
+            <div className={"post post-" + source.id } onClick={this.displayPost}>
+              <div className='col-xs-12 col-sm-10'>
+                <ul className="list-unstyled list-inline source-infos">
                   <li>
-                    {influencer.name}
+                    {source.name}
                   </li>
                   <li className="font-light color-light small">
-                    {timeSince(new Date(influencer.last_post_at))} ago
+                    {timeSince(new Date(source.last_post_at))} ago
                   </li>
                 </ul>
                 <div className="post-content">
                     <h4>
-                      <span>
-                        {influencer.title}
-                      </span>
+                      {source.title}
                     </h4>
                   <p>
-                    {influencer.description}
+                    {source.description}
                   </p>
                 </div>
               </div>
-              <div className="col-sm-2 col-xs-2 post-avatar p20 kill-pr">
-                <img src={influencer.avatar_url} className="img total-width shadowed border-radius-2" />
+              <div className="col-sm-2 hidden-xs post-avatar p20 kill-pr">
+                <img src={source.avatar_url} className="img total-width shadowed border-radius-2" />
               </div>
               <div className='clear' />
             </div>
@@ -43,14 +40,11 @@ var Post = React.createClass({
   },
 
   displayPost: function() {
-    this.setState({
-      opened: true
-    })
-    var influencer = this.props.influencer
-    if (influencer.iframeable) {
-      this.props.parentComponent.handleHeroPostDisplay(this.props.influencer)
+    var source = this.props.source
+    if (source.iframeable) {
+      this.props.parentComponent.handleHeroPostDisplay(this.props.source)
     } else {
-      window.open(influencer.article_url, '_blank')
+      window.open(source.article_url, '_blank')
     }
   },
 

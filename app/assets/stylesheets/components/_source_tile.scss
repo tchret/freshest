@@ -1,21 +1,21 @@
 @media (min-width: $screen-md) {
-  .influencer-tile-container:nth-child(3n) {
-    .influencer-tile {
+  .source-tile-container:nth-child(3n) {
+    .source-tile {
       border-right: none;
     }
   }
 }
 
 @media (max-width: $screen-md) {
-  .influencer-tile-container:nth-child(2n) {
-    .influencer-tile {
+  .source-tile-container:nth-child(2n) {
+    .source-tile {
       border-right: none;
     }
   }
 }
 
 
-.influencer-tile {
+.source-tile {
   background: white;
   box-sizing: border-box;
   width: 33.333%;
@@ -72,7 +72,7 @@
   z-index: 1;
 }
 
-.influencer-tile-menu {
+.source-tile-menu {
   display: block;
   float: right;
   height: 1.5em;

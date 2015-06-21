@@ -1,15 +1,15 @@
-if @influencers
+if @sources
   # json.picture @user.picture
   json.user do
     json.picture @user.picture
   end
   json.posts do
-    json.array!(@influencers) do |influencer|
-      json.name influencer.name
-      json.avatar_url influencer.avatar_url
-      json.title influencer.title
-      json.url influencer.article_url
-      json.description influencer.description
+    json.array!(@sources) do |source|
+      json.name source.name
+      json.avatar_url source.avatar_url
+      json.title source.title
+      json.url source.article_url
+      json.description source.description
     end
   end
 else
