@@ -10,7 +10,7 @@ var Post = React.createClass({
     return (
       <div className="post-container">
         <div className="container">
-            <div className={"post post-" + influencer.id } onClick={this.displayPost}>
+            <div className={"post post-" + source.id } onClick={this.displayPost}>
               <div className='col-xs-12 col-sm-10'>
                 <ul className="list-unstyled list-inline source-infos">
                   <li>
@@ -40,18 +40,9 @@ var Post = React.createClass({
   },
 
   displayPost: function() {
-<<<<<<< HEAD
-    this.setState({
-      opened: true
-    })
-    var influencer = this.props.influencer
-    if (influencer.iframeable) {
-      this.props.parentComponent.handleHeroPostDisplay(this.props.influencer)
-=======
     var source = this.props.source
     if (source.iframeable) {
       this.props.parentComponent.handleHeroPostDisplay(this.props.source)
->>>>>>> clean-cod
     } else {
       window.open(source.article_url, '_blank')
     }

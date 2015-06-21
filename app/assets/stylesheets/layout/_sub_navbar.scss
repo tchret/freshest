@@ -38,7 +38,7 @@
   border-bottom: 3px solid black;
 }
 
-.sources_index, .sources_show {
+.sources_index {
   .dashboard-link {
     @extend .link-active;
   }
@@ -50,7 +50,7 @@
   }
 }
 
-.posts_index {
+.posts_index, .sources_show {
   .reading-list-link {
     @extend .link-active;
   }

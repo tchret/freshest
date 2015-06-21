@@ -11,12 +11,8 @@ Rails.application.routes.draw do
     end
   end
   resources :posts, only: [:index]
-<<<<<<< HEAD
-  get '/meta', to: 'posts#get_meta', as: 'meta'
-  get '/sources', to: 'influencers#index', as: 'sources'
   get '/about', to: 'pages#about', as: 'about'
-=======
->>>>>>> clean-cod
+
   get '/api/reading_list/all', to: 'apis#index_sources'
   get '/api/reading_list/:id', to: 'apis#reading_list'
 
