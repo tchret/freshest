@@ -11,8 +11,15 @@
   .sign-in {
     display: inline-block;
     margin-right: 20px;
-    font-size: 17px;
+    font-size: 16px;
+    position: relative;
+    top: 1px;
     color: rgba(0, 0, 0, 0.2);
+    font-weight: 100;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.4);
+    }
   }
 
   .user-link {
