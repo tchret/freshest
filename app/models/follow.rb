@@ -10,4 +10,11 @@ class Follow < ActiveRecord::Base
   def block!
     self.update_attribute(:blocked, true)
   end
+
+  def self.update_type
+    all.each do |follow|
+      follow.followable_type = "Source"
+      follow.save
+    end
+  end
 end
