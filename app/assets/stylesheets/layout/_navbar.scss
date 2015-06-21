@@ -1,72 +1,106 @@
+.avatar-user {
+  width: 44px;
+  margin: 1px 0px 0px 20px;
+}
+
 .navigation-bar {
   z-index: 2;
   padding: 10px 0 10px 0;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
+
+  .sign-in {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  .user-link {
+    margin-top: 1px;
+  }
 
   .brand {
     float: left;
 
     .miniature {
-      background-color: black;
+      background-color: $brand-color;
       display: inline-block;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       border-radius: 4px;
       color: white;
       margin-left: 0;
-      margin: 13px;
+      margin: 19px;
       margin-left: 0;
       font-weight: bold;
-      font-size: 35px;
+      font-size: 23px;
       display: flex;
       align-items: center;
       justify-content: center;
       float: left;
+
+      span {
+        position: relative;
+        bottom: -10px;
+        right: -11px;
+        font-size: 46px;
+      }
     }
 
     &-link {
       &:hover {
         .logo {
           span {
-            box-shadow: inset 0 -17px 0 $brand-color;
+            box-shadow: inset 0 -6px 0 #00FFC6;
+
           }
         }
       }
     }
 
-    @media (max-width: $screen-sm){
-      text-align: center;
-      width: 100%;
-    }
+    // @media (max-width: $screen-sm){
+    //   text-align: center;
+    //   width: 100%;
+    // }
     .logo {
+      padding-top: 11px;
+
       span {
-        transition: 0.1s box-shadow linear;
-        font-size: 35px;
+        font-size: 25px;
         font-weight: bold;
         color: #000000;
-        box-shadow: inset 0 -8px 0 $brand-color;
-        letter-spacing: -1.5px;
+        box-shadow: inset 0 -6px 0 #00FFC6;
+        letter-spacing: -1px;
         display: inline-block;
-        height: 42px;
+        height: 29px;
         width: auto;
-        overflow: hidden;
+        overflow: visible;
       }
     }
     .slogan {
-      color: rgb(134, 134, 134);
+      color: rgba(134, 134, 134, 0.49);
+      font-size: 16px;
     }
   }
   .nav-link {
     text-align: right;
   }
 
+
   .bar-right {
     padding-top: 11px;
 
-    @media (max-width: $screen-sm) {
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-    }
+    // @media (max-width: $screen-sm) {
+    //   width: 100%;
+    //   text-align: center;
+    //   margin-top: 20px;
+    // }
+  }
+}
+
+.navigation-bar {
+  .button {
+    margin-top: 5px;
   }
 }
 
@@ -86,6 +120,12 @@
 .dropdown-menu {
   box-shadow: none;
   border-radius: 9px;
+}
+
+.dropdown {
+  .dropdown-toggle {
+    padding: 0;
+  }
 }
 
 .navbar-nav > li > .dropdown-menu {

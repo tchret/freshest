@@ -1,13 +1,15 @@
 var Layout = React.createClass({
   getInitialState: function() {
     return {
-      heroPost: this.props.heroPost
+      heroPost: this.props.heroPost,
+      heroPostPresent: this.props.heroPost ? true : false,
+      redirection: false
     };
   },
 
   render: function() {
     if (this.state.heroPost) {
-      heroPost = <HeroPost heroPost={this.state.heroPost} />
+      heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} closeModal={this.removeHeroPostState} />
       $('body').addClass('no-scroll')
     } else {
       $('body').removeClass('no-scroll')
@@ -22,7 +24,7 @@ var Layout = React.createClass({
     crossClasses = React.addons.classSet ({
       "cross-container": true,
       "pointer": true,
-      'visible': this.state.heroPost
+      'visible': this.state.heroPost ? true : false,
     })
 
     return(
@@ -30,11 +32,19 @@ var Layout = React.createClass({
         {this.props.influencers.map(function (influencer) {
           return(<Post influencer={influencer} parentComponent={this} />)
         }, this)}
+        <div className='interstitial-twitter'>
+          <div className='container'>
+              <p>
+                Get the freshest news from the best sources on Twitter !
+              </p>
+              <a href="https://twitter.com/frshst" target="_blank" className='button button-white'>Follow us on Twitter</a>
+          </div>
+        </div>
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
-          <div className={crossClasses}>
+          <div className={crossClasses} onClick={this.handleCross}>
             <div id='cross'></div>
           </div>
-          <div className="hero-post-container">
+          <div className="hero-post-container" onClick={this.stopPropagation}>
             {heroPost}
           </div>
         </div>
@@ -44,10 +54,9 @@ var Layout = React.createClass({
 
   handleHeroPostDisplay: function(post) {
     this.setState({
-      heroPost: post
-    })
-    console.log(post)
-
+      heroPost: post,
+      heroPostPresent: true
+     })
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
@@ -55,9 +64,18 @@ var Layout = React.createClass({
 
   removeHeroPostState: function(post) {
     this.setState({
-      heroPost: null
+      heroPost: null,
+      heroPostPresent: true
     })
     window.history.pushState('', "Freshest", '/')
+  },
 
+  handleCross: function(){
+    this.removeHeroPostState()
+  },
+
+  stopPropagation: function(e){
+      e.stopPropagation();
+      e.nativeEvent.stopImmediatePropagation();
   }
 })

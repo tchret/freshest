@@ -21,6 +21,8 @@ Influencer.create(name: "The Verge", twitter_id: "verge")
 Influencer.create(name: "The Latest", twitter_id: "latest_is")
 Influencer.create(name: "A List Apart", twitter_id: "alistapart")
 Influencer.create(name: "Re/code", twitter_id: "Recode")
+Influencer.create(name: "VentureBeat", twitter_id: "VentureBeat")
+Influencer.create(name: "Quora", twitter_id: "Quora")
 
 
 

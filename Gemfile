@@ -3,6 +3,7 @@ source "https://rails-assets.org"
 
 ruby "2.2.0"
 
+gem "acts_as_follower"
 gem "rails", "4.2.0"
 gem "pg"
 gem "figaro"
@@ -30,9 +31,12 @@ gem 'rails-assets-headroom.js'
 gem "omniauth-twitter"
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'jbuilder'
-gem 'sidekiq'
 gem 'intercom-rails'
-
+gem 'sinatra'
+gem 'sidekiq'
+gem 'sidekiq-failures'
+gem 'sidetiq'
+gem 'rails-assets-pubsub-js'
 
 group :development, :test do
   gem "spring"

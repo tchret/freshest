@@ -1,0 +1,47 @@
+.pages_about .hero {
+  font-size: 27px;
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.team {
+  max-width: 900px;
+  margin: 50px auto;
+
+
+  h4{
+    font-weight: 600;
+  }
+}
+
+.team-title {
+  padding-bottom: 50px;
+}
+
+.team-card {
+  .row-table-sm {
+    margin: auto;
+  }
+
+  .img-container {
+    vertical-align: middle;
+    img {
+      width: 100px;
+    }
+  }
+  .text-left {
+    vertical-align: middle;
+    padding-left: 20px;
+
+
+    a {
+      color: black;
+      box-shadow: inset 0 -5px 0 #00FFC6;
+      display: inline-block;
+      font-weight: normal;
+      height: 19px;
+    }
+  }
+}
+
+

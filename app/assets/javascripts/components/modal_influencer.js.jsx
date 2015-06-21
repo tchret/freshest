@@ -20,19 +20,19 @@ var ModalInfluencer = React.createClass({
       "pullUp": this.state.opened
     })
 
-    btnValue = this.state.submitted ? "THANKS FOR THE SUGGESTION - BACK TO THE SITE" : "SUGGEST THE INFLUENCER"
+    btnValue = this.state.submitted ? "THANKS FOR THE SUGGESTION - BACK TO THE SITE" : "SUGGEST A SOURCE"
 
     return(
       <div className="modal-component">
         <a className='button' onClick={this.handleClick}>
           <span>
-            Suggest an influencer
+            Suggest a source
           </span>
         </a>
         <div className={modalClasses}  onClick={this.handleClick}>
           <div className={modalContentClasses}>
             <form className='formspree' data-remote='true' action="https://formspree.io/tchret@gmail.com" method="POST">
-                <input autoComplete="off" className="input-twitter-username" ref='twitter' name='twitter_id' placeholder="twitter_username" onClick={this.stopPropagation} />
+                <input autoComplete="off" className="input-twitter-username" ref='twitter' name='twitter_id' placeholder="ex: TechCrunch" onClick={this.stopPropagation} />
                 <input type="hidden" name="_subject" value="New suggestion!" />
                 <input type="hidden" name="_cc" value="edward.schults@gmail.com" />
                 <input type="hidden" name="from" value={this.props.currentUser.twitter_id} />

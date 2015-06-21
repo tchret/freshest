@@ -1,4 +1,13 @@
+//= 'kudos_services.js'
+
 var HeroPost = React.createClass({
+  getInitialState: function() {
+    return {
+      iframeLoaded: false,
+      btnArticle: false
+    };
+  },
+
   render: function() {
     var heroPost = this.props.heroPost
 
@@ -6,33 +15,45 @@ var HeroPost = React.createClass({
       backgroundImage: 'url(' + heroPost.article_picture + ')'
     }
 
+    var loaderClasses = React.addons.classSet({
+      'l-loader': true,
+      'is-hidden': this.state.iframeLoaded
+    })
+
+    var btnClasses = React.addons.classSet({
+      'button': true,
+      'button-wait': true,
+      'is-hidden': !this.state.btnArticle
+    })
+
     return (
-      <div className='hero-post' onClick={this.stopPropagation}>
-        <div className='l-loader'>
+      <div className='hero-post' onLoad={this.handleRedirection}>
+        <div className="l-loader">
           <div>
             <div className="spinner" />
-            <div className="text-center">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
+            <div className="text-center catch-waiting">Getting the freshest from <span className='highlighted'>{heroPost.name}</span></div>
+            <div className='text-center'>
+              <a href={heroPost.article_url} onClick={this.handleModal} target='_blank' className={btnClasses}>Go to original content</a>
+            </div>
           </div>
         </div>
         <div className='iframe-container'>
-          <iframe ref="embedArticle" src={heroPost.article_url} />
+          <iframe className="is-visible" ref="embedArticle" onLoad={this.handleLoad} src={heroPost.article_url}  />
         </div>
-        <div className='hero-profile'>
-          <div className='col-xs-1'>
-            <img src={heroPost.avatar_url} />
+        <div className='helper-container hidden'>
+          <div className='text-center'>
+            <p>
+              Oops, the content of <strong>{heroPost.title}</strong> could not be opened here
+            </p>
+            <a href={heroPost.article_url} onClick={this.handleModal} target='_blank' className="button">Go to original content</a>
           </div>
-          <h1>{heroPost.name}</h1>
-
         </div>
       </div>
     )
   },
 
-  componentDidMount: function(){
-    var iframe = $('.hero-post iframe')
-    $('.hero-post iframe').on('load', function(){
-      $('.l-loader').remove()
-    })
+  handleModal: function(){
+    this.props.closeModal()
   },
 
   stopPropagation: function(e){
