@@ -54,6 +54,7 @@ class Influencer < ActiveRecord::Base
     Influencer.all.each do |influencer|
       if influencer.article_url
         influencer.iframeable = open(influencer.article_url) {|f| !f.meta.has_key?("x-frame-options") }
+        puts  influencer.iframeable
         influencer.save
       end
     end
