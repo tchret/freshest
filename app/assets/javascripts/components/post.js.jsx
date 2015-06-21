@@ -1,11 +1,17 @@
 var Post = React.createClass({
+  getInitialState: function() {
+    return {
+      opened: false
+    };
+  },
   render: function() {
     var influencer = this.props.influencer
     var iframeable = influencer.iframeable
+
     return (
       <div className="post-container">
         <div className="container">
-            <div className="post" onClick={this.displayPost}>
+            <div className={"post post-" + influencer.id } onClick={this.displayPost}>
               <div className='col-xs-12 col-sm-10'>
                 <ul className="list-unstyled list-inline influencer-infos">
                   <li>
@@ -17,7 +23,9 @@ var Post = React.createClass({
                 </ul>
                 <div className="post-content">
                     <h4>
-                      {influencer.title}
+                      <span>
+                        {influencer.title}
+                      </span>
                     </h4>
                   <p>
                     {influencer.description}
@@ -35,11 +43,17 @@ var Post = React.createClass({
   },
 
   displayPost: function() {
+    this.setState({
+      opened: true
+    })
     var influencer = this.props.influencer
     if (influencer.iframeable) {
       this.props.parentComponent.handleHeroPostDisplay(this.props.influencer)
     } else {
       window.open(influencer.article_url, '_blank')
     }
+  },
+
+  componentDidMount: function(){
   }
 })

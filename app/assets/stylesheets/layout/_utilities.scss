@@ -130,3 +130,44 @@
 .margin-top-4 {
   margin-top: 4px !important;
 }
+
+.equal-height {
+
+  /*
+   * Make equal height with table styles
+   */
+
+  @media (min-width: 768px) {
+    .row-table-sm {
+      display: table;
+      table-layout: fixed;
+    }
+    .row-table-sm [class^="col-"] {
+      display: table-cell;
+      float: none;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .row-table-md {
+      display: table;
+      table-layout: fixed;
+    }
+    .row-table-md [class^="col-"] {
+      display: table-cell;
+      float: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .row-table-lg {
+      display: table;
+      table-layout: fixed;
+    }
+    .row-table-lg [class^="col-"] {
+      display: table-cell;
+      float: none;
+    }
+  }
+
+}
