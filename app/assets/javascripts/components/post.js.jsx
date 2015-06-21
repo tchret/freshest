@@ -5,7 +5,7 @@ var Post = React.createClass({
     return (
       <div className="post-container">
         <div className="container">
-            <div className="post" onClick={this.displayPost}>
+            <div className={"post post-" + influencer.id } onClick={this.displayPost}>
               <div className='col-xs-12 col-sm-10'>
                 <ul className="list-unstyled list-inline influencer-infos">
                   <li>
@@ -17,7 +17,9 @@ var Post = React.createClass({
                 </ul>
                 <div className="post-content">
                     <h4>
-                      {influencer.title}
+                      <span>
+                        {influencer.title}
+                      </span>
                     </h4>
                   <p>
                     {influencer.description}
@@ -41,5 +43,14 @@ var Post = React.createClass({
     } else {
       window.open(influencer.article_url, '_blank')
     }
+  },
+
+  componentDidMount: function(){
+    post = $('.post-' + this.props.influencer.id)
+    var words = post.find("h4").text().split(" ");
+    post.find("h4").empty();
+    $.each(words, function(i, v) {
+        post.find("h4").append($("<span>").text(v));
+    });
   }
 })
