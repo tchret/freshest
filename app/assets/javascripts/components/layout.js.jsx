@@ -29,8 +29,8 @@ var Layout = React.createClass({
 
     return(
       <div className='layout-container'>
-        {this.props.influencers.map(function (influencer) {
-          return(<Post influencer={influencer} parentComponent={this} />)
+        {this.props.sources.map(function (source) {
+          return(<Post source={source} parentComponent={this} />)
         }, this)}
         <div className='interstitial-twitter'>
           <div className='container'>

@@ -21,7 +21,7 @@
       <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= react_component("ModalInfluencer", {
+            <%= react_component("ModalSource", {
               currentUser: current_user.slice(:twitter_id)
               }) %>
           </li>
@@ -37,7 +37,7 @@
       <% else %>
       <%= react_component("ModalConnect", {
         href: user_omniauth_authorize_path(:twitter),
-        last_influencers_images: @influencers[0..4].map {|influencer| influencer.avatar_url},
+        last_sources_images: @sources[0..4].map {|source| source.avatar_url},
         opened: false
         }) %>
       <% end %>

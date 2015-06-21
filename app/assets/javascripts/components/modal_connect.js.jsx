@@ -42,11 +42,11 @@ var ModalConnect = React.createClass({
             You should have been prompted to sign in within a popup window.
           </div>
           <div className={modalContentClasses}>
-            <ul className='influencers-avatar list-inline text-center'>
-              { this.props.last_influencers_images.map(function(influencer_avatar) {
+            <ul className='sources-avatar list-inline text-center'>
+              { this.props.last_sources_images.map(function(source_avatar) {
                 return (
                   <li>
-                    <img src={influencer_avatar} className='avatar' />
+                    <img src={source_avatar} className='avatar' />
                   </li>
                   )
               }) }

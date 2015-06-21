@@ -24,11 +24,11 @@ class TwitterService
     @client.list_timeline(slug)[0..(size - 1)]
   end
 
-  def add_influencers_to_list(list, users)
+  def add_sources_to_list(list, users)
     @client.add_list_members(list, users)
   end
 
-  def add_influencer_to_list(list, user)
+  def add_source_to_list(list, user)
     @client.add_list_member(list, user)
 
   end
