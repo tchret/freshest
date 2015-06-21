@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
+      user.followers_count = auth.extra.raw_info.followers_count
       user.name = auth.info.name
       user.twitter_id = auth.info.nickname
       user.picture = auth.info.image.gsub('normal', '400x400')
