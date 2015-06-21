@@ -35,11 +35,6 @@
               <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
             </ul>
           </li>
-          <li class="pull-right">
-            <%= react_component("ModalSource", {
-              currentUser: current_user.slice(:twitter_id)
-              }) %>
-          </li>
         </ul>
       <% else %>
       <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
