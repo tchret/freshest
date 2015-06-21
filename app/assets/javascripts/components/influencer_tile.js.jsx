@@ -17,7 +17,7 @@ var InfluencerTile = React.createClass({
       "is-off": !this.state.isOn
     })
     return (
-      <div>
+      <div className='influencer-tile-container'>
         <div className={tileClasses}>
           <img src={influencer.avatar_url} className='shadowed' />
           <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
