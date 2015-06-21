@@ -26,14 +26,18 @@
   }
 
   &-influencer {
-    background: rgba(85, 172, 238, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     transition: background 0.5s ease;
 
     &.is-submitted {
-      background: $green;
+      background: rgba(46, 204, 113, 0.98);
 
       .button {
-        color: $green;
+        color: rgba(46, 204, 113, 0.98);
+      }
+
+      .input-twitter-username {
+        color: white;
       }
     }
 
@@ -60,9 +64,11 @@
     }
 
     .input-twitter-username {
+      color: black;
       background: none;
       border: none;
       text-align: center;
+      transition: color 0.5s ease;
 
       &:focus {
         outline: 0;
@@ -70,18 +76,18 @@
     }
 
     ::-webkit-input-placeholder { /* WebKit browsers */
-        color:    rgba(255, 255, 255, 0.52);
+        color:    rgba(0, 0, 0, 0.2);
     }
     :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-       color:    rgba(255, 255, 255, 0.52);
+       color:    rgba(0, 0, 0, 0.2);
        opacity:  1;
     }
     ::-moz-placeholder { /* Mozilla Firefox 19+ */
-       color:    rgba(255, 255, 255, 0.52);
+       color:    rgba(0, 0, 0, 0.2);
        opacity:  1;
     }
     :-ms-input-placeholder { /* Internet Explorer 10+ */
-       color:    rgba(255, 255, 255, 0.52);
+       color:    rgba(0, 0, 0, 0.2);
     }
   }
 }
