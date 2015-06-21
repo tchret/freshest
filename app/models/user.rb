@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   end
 
   def follow_all
-    Influencer.all.each do |influencer|
-      self.follow(influencer)
+    Source.all.each do |source|
+      self.follow(source)
     end
   end
 

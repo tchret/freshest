@@ -29,19 +29,6 @@ ActiveRecord::Schema.define(version: 20150621175334) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
-  create_table "influencers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "twitter_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "avatar_url"
-    t.string   "article_url"
-    t.string   "title"
-    t.text     "description"
-    t.datetime "last_post_at"
-    t.boolean  "iframeable"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "influencer_id"
@@ -61,6 +48,19 @@ ActiveRecord::Schema.define(version: 20150621175334) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
+  create_table "sources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "twitter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "avatar_url"
+    t.string   "article_url"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "last_post_at"
+    t.boolean  "iframeable"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: ""
@@ -89,5 +89,5 @@ ActiveRecord::Schema.define(version: 20150621175334) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "posts", "influencers"
+  add_foreign_key "posts", "sources", column: "influencer_id"
 end

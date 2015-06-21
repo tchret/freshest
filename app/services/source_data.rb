@@ -1,6 +1,6 @@
 require 'rest_client'
 
-class InfluencerData < KimonoService
+class SourceData < KimonoService
   attr_reader :response
 
   def initialize(twitter_id)

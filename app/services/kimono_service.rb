@@ -45,7 +45,7 @@ class KimonoService
 
   def remove_retweet(list)
     list.select do |t|
-      Influencer.exists?(:twitter_id => t["username"]["text"])
+      Source.exists?(:twitter_id => t["username"]["text"])
     end
   end
 end

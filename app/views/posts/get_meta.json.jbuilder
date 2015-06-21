@@ -1,4 +1,4 @@
-json.title @influencer.title.split(' |')[0]
-json.banner_url @influencer.article_picture
-json.href @influencer.article_url
-json.time_ago @influencer.last_post_at
+json.title @source.title.split(' |')[0]
+json.banner_url @source.article_picture
+json.href @source.article_url
+json.time_ago @source.last_post_at

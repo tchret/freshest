@@ -1,4 +1,4 @@
-var ModalInfluencer = React.createClass({
+var ModalSource = React.createClass({
   getInitialState: function() {
     return {
       opened: false,
@@ -9,7 +9,7 @@ var ModalInfluencer = React.createClass({
   render: function(){
 
     var modalClasses = React.addons.classSet({
-      "modl-influencer": true,
+      "modl-source": true,
       "modl": true,
       "active": this.state.opened,
       'is-submitted': this.state.submitted
@@ -38,7 +38,7 @@ var ModalInfluencer = React.createClass({
                 <input type="hidden" name="from" value={this.props.currentUser.twitter_id} />
             </form>
             <div className='text-center'>
-              <a className='button button-influencer-modal' onClick={this.handleDispatch}>{btnValue}</a>
+              <a className='button button-source-modal' onClick={this.handleDispatch}>{btnValue}</a>
             </div>
           </div>
         </div>

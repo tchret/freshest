@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="dashboard">
+      <%= react_component('Dashboard', {
+        sources: @sources.map do |source|
+          {
+            infos: source,
+            isOn: user_signed_in? ? current_user.following?(source) : true,
+            follow_path: follow_source_path(source),
+            stop_following_path: stop_following_source_path(source),
+          }
+        end,
+        toggleable: user_signed_in?,
+        sourcesModal: @sources.map{|source| source.avatar_url},
+        twitterHref: user_omniauth_authorize_path(:twitter)
+
+      })%>
+    <div class="clear"></div>
+  </div>
+</div>
