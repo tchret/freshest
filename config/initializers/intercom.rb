@@ -49,6 +49,7 @@ IntercomRails.config do |config|
   #
   config.user.custom_data = {
     :twitter => Proc.new { |current_user| current_user.twitter_id },
+    :followers_count => Proc.new { |current_user| current_user.followers_count }
   }
 
   # == User -> Company association
