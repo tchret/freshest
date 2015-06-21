@@ -1,11 +1,29 @@
+@media (min-width: $screen-md) {
+  .influencer-tile-container:nth-child(3n) {
+    .influencer-tile {
+      border-right: none;
+    }
+  }
+}
+
+@media (max-width: $screen-md) {
+  .influencer-tile-container:nth-child(2n) {
+    .influencer-tile {
+      border-right: none;
+    }
+  }
+}
+
+
 .influencer-tile {
   background: white;
   box-sizing: border-box;
   width: 33.333%;
   float: left;
   background-clip: padding-box;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid transparent;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   min-height: 116px;
   position: relative;
   position: relative;
@@ -131,8 +149,6 @@
 }
 
 .dashboard {
-  background: rgba(0, 0, 0, 0.05);
-
   .button {
     display: none;
   }
