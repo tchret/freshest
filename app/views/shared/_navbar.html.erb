@@ -30,11 +30,14 @@
               <%= image_tag current_user.picture, { class: "avatar-user" } %>
             </a>
             <ul class="dropdown-menu" role="menu">
+              <div class='popover-arrow'></div>
+
               <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
             </ul>
           </li>
         </ul>
       <% else %>
+      <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
       <%= react_component("ModalConnect", {
         href: user_omniauth_authorize_path(:twitter),
         last_influencers_images: @influencers[0..4].map {|influencer| influencer.avatar_url},
