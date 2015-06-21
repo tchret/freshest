@@ -35,9 +35,9 @@ var Layout = React.createClass({
         <div className='interstitial-twitter'>
           <div className='container'>
               <p>
-                Get the freshest news of the best sources on Twitter !
+                Get the freshest news from the best sources on Twitter !
               </p>
-              <a className='button button-white'>Follow us on Twitter</a>
+              <a href="https://twitter.com/frshst" target="_blank" className='button button-white'>Follow us on Twitter</a>
           </div>
         </div>
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
