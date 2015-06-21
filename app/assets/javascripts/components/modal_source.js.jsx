@@ -20,7 +20,7 @@ var ModalSource = React.createClass({
       "pullUp": this.state.opened
     })
 
-    btnValue = this.state.submitted ? "THANKS FOR THE SUGGESTION - BACK TO THE SITE" : "SUGGEST A SOURCE"
+    btnValue = this.state.submitted ? "Thanks ! - Back to the site" : "Suggest a source"
 
     return(
       <div className="modal-component">
@@ -38,7 +38,7 @@ var ModalSource = React.createClass({
                 <input type="hidden" name="from" value={this.props.currentUser.twitter_id} />
             </form>
             <div className='text-center'>
-              <a className='button button-source-modal' onClick={this.handleDispatch}>{btnValue}</a>
+              <a className='button' onClick={this.handleDispatch}>{btnValue}</a>
             </div>
           </div>
         </div>

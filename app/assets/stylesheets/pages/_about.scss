@@ -6,7 +6,7 @@
 
 .team {
   max-width: 900px;
-  margin: 50px auto;
+  margin:auto;
 
 
   h4{
@@ -19,6 +19,8 @@
 }
 
 .team-card {
+  margin: 50px 0;
+
   .row-table-sm {
     margin: auto;
   }
