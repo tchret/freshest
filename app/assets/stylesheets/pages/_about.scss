@@ -18,6 +18,33 @@
   padding-bottom: 50px;
 }
 
+.seb-card {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  .img-container {
+    vertical-align: middle;
+    img {
+      width: 100px;
+    }
+  }
+  .text-left {
+    vertical-align: middle;
+    padding-left: 20px;
+
+    h4 {
+      box-shadow: inset 0 -10px 0 #00FFC6;
+      display: inline-block;
+    }
+
+
+    a {
+      color: black;
+      font-weight: normal;
+      display: block;
+    }
+  }
+}
+
 .team-card {
   margin: 50px 0;
 
