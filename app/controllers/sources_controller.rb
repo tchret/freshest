@@ -25,6 +25,11 @@ class SourcesController < ApplicationController
     render nothing: true
   end
 
+  def suggestion
+    message = "#{params[:suggestion]} - <https://twitter.com/#{params[:twitter_id]}|@#{params[:twitter_id]}>"
+    Slack.new.post icon_emoji: ':pray:', username: 'New suggestion !', unfurl_links: true, text: message
+  end
+
   private
 
   def source_params

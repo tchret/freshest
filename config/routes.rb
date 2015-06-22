@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :posts, only: [:index]
   get '/about', to: 'pages#about', as: 'about'
-
+  get '/suggest', to: 'sources#suggestion', as: 'suggest'
   get '/api/reading_list/all', to: 'apis#index_sources'
   get '/api/reading_list/:id', to: 'apis#reading_list'
 

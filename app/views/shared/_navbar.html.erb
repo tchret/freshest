@@ -22,7 +22,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <%= react_component("ModalSource", {
-              currentUser: current_user.slice(:twitter_id)
+              currentUser: current_user.slice(:twitter_id),
+              suggestionPath: suggest_path
               }) %>
           </li>
           <li class="dropdown">
