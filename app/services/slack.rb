@@ -1,8 +1,8 @@
 class Slack
   def initialize
     @username ="CRISP - #{Rails.env}"
-    @channel = Rails.env.production? ? "#freshest" : "#freshest-test"
-    @incoming_webhook_url = "https://hooks.slack.com/services/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"
+    @channel = Rails.env.production? ? "#freshest" : "#freshest"
+    @incoming_webhook_url = "https://hooks.slack.com/services/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"
   end
 
   def post(options = {})

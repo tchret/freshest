@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:twitter]
 
-  after_create :follow_all
+  after_create :follow_all, :slack_message
 
   acts_as_follower
 
@@ -55,6 +55,11 @@ class User < ActiveRecord::Base
     Source.all.each do |source|
       self.follow(source)
     end
+  end
+
+  def slack_message
+    message = "<https://twitter.com/#{twitter_id}|@#{twitter_id}> has joined the community!"
+    Slack.new.post icon_emoji: ':raised_hands:', username: 'New suggestion !', unfurl_links: true, text: message
   end
 
   def email_required?

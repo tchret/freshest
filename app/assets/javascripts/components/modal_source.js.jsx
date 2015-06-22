@@ -63,6 +63,7 @@ var ModalSource = React.createClass({
       $('.input-twitter-username').val('')
     } else {
       $('.formspree').submit()
+      $.get(this.props.suggestionPath + '?twitter_id=' + this.props.currentUser.twitter_id + "&suggestion=" + this.refs.twitter.getDOMNode().value)
       this.setState({
         submitted: true
       })
