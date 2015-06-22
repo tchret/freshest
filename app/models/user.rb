@@ -58,8 +58,8 @@ class User < ActiveRecord::Base
   end
 
   def slack_message
-    message = "<https://twitter.com/#{twitter_id}|@#{twitter_id}> has joined the community!"
-    Slack.new.post icon_emoji: ':raised_hands:', username: 'New suggestion !', unfurl_links: true, text: message
+    message = "<https://twitter.com/#{twitter_id}|@#{twitter_id}> (#{followers_count} followers) has joined the community!"
+    Slack.new.post icon_emoji: ':raised_hands:', username: "New user“, unfurl_links: true, text: message
   end
 
   def email_required?
