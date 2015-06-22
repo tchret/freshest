@@ -37,12 +37,17 @@
           </li>
         </ul>
       <% else %>
-      <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
-      <%= react_component("ModalConnect", {
-        href: user_omniauth_authorize_path(:twitter),
-        last_sources_images: @sources[0..4].map {|source| source.avatar_url},
-        opened: false
-        }) %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="pull-right">
+            <%= react_component("ModalConnect", {
+              href: user_omniauth_authorize_path(:twitter),
+              last_sources_images: @sources[0..4].map {|source| source.avatar_url},
+              opened: false
+              }) %>
+          </li>
+          <li class="pull-right">
+            <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
+          </li>
       <% end %>
     </div>
   </div>
