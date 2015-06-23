@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 
   def slack_message
     message = "<https://twitter.com/#{twitter_id}|@#{twitter_id}> (#{followers_count} followers) has joined the community!"
-    Slack.new.post icon_emoji: ':raised_hands:', username: "New user“, unfurl_links: true, text: message
+    Slack.new.post icon_emoji: ':raised_hands:', username: "New user", unfurl_links: true, text: message
   end
 
   def email_required?
@@ -68,5 +68,25 @@ class User < ActiveRecord::Base
 
   def first_name
     self.split(' ')[0]
+  end
+
+  def crisp_average
+    avge = 0
+    sum = 0
+    all_follows.each do |follow|
+      source = Source.find(follow.followable_id)
+      if !source.last_post_at.nil?
+        time = ((Time.now.to_i - Source.find(follow.followable_id).last_post_at.to_time.to_i) / 60)
+        sum += time
+      end
+    end
+    if all_follows.count == 0
+      avge = 0
+    elsif sum / all_follows.count > 2880
+      avge = 2880
+    else
+      avge = sum / all_follows.count
+    end
+    avge
   end
 end

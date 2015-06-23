@@ -37,6 +37,7 @@ gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sidetiq'
 gem 'rails-assets-pubsub-js'
+gem 'kaminari'
 
 group :development, :test do
   gem "spring"
