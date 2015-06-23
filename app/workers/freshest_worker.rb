@@ -33,7 +33,6 @@ class FreshestWorker
         logger.info "SKIPPING UPDATE ON #{source.name.upcase} >> NO HREF"
       end
     end
-    crisp_average
   end
 
   def get_original_link(link)
@@ -42,23 +41,5 @@ class FreshestWorker
 
   def url_iframeable?(url)
     open(url) {|f| !f.meta.has_key?("x-frame-options") }
-  end
-
-  def crisp_average
-    User.all.each do |user|
-      sum = 0
-       user.all_follows.each do |follow|
-        source = Source.find(follow.followable_id)
-        if !source.last_post_at.nil?
-          time = ((Time.now.to_i - Source.find(follow.followable_id).last_post_at.to_time.to_i) / 60)
-          sum += time
-        end
-      end
-
-      user.crisp_average = sum / user.all_follows.count
-      user.save
-
-      puts "#{user.name} = #{sum / user.crisp_average}"
-    end
   end
 end
