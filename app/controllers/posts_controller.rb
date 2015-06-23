@@ -10,7 +10,7 @@ class PostsController < ApplicationController
       @sources.sort_by(&:last_post_at).reverse.first(16)
       # @array =  Kaminari.paginate_array(@sources).page(params[:page]).per(source_count)
     else
-      @sources = Source.all.reject { |source| source.last_post_at.nil? }.sort_by(&:last_post_at).reverse.first(5)
+      @sources = Source.all.reject { |source| source.last_post_at.nil? }.sort_by(&:last_post_at).reverse
     end
   end
 
