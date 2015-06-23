@@ -64,4 +64,16 @@ class User < ActiveRecord::Base
   def first_name
     self.split(' ')[0]
   end
+
+  def crisp_average
+    sum = 0
+     all_follows.each do |follow|
+      source = Source.find(follow.followable_id)
+      if !source.last_post_at.nil?
+        time = ((Time.now.to_i - Source.find(follow.followable_id).last_post_at.to_time.to_i) / 60)
+        sum += time
+      end
+    end
+    return sum / all_follows.count
+  end
 end
