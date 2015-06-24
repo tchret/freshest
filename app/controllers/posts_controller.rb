@@ -7,8 +7,7 @@ class PostsController < ApplicationController
       else
         @sources = @sources.reject {|source| source.last_post_at.nil? || ((Time.now.to_i - source.last_post_at.to_time.to_i) / 60) > current_user.crisp_average}
       end
-      @sources.sort_by(&:last_post_at).reverse.first(16)
-      # @array =  Kaminari.paginate_array(@sources).page(params[:page]).per(source_count)
+      @sources = @sources.sort_by(&:last_post_at).reverse.first(16)
     else
       @sources = Source.all.reject { |source| source.last_post_at.nil? }.sort_by(&:last_post_at).reverse
     end
