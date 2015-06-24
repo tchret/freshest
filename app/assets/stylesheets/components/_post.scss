@@ -13,7 +13,7 @@
     li {
       padding: 0;
 
-      &:last-child {
+      &:nth-child(2) {
         margin-left: 20px;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -49,6 +49,10 @@
       float: right;
       width: 56px;
       border-radius: 3px;
+      @media (max-width: 768px) {
+        width: 42px;
+        border-radius: 3px;
+      }
     }
   }
 
@@ -91,6 +95,9 @@
     font-size: 30px;
     display: inline;
     line-height: 1.15;
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
 
     span {
       display: inline-block;
@@ -105,5 +112,8 @@
     font-size: 20px;
     line-height: 1.4;
     color: rgba(0, 0, 0, 0.5);
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 }
