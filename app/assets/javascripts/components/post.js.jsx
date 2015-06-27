@@ -5,21 +5,27 @@ var Post = React.createClass({
     };
   },
   render: function() {
-    var source = this.props.source
-    var iframeable = source.iframeable
+    var source = this.props.source;
+    var iframeable = source.iframeable;
+    var isCrisp = this.props.crispAverage > source.last_post_at_in_minutes;
+    var containerClasses = React.addons.classSet({
+      "post-container": true,
+      "crisp": isCrisp
+    })
+
     return (
-      <div className="post-container">
+      <article className={containerClasses}>
         <div className="container">
             <div className={"post post-" + source.id } onClick={this.displayPost}>
+              <ul className="list-unstyled list-inline source-infos">
+                <li className='source-name'>
+                  {source.name}
+                </li>
+                <li className="font-light color-light small">
+                  {timeSince(new Date(source.last_post_at))} ago
+                </li>
+              </ul>
               <div className='col-xs-12 col-sm-10'>
-                <ul className="list-unstyled list-inline source-infos">
-                  <li>
-                    {source.name}
-                  </li>
-                  <li className="font-light color-light small">
-                    {timeSince(new Date(source.last_post_at))} ago
-                  </li>
-                </ul>
                 <div className="post-content">
                     <h4>
                       {source.title}
@@ -35,7 +41,7 @@ var Post = React.createClass({
               <div className='clear' />
             </div>
         </div>
-      </div>
+      </article>
     )
   },
 

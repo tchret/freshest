@@ -23,10 +23,16 @@ class Source < ActiveRecord::Base
 
   validates_presence_of :name, :twitter_id
   validates_uniqueness_of :twitter_id
-  paginates_per 5
 
   def to_param
     twitter_id
+  end
+
+  def self.update_last_post_at_in_minutes
+    all.each do |source|
+      source.last_post_at_in_minutes = (Time.now.to_i - source.last_post_at.to_i) / 60
+      source.save
+    end
   end
 
   def self.update_avatars

@@ -9,7 +9,6 @@ gem "pg"
 gem "figaro"
 gem "simple_form"
 gem "country_select"
-gem "high_voltage"
 gem "devise"
 gem "pundit"
 gem "paperclip"
@@ -38,6 +37,7 @@ gem 'sidekiq-failures'
 gem 'sidetiq'
 gem 'rails-assets-pubsub-js'
 gem 'kaminari'
+
 
 group :development, :test do
   gem "spring"
