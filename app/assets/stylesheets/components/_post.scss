@@ -1,7 +1,6 @@
 .source-name {
   font-weight: 200;
   height: 23px;
-
 }
 
 .post {
@@ -10,6 +9,10 @@
   padding-top: 6%;
   position: relative;
   cursor: pointer;
+
+  &-content {
+    width: 100%;
+  }
 
   .source-infos {
     position: relative;

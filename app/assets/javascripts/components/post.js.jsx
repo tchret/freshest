@@ -16,7 +16,7 @@ var Post = React.createClass({
 
     return (
       <article className={containerClasses}>
-        <div>
+        <div className='post-content'>
             <div className={"post post-" + source.id } onClick={this.displayPost}>
               <ul className="list-unstyled list-inline source-infos">
                 <li>
