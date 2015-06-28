@@ -31,7 +31,7 @@ var Layout = React.createClass({
       "pointer": true,
       'visible': this.state.heroPost ? true : false,
     })
-    var paginateHelperValue = this.state.allPostsLoaded ? "That's all " : "Getting old latest stuff"
+    var paginateHelperValue = this.state.allPostsLoaded ? "That's all for now" : "Getting old latest stuff"
 
     if (this.props.userSignedIn) {
       var modal = <ModalSource
