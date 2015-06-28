@@ -2,6 +2,18 @@
   Freshest - Short-lived news from the modern Web
 <% end %>
 
+<% if user_signed_in? %>
+  <%= react_component("ModalSource", {
+    currentUser: current_user,
+    suggestionPath: suggest_path
+    }) %>
+<% else %>
+  <%= react_component("ModalConnect", {
+   lastSourcesImages: @sources[0..4].map {|source| source.avatar_url},
+   oauthPath: user_omniauth_authorize_path(:twitter)
+  }) %>
+<% end %>
+
 <div class="container">
   <div class="text-center hero">
     Freshest brings you the latest stuff from your favorite sources, in real time. It's a short-lived batch of resources from the modern web, continuously curated by CRISP, our algorithm.

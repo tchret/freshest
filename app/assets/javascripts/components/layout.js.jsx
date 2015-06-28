@@ -7,7 +7,7 @@ var Layout = React.createClass({
       posts: this.props.sources,
       pageLoaded: 1,
       lastPage: this.props.lastPage,
-      modalConnectOpened: false,
+      modalOpened: false,
       allPostsLoaded: false
     };
   },
@@ -31,18 +31,28 @@ var Layout = React.createClass({
       "pointer": true,
       'visible': this.state.heroPost ? true : false,
     })
-    var that = this
-
-    console.log( this.state.allPostsLoaded)
     var paginateHelperValue = this.state.allPostsLoaded ? "That's all " : "Getting old latest stuff"
 
+    if (this.props.userSignedIn) {
+      var modal = <ModalSource
+          currentUser={this.props.currentUser}
+          suggestionPath={this.props.suggestPath} />
+    } else {
+      var modal = <ModalConnect
+          href={this.props.oauthPath}
+          last_sources_images={this.props.lastSourcesImages}
+          opened={this.state.modalOpened} />
+    }
+
     return(
-      <div className='layout-container' onScroll={this.listenToLoad}>
+      <div className='layout-container' >
+        {modal}
+
         {this.state.posts.map(function (source, key) {
           if (key == 2) {
             return(
               <div>
-                <Post source={source} parentComponent={this} crispAverage={this.props.crispAverage}/>
+                <Post source={source} parentComponent={this} key={key} crispAverage={this.props.crispAverage}/>
                 <div className='interstitial-twitter'>
                   <div className='container'>
                       <p>
@@ -57,12 +67,14 @@ var Layout = React.createClass({
             return(<Post source={source} parentComponent={this} crispAverage={this.props.crispAverage} />)
           }
         }, this)}
-          <div className='paginate-helper'>
+          <div className={this.state.allPostsLoaded ? 'paginate-helper thats-all' : 'paginate-helper'}>
             <div className='container'>
-              {paginateHelperValue}
-              <div className={!this.state.allPostsLoaded ? "hidden" : "visible"}>
-                <ModalConnect last_sources_images={this.props.lastSourcesImages}/>
-              </div>
+              <h4>
+                {paginateHelperValue}
+                <div className='text-center'>
+                  <div className='button' onClick={this.displayModal}>Add more sources</div>
+                </div>
+              </h4>
               <VisibilitySensor onChange={this.loadMorePost} active={this.state.allPostsLoaded ? false : true}/>
 
             </div>
@@ -77,6 +89,16 @@ var Layout = React.createClass({
         </div>
       </div>
     )
+  },
+
+  displayModal: function(){
+    if (!this.props.userSignedIn){
+      this.setState({
+        modalOpened: true
+      })
+    } else {
+      PubSub.publish("displayModalSource")
+    }
   },
 
   handleHeroPostDisplay: function(post) {
@@ -107,9 +129,7 @@ var Layout = React.createClass({
       that.setState({
         allPostsLoaded: true
       })
-      console.log('all post loaded ! ')
     } else if (isVisible){
-      console.log("Visible")
       $.get('/page?n=' + (that.state.pageLoaded + 1), function(data){
         var posts = that.state.posts;
         data.posts.map(function(post){

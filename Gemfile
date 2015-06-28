@@ -37,6 +37,7 @@ gem 'sidekiq-failures'
 gem 'sidetiq'
 gem 'rails-assets-pubsub-js'
 gem 'kaminari'
+gem 'rails-assets-headroom.js'
 
 
 group :development, :test do

@@ -1,27 +1,23 @@
 var Dashboard = React.createClass({
-  getInitialState: function() {
-    return {
-      modalOpened: false
-    };
-  },
-
   render: function() {
     var that = this
-    var opened = this.state.modalOpened
 
+    if (this.props.userSignedIn) {
+      var modal = <ModalSource
+          currentUser={this.props.currentUser}
+          suggestionPath={this.props.suggestPath} />
+    } else {
+      var modal = <ModalConnect
+          href={this.props.oauthPath}
+          last_sources_images={this.props.lastSourcesImages} />
+    }
     return(
       <div className='dashboard'>
+        {modal}
         {this.props.sources.map(function (source) {
           return(<SourceTile source={source.infos} parent={this} isOn={source.isOn} follow_path={source.follow_path} toggleable={that.props.toggleable} stop_following_path={source.stop_following_path}/>)
         }, that)}
       </div>
     )
-  },
-
-  openModal: function(){
-    this.setState({
-      modalOpened: this.state.modalOpened? false : true
-    })
-
   }
 })

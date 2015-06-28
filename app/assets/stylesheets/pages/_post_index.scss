@@ -1,0 +1,26 @@
+header {
+  position: fixed;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);;
+  left: 0;
+  z-index: 10;
+  top: 0;
+}
+
+.headroom--pinned {
+    transform: translateY(0);
+}
+.headroom--unpinned {
+    transform: translateY(-83px);
+
+}
+
+.posts_index, .sources_index, .pages_about {
+  body {
+    padding-top: 122px;
+  }
+}
+.headroom--top {
+  position: absolute;
+  transition: none;
+}

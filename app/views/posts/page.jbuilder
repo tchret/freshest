@@ -7,6 +7,8 @@ if @sources
       json.article_url source.article_url
       json.description source.description
       json.iframeable source.iframeable
+      json.last_post_at source.last_post_at
+      json.twitter_id source.twitter_id
     end
   end
 else

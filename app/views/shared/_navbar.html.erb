@@ -1,62 +1,62 @@
-<div class="navigation-bar">
-  <div class="container">
-    <%= link_to root_path, class: 'brand-link' do %>
-      <div class="brand">
-        <div class="pull-left">
-          <span class='miniature'>
-            <span>F</span>
-          </span>
-        </div>
-        <div class="pull-left">
-          <div class="logo hidden-xs">
-            <span>Freshest</span>
+<header>
+  <%= render "shared/flashes" %>
+  <div class="navigation-bar">
+    <div class="container">
+      <%= link_to root_path, class: 'brand-link' do %>
+        <div class="brand">
+          <div class="pull-left">
+            <span class='miniature'>
+              <span>F</span>
+            </span>
           </div>
-          <div class='slogan hidden-xs'>
-            Latest News // Best Sources
+          <div class="pull-left">
+            <div class="logo hidden-xs">
+              <span>Freshest</span>
+            </div>
+            <div class='slogan hidden-xs'>
+              Latest News // Best Sources
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <div class="bar-right">
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= react_component("ModalSource", {
-              currentUser: current_user.slice(:twitter_id),
-              suggestionPath: suggest_path
-              }) %>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle margin-top-4" data-toggle="dropdown" role="button" aria-expanded="false">
-              <%= image_tag current_user.picture, { class: "avatar-user" } %>
-            </a>
-            <ul class="dropdown-menu hidden-xs" role="menu">
-              <div class='popover-arrow'></div>
-
-              <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
-            </ul>
-          </li>
-        </ul>
-      <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="pull-right">
-            <%= react_component("ModalConnect", {
-              href: user_omniauth_authorize_path(:twitter),
-              last_sources_images: @sources[0..4].map {|source| source.avatar_url},
-              opened: false
-              }) %>
-          </li>
-          <li class="pull-right">
-            <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
-          </li>
       <% end %>
+      <div class="bar-right">
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li >
+              <%= react_component("CallToAction", {
+                userSignedIn: user_signed_in?
+                }) %>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle margin-top-4" data-toggle="dropdown" role="button" aria-expanded="false">
+                <%= image_tag current_user.picture, { class: "avatar-user" } %>
+              </a>
+              <ul class="dropdown-menu hidden-xs" role="menu">
+                <div class='popover-arrow'></div>
+
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+              </ul>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="pull-right">
+              <%= react_component("CallToAction", {
+                userSignedIn: user_signed_in?
+                }) %>
+            </li>
+            <li class="pull-right">
+              <%= link_to "Sign in", user_omniauth_authorize_path(:twitter), class: 'sign-in' %>
+            </li>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class='sub-navigation-bar'>
-  <div class="container">
-    <%= link_to 'Read Stuff', root_path, class: 'reading-list-link' %>
-    <%= link_to 'Sources', sources_path, class: 'dashboard-link' %>
-    <%= link_to 'About', about_path, class: 'about-link' %>
+  <div class='sub-navigation-bar'>
+    <div class="container">
+      <%= link_to 'Read Stuff', root_path, class: 'reading-list-link' %>
+      <%= link_to 'Sources', sources_path, class: 'dashboard-link' %>
+      <%= link_to 'About', about_path, class: 'about-link' %>
+    </div>
   </div>
-</div>
+</header>

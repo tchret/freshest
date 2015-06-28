@@ -14,8 +14,10 @@
           }
         end,
         toggleable: user_signed_in?,
-        sourcesModal: @sources.map{|source| source.avatar_url},
-        twitterHref: user_omniauth_authorize_path(:twitter)
+        lastSourcesImages: @sources[0..4].map {|source| source.avatar_url},
+        oauthPath: user_omniauth_authorize_path(:twitter),
+        currentUser: current_user,
+        userSignedIn: user_signed_in?
 
       })%>
     <div class="clear"></div>

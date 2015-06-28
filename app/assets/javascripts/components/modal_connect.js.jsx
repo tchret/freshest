@@ -32,11 +32,6 @@ var ModalConnect = React.createClass({
 
     return(
       <div className="modal-component">
-        <a className='button' onClick={this.handleClick}>
-          <span>
-            Suggest a source
-          </span>
-        </a>
         <div className={modalClasses} onClick={this.handleClick}>
           <div className={redirectionClasses}>
             You should have been prompted to sign in within a popup window.
@@ -65,13 +60,29 @@ var ModalConnect = React.createClass({
     )
   },
 
-  handleConnect: function(){
+  handleConnect: function() {
     this.setState({
       redirection: true
     })
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
   },
+
+  componentWillReceiveProps: function(nextProps) {
+    this.setState({
+      opened: nextProps.opened
+    })
+  },
+
+  componentDidMount: function() {
+    var that = this
+    PubSub.subscribe('displayModalConnect', function(){
+      that.setState({
+        opened: true
+      })
+    })
+  },
+
 
   handleClick: function(){
     this.setState({

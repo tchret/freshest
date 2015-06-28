@@ -10,12 +10,13 @@ var Post = React.createClass({
     var isCrisp = this.props.crispAverage > source.last_post_at_in_minutes;
     var containerClasses = React.addons.classSet({
       "post-container": true,
-      "crisp": isCrisp
+      "crisp": isCrisp,
+      "container": true
     })
 
     return (
       <article className={containerClasses}>
-        <div className="container">
+        <div>
             <div className={"post post-" + source.id } onClick={this.displayPost}>
               <ul className="list-unstyled list-inline source-infos">
                 <li className='source-name'>
