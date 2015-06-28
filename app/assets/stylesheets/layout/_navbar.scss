@@ -54,6 +54,16 @@
       }
     }
 
+    .refresh {
+      color: $brand-color;
+      font-size: 30px;
+      margin-top: 24px;
+      margin-left: 100px;
+      @media (max-width: $screen-md) {
+        margin-left: 40px;
+      }
+    }
+
     &-link {
       &:hover {
         .logo {
@@ -92,7 +102,6 @@
   .nav-link {
     text-align: right;
   }
-
 
   .bar-right {
     padding-top: 11px;
