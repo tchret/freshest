@@ -9,7 +9,7 @@
     }) %>
 <% else %>
   <%= react_component("ModalConnect", {
-   lastSourcesImages: @sources[0..4].map {|source| source.avatar_url},
+   last_sources_images: @sources[0..4].map {|source| source.avatar_url},
    oauthPath: user_omniauth_authorize_path(:twitter)
   }) %>
 <% end %>

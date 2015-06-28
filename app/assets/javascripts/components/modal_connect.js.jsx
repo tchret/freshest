@@ -32,7 +32,7 @@ var ModalConnect = React.createClass({
 
     return(
       <div className="modal-component">
-        <div className={modalClasses} onClick={this.handleClick}>
+        <div className={modalClasses} onClick={this.handleClose}>
           <div className={redirectionClasses}>
             You should have been prompted to sign in within a popup window.
           </div>
@@ -84,9 +84,9 @@ var ModalConnect = React.createClass({
   },
 
 
-  handleClick: function(){
+  handleClose: function(){
     this.setState({
-      opened: this.state.opened? false : true
+      opened: false
     })
   }
 })
