@@ -19,14 +19,14 @@ var Post = React.createClass({
         <div>
             <div className={"post post-" + source.id } onClick={this.displayPost}>
               <ul className="list-unstyled list-inline source-infos">
-                <li className='source-name'>
+                <li>
                   {source.name}
                 </li>
                 <li className="font-light color-light small">
                   {timeSince(new Date(source.last_post_at))} ago
                 </li>
               </ul>
-              <div className='col-xs-12 col-sm-10'>
+              <div className='col-xs-10 col-sm-10'>
                 <div className="post-content">
                     <h4>
                       {source.title}
@@ -36,7 +36,7 @@ var Post = React.createClass({
                   </p>
                 </div>
               </div>
-              <div className="col-sm-2 hidden-xs post-avatar p20 kill-pr">
+              <div className="col-xs-2 post-avatar p20 kill-pr">
                 <img src={source.avatar_url} className="img total-width shadowed border-radius-2" />
               </div>
               <div className='clear' />

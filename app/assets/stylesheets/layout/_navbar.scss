@@ -116,6 +116,9 @@
 .nav > li > a {
   padding-left: 10px;
   padding-right: 0;
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
 }
 
 .nav > li > a:hover,
