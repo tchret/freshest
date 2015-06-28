@@ -23,10 +23,8 @@
 @font-face {
   font-family: "Avenir";
   font-weight: 600;
-  src: font-url('avenir/avenirltstd-heavy-webfont.eot');
-  src: font-url('avenir/avenirltstd-heavy-webfont.svg'), format('svg'),
-       font-url('avenir/avenirltstd-heavy-webfont.woff') format('woff'),
-       font-url('avenir/avenirltstd-heavy-webfont.ttf') format('truetype');
+  src: font-url('avenir/avenir-medium.eot') format('eot');
+  src: font-url('avenir/avenir-medium.ttf') format('truetype');
 }
 
 @font-face {

@@ -1,3 +1,5 @@
+
+
 .avatar-user {
   width: 44px;
   margin: 1px 0px 0px 20px;
@@ -5,15 +7,15 @@
 
 .navigation-bar {
   z-index: 2;
-  padding: 10px 0 10px 0;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  border-top: 5px solid #00FFC6;
 
   .sign-in {
     display: inline-block;
     margin-right: 20px;
     font-size: 16px;
     position: relative;
-    top: 1px;
+    top: 4px;
     color: rgba(0, 0, 0, 0.2);
     font-weight: 100;
 
@@ -107,7 +109,7 @@
 
 .navigation-bar {
   .button {
-    margin-top: 5px;
+    margin-top: 6px;
   }
 }
 

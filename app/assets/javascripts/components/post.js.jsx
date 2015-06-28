@@ -5,24 +5,28 @@ var Post = React.createClass({
     };
   },
   render: function() {
-    var source = this.props.source
-    var iframeable = source.iframeable
+    var source = this.props.source;
+    var iframeable = source.iframeable;
+    var isCrisp = this.props.crispAverage > source.last_post_at_in_minutes;
+    var containerClasses = React.addons.classSet({
+      "post-container": true,
+      "crisp": isCrisp,
+      "container": true
+    })
+
     return (
-      <div className="post-container">
-        <div className="container">
+      <article className={containerClasses}>
+        <div>
             <div className={"post post-" + source.id } onClick={this.displayPost}>
-              <div className='col-xs-12'>
-                <ul className="list-unstyled list-inline source-infos">
-                  <li>
-                    {source.name}
-                  </li>
-                  <li className="font-light color-light small">
-                    {timeSince(new Date(source.last_post_at))} ago
-                  </li>
-                  <li className="pull-right post-avatar p20 kill-pr">
-                    <img src={source.avatar_url} className="img total-width shadowed border-radius-2" />
-                  </li>
-                </ul>
+              <ul className="list-unstyled list-inline source-infos">
+                <li>
+                  {source.name}
+                </li>
+                <li className="font-light color-light small">
+                  {timeSince(new Date(source.last_post_at))} ago
+                </li>
+              </ul>
+              <div className='col-xs-10 col-sm-10'>
                 <div className="post-content">
                     <h4>
                       {source.title}
@@ -33,11 +37,12 @@ var Post = React.createClass({
                 </div>
               </div>
               <div className="col-xs-2 post-avatar p20 kill-pr">
+                <img src={source.avatar_url} className="img total-width shadowed border-radius-2" />
               </div>
               <div className='clear' />
             </div>
         </div>
-      </div>
+      </article>
     )
   },
 

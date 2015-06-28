@@ -34,9 +34,7 @@ var SourceTile = React.createClass({
 
   handleClick: function(){
     if(!this.props.toggleable) {
-      $('.modl').addClass('active')
-      $('.modl-content').addClass('pullUp')
-      $('.text-todothat').text("Join the community today to manage your sources")
+      PubSub.publish("displayModalConnect")
     } else {
       this.setState({
         isOn: !this.state.isOn

@@ -3,6 +3,13 @@
 <% end %>
 
 <%= react_component('Layout', {
-  sources: @sources
-})%>
+  sources: @sources,
+  crispAverage: user_signed_in? ? current_user.crisp_average : global_crisp_avge,
+  lastPage: @sources.total_pages,
+  lastSourcesImages: @sources[0..4].map {|source| source.avatar_url},
+  oauthPath: user_omniauth_authorize_path(:twitter),
+  currentUser: user_signed_in? ? current_user.slice(:twitter_id) : nil,
+  suggestPath: suggest_path,
+  userSignedIn: user_signed_in?
 
+}) %>

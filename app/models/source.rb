@@ -28,6 +28,13 @@ class Source < ActiveRecord::Base
     twitter_id
   end
 
+  def self.update_last_post_at_in_minutes
+    all.each do |source|
+      source.last_post_at_in_minutes = (Time.now.to_i - source.last_post_at.to_i) / 60
+      source.save
+    end
+  end
+
   def self.update_avatars
     Source.all.each do |source|
       if source.avatar_url

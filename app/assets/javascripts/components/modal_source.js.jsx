@@ -24,11 +24,6 @@ var ModalSource = React.createClass({
 
     return(
       <div className="modal-component">
-        <a className='button' onClick={this.handleClick}>
-          <span>
-            Suggest a source
-          </span>
-        </a>
         <div className={modalClasses}  onClick={this.handleClick}>
           <div className={modalContentClasses}>
             <form className='formspree' data-remote='true' action="https://formspree.io/tchret@gmail.com" method="POST">
@@ -49,6 +44,15 @@ var ModalSource = React.createClass({
   stopPropagation: function(e){
      e.stopPropagation();
      e.nativeEvent.stopImmediatePropagation();
+  },
+
+  componentDidMount: function() {
+    var that = this
+    PubSub.subscribe('displayModalSource', function() {
+      that.setState({
+        opened: true
+      })
+    })
   },
 
   handleDispatch: function(e) {
