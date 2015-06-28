@@ -19,7 +19,7 @@ var Post = React.createClass({
         <div className='post-content'>
             <div className={"post post-" + source.id } onClick={this.displayPost}>
               <ul className="list-unstyled list-inline source-infos">
-                <li>
+                <li className='source-name'>
                   {source.name}
                 </li>
                 <li className="font-light color-light small">
