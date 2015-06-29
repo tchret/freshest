@@ -12,11 +12,13 @@ var Dashboard = React.createClass({
           last_sources_images={this.props.lastSourcesImages} />
     }
     return(
-      <div className='dashboard'>
-        {modal}
-        {this.props.sources.map(function (source) {
-          return(<SourceTile source={source.infos} parent={this} isOn={source.isOn} follow_path={source.follow_path} toggleable={that.props.toggleable} stop_following_path={source.stop_following_path}/>)
-        }, that)}
+      <div>
+      {modal}
+        <div className='dashboard'>
+          {this.props.sources.map(function (source) {
+            return(<SourceTile source={source.infos} parent={this} isOn={source.isOn} follow_path={source.follow_path} toggleable={that.props.toggleable} stop_following_path={source.stop_following_path}/>)
+          }, that)}
+        </div>
       </div>
     )
   }
