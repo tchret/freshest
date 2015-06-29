@@ -19,7 +19,9 @@ var SourceTile = React.createClass({
     return (
       <div className='source-tile-container'>
         <div className={tileClasses}>
-          <img src={source.avatar_url} className='shadowed' />
+          <a href={source.url} target="_blank">
+            <img src={source.avatar_url} className='shadowed' />
+          </a>
           <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
             <div className="toggle-switch"></div>
             <div className="label-container">
