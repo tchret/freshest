@@ -47,6 +47,37 @@ var Layout = React.createClass({
     return(
       <div className='layout-container' >
         {modal}
+        <div className={this.getParameterByName("ref") == "producthunt" ? "ph-interstitiel" : "hidden"}>
+          <img className='cat hidden-sm' src='http://betakit.com/wp-content/uploads/2015/03/product-hunt-kitten.png' />
+          <article className="post-container container">
+            <div className='post-content'>
+                <div className={"post"} onClick={this.displayPost}>
+                  <ul className="list-unstyled list-inline source-infos">
+                    <li className='source-name'>
+                      Product Hunt
+                    </li>
+                    <li className="font-light color-light small">
+                      Today !
+                    </li>
+                  </ul>
+                  <div className='col-xs-10 col-sm-10'>
+                    <div className="post-content">
+                        <h4>
+                          Freshest
+                        </h4>
+                      <p>
+                        "Freshest brings you the latest stuff from your favorite sources, in real time. It's a short-lived batch of resources from the modern web, continuously curated by CRISP, our algorithm."
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-xs-2 post-avatar p20 kill-pr">
+                    <img src="https://pbs.twimg.com/profile_images/615519634695979008/W_E9I7T7_400x400.png" className="img total-width shadowed border-radius-2" />
+                  </div>
+                  <div className='clear' />
+                </div>
+            </div>
+          </article>
+        </div>
 
         {this.state.posts.map(function (source, key) {
           if (key == 2) {
@@ -99,6 +130,13 @@ var Layout = React.createClass({
     } else {
       PubSub.publish("displayModalSource")
     }
+  },
+
+  getParameterByName: function(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
   },
 
   handleHeroPostDisplay: function(post) {
