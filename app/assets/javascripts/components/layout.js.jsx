@@ -47,6 +47,7 @@ var Layout = React.createClass({
     return(
       <div className='layout-container' >
         {modal}
+        <a href='http://producthunt.com' target='_blank'>
         <div className={this.getParameterByName("ref") == "producthunt" ? "ph-interstitiel" : "hidden"}>
           <img className='cat hidden-sm' src='http://betakit.com/wp-content/uploads/2015/03/product-hunt-kitten.png' />
           <article className="post-container container">
@@ -78,6 +79,8 @@ var Layout = React.createClass({
             </div>
           </article>
         </div>
+        </a>
+
 
         {this.state.posts.map(function (source, key) {
           if (key == 2) {
