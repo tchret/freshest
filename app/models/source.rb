@@ -18,6 +18,7 @@
 
 class Source < ActiveRecord::Base
   has_many :posts
+  belongs_to :user
   # after_create :add_user_to_list
   acts_as_followable
 
