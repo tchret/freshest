@@ -40,6 +40,17 @@ var HeroPost = React.createClass({
         <div className='iframe-container'>
           <iframe className="is-visible" ref="embedArticle" onLoad={this.handleLoad} src={heroPost.article_url}  />
         </div>
+        <footer className='hero-footer'>
+          <img src={heroPost.avatar_url} />
+          <ul className='list-inline'>
+            <a href={heroPost.article_url} target='_blank'>
+              <li className='original-link'>
+                GO TO ORIGINAL CONTENT
+              </li>
+            </a>
+          </ul>
+          <div className='clear' />
+        </footer>
         <div className='helper-container hidden'>
           <div className='text-center'>
             <p>
