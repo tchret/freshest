@@ -49,7 +49,7 @@ var Layout = React.createClass({
         {modal}
         <a href='http://producthunt.com' target='_blank'>
         <div className={this.getParameterByName("ref") == "producthunt" ? "ph-interstitiel" : "hidden"}>
-          <img className='cat hidden-sm' src='http://betakit.com/wp-content/uploads/2015/03/product-hunt-kitten.png' />
+          <img className='cat hidden-sm hidden-xs' src='http://betakit.com/wp-content/uploads/2015/03/product-hunt-kitten.png' />
           <article className="post-container container">
             <div className='post-content'>
                 <div className={"post"} onClick={this.displayPost}>
