@@ -14,10 +14,11 @@ var Layout = React.createClass({
 
   render: function() {
     if (this.state.heroPost) {
+      console.log('yo')
       heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} closeModal={this.removeHeroPostState} />
-      $('body').addClass('no-scroll')
+      $('html').addClass('no-scroll')
     } else {
-      $('body').removeClass('no-scroll')
+      $('html').removeClass('no-scroll')
       heroPost = ''
     }
 
@@ -150,6 +151,7 @@ var Layout = React.createClass({
     urlPath = '/i/' + post.twitter_id
     pageTitle = post.name + 'on Freshest'
     window.history.pushState('', pageTitle, urlPath)
+
   },
 
   removeHeroPostState: function(post) {
