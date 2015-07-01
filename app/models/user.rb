@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def follow_all
-    Source.all.each do |source|
+    Source.where(user: User.find_by(twitter_id: "frshst")).each do |source|
       self.follow(source)
     end
   end
