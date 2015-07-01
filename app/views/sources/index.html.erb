@@ -8,7 +8,7 @@
         sources: @sources.map do |source|
           {
             infos: source,
-            isOn: user_signed_in? ? current_user.following?(source) : source.twitter_id == "frshst",
+            isOn: user_signed_in? ? current_user.following?(source) : source.user.twitter_id == "frshst",
             follow_path: follow_source_path(source),
             stop_following_path: stop_following_source_path(source),
           }

@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
   def index
-   @sources = Source.all.reject {|source| source.avatar_url == nil}.sort_by(&:created_at)
+   @sources = Source.all.reject {|source| source.avatar_url == nil}.sort_by(&:user_id)
   end
 
   def show
