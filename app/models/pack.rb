@@ -1,3 +1,3 @@
-class Category < ActiveRecord::Base
+class Pack < ActiveRecord::Base
   has_many :sources
 end
