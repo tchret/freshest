@@ -19,7 +19,7 @@
 class Source < ActiveRecord::Base
   has_many :posts
   belongs_to :user
-  belongs_to :category
+  has_and_belongs_to_many :packs
   # after_create :add_user_to_list
   acts_as_followable
 
