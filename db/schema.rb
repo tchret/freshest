@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702140632) do
+ActiveRecord::Schema.define(version: 20150702145313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150702140632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "packs_sources", id: false, force: :cascade do |t|
+    t.integer "pack_id",   null: false
+    t.integer "source_id", null: false
+  end
+
+  add_index "packs_sources", ["pack_id", "source_id"], name: "index_packs_sources_on_pack_id_and_source_id", using: :btree
+  add_index "packs_sources", ["source_id", "pack_id"], name: "index_packs_sources_on_source_id_and_pack_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
