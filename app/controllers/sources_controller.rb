@@ -1,6 +1,11 @@
 class SourcesController < ApplicationController
   def index
-   @sources = Source.all.reject {|source| source.avatar_url == nil}.sort_by(&:user_id)
+    if user_signed_in?
+      @sources = Source.order(id: :desc).reject {|source| source.avatar_url == nil}.sort_by {|s| s.followed_by?(current_user).to_s }.reverse
+    else
+      frshst = User.find_by(twitter_id: "frshst")
+      @sources = Source.order(id: :desc).reject {|source| source.avatar_url == nil}.sort_by {|s| s.followed_by?(frshst).to_s }.reverse
+    end
   end
 
   def show
