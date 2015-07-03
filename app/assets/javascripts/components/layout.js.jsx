@@ -14,8 +14,12 @@ var Layout = React.createClass({
 
   render: function() {
     if (this.state.heroPost) {
-      console.log('yo')
-      heroPost = <HeroPost heroPost={this.state.heroPost} handleCross={this.handleCross} closeModal={this.removeHeroPostState} />
+      heroPost = <HeroPost
+        heroPost={this.state.heroPost}
+        handleCross={this.handleCross}
+        closeModal={this.removeHeroPostState}
+        switchIsOn={this.props.switchIsOn}
+        toggleable={this.props.userSignedIn} />
       $('html').addClass('no-scroll')
     } else {
       $('html').removeClass('no-scroll')
@@ -144,13 +148,19 @@ var Layout = React.createClass({
   },
 
   handleHeroPostDisplay: function(post) {
-    this.setState({
-      heroPost: post,
-      heroPostPresent: true
-     })
-    urlPath = '/i/' + post.twitter_id
-    pageTitle = post.name + 'on Freshest'
-    window.history.pushState('', pageTitle, urlPath)
+    var that = this
+
+    $.get('/is_follow?source=' + post.id, function(data){
+      post.switchIsOn = data.respond
+      console.log(post)
+      that.setState({
+        heroPost: post,
+        heroPostPresent: true
+       })
+      urlPath = '/i/' + post.twitter_id
+      pageTitle = post.name + 'on Freshest'
+      window.history.pushState('', pageTitle, urlPath)
+    })
 
   },
 
