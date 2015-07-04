@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   respond_to :json, only: :page
+  include CrispHelper
+
   def index
     if user_signed_in?
-      @sources = current_user.all_follows.map {|subscription| Source.find(subscription.followable_id)}.reject { |source| source.last_post_at.nil? || ((Time.now.to_i - source.last_post_at.to_time.to_i) / 60) > current_user.crisp_average }.sort_by(&:last_post_at).reverse.first(16)
+      @sources = current_user.all_follows.map {|subscription| Source.find(subscription.followable_id)}.reject { |source| source.last_post_at.nil? || crisp_average(source, current_user)}.sort_by(&:last_post_at).reverse.first(16)
       @sources = Kaminari.paginate_array(@sources).page(params[:page]).per(5)
     else
       @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || source.user.twitter_id != "frshst" }
@@ -12,7 +14,7 @@ class PostsController < ApplicationController
 
   def page
     if user_signed_in?
-      sources = current_user.all_follows.map {|subscription| Source.find(subscription.followable_id)}.reject { |source| source.last_post_at.nil? || ((Time.now.to_i - source.last_post_at.to_time.to_i) / 60) > current_user.crisp_average }.sort_by(&:last_post_at).reverse.first(16)
+      sources = current_user.all_follows.map {|subscription| Source.find(subscription.followable_id)}.reject { |source| source.last_post_at.nil? || crisp_average(source, current_user)}.sort_by(&:last_post_at).reverse.first(16)
       @sources = Kaminari.paginate_array(sources).page(params[:n]).per(5)
     else
       @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || source.user.twitter_id != "frshst" }
