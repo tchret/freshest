@@ -13,10 +13,28 @@ var PopoverContent = React.createClass({
       'is-loaded': this.state.content != null
     })
 
+    var bannerStyle = {
+      backgroundImage: 'url(' + content.avatar + ')'
+    };
+
+
     return (
       <div className={contentClasses}>
         <div className="spinner" />
-        <img src={content.avatar} className='avatar' />
+        <div className='popover-header-wrapper'>
+          <div className='popover-header' style={bannerStyle}></div>
+        </div>
+        <img src={content.avatar} className='avatar avatar-xl' />
+
+        <h3 className='source-name text-center'>
+          <span>{content.name}</span>
+        </h3>
+        <div className='text-center source-href'>
+          <a href={content.url}>{content.url}</a>
+        </div>
+        <p clasName='text-center'>
+          Recommended by {content.suggested ? content.suggester.name : ""}
+        </p>
       </div>
     )
   },
