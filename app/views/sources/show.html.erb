@@ -5,7 +5,7 @@
 <%= react_component('Layout', {
   sources: @sources,
   heroPost: @source,
-  switchIsOn: user_signed_in? ? current_user.following?(@source) : @source.user.twitter_id == "frshst",
+  switchIsOn: user_signed_in? ? current_user.following?(@source) : @source.in_starting_pack?,
   crispAverage: user_signed_in? ? current_user.crisp_average : global_crisp_avge,
   lastPage: @sources.total_pages,
   lastSourcesImages: @sources[0..4].map {|source| source.avatar_url},
