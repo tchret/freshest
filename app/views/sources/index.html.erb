@@ -11,6 +11,8 @@
             isOn: user_signed_in? ? current_user.following?(source) : source.user.twitter_id == "frshst",
             follow_path: follow_source_path(source),
             stop_following_path: stop_following_source_path(source),
+            dataSourcePath: data_source_path(source)
+
           }
         end,
         toggleable: user_signed_in?,

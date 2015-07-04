@@ -1,5 +1,6 @@
 class SourcesController < ApplicationController
   include CrispHelper
+  respond_to :json, only: [:source_data]
 
   def index
     if user_signed_in?
@@ -37,6 +38,10 @@ class SourcesController < ApplicationController
   def suggestion
     message = "#{params[:suggestion]} - <https://twitter.com/#{params[:twitter_id]}|@#{params[:twitter_id]}>"
     Slack.new.post icon_emoji: ':pray:', username: 'New suggestion !', unfurl_links: true, text: message
+  end
+
+  def source_data
+    @source = Source.find_by(twitter_id: params[:id])
   end
 
   private

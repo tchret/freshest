@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sources, path: :i, as: :sources, only: [:index, :show, :create] do
     member do
       get 'follow', to: 'sources#follow', as: 'follow'
+      get 'source_data', to: 'sources#source_data', as: 'data'
       get 'stop_following', to: 'sources#stop_following', as: 'stop_following'
     end
   end
