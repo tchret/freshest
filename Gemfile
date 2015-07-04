@@ -38,6 +38,7 @@ gem 'sidetiq'
 gem 'rails-assets-pubsub-js'
 gem 'kaminari'
 gem 'rails-assets-headroom.js'
+gem 'rails-assets-react-bootstrap'
 
 
 group :development, :test do

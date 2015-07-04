@@ -6,6 +6,7 @@
 //= require react_ujs
 //= require headroom.js.js
 //= require pubsub-js
+//= require react-bootstrap
 
 //= require components
 //= require_tree ./app
