@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702155620) do
+ActiveRecord::Schema.define(version: 20150704140317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150702155620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "criterion"
+    t.string   "slug"
   end
 
   create_table "packs_sources", id: false, force: :cascade do |t|
@@ -78,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150702155620) do
     t.integer  "last_post_at_in_minutes"
     t.string   "url"
     t.integer  "user_id"
+    t.integer  "pack_id"
   end
 
   create_table "users", force: :cascade do |t|

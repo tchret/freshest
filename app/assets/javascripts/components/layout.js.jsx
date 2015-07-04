@@ -149,18 +149,14 @@ var Layout = React.createClass({
 
   handleHeroPostDisplay: function(post) {
     var that = this
-
-    $.get('/is_follow?source=' + post.id, function(data){
-      post.switchIsOn = data.respond
-      console.log(post)
-      that.setState({
-        heroPost: post,
-        heroPostPresent: true
-       })
-      urlPath = '/i/' + post.twitter_id
-      pageTitle = post.name + 'on Freshest'
-      window.history.pushState('', pageTitle, urlPath)
-    })
+    post.switchIsOn = true
+    that.setState({
+      heroPost: post,
+      heroPostPresent: true
+     })
+    urlPath = '/i/' + post.twitter_id
+    pageTitle = post.name + 'on Freshest'
+    window.history.pushState('', pageTitle, urlPath)
 
   },
 

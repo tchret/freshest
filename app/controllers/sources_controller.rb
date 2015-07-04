@@ -6,8 +6,7 @@ class SourcesController < ApplicationController
     if user_signed_in?
       @sources = Source.order(id: :desc).reject {|source| source.avatar_url == nil}.sort_by {|s| s.followed_by?(current_user).to_s }.reverse
     else
-      frshst = User.find_by(twitter_id: "frshst")
-      @sources = Source.order(id: :desc).reject {|source| source.avatar_url == nil}.sort_by {|s| s.followed_by?(frshst).to_s }.reverse
+      @sources = Source.order(id: :desc).reject {|source| source.avatar_url == nil}.sort_by {|s| s.in_starting_pack?.to_s }.reverse
     end
   end
 
@@ -17,7 +16,7 @@ class SourcesController < ApplicationController
       @sources = Kaminari.paginate_array(@sources).page(params[:page]).per(5)
       @source =  Source.where(twitter_id: params[:id])[0]
     else
-      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || source.user.twitter_id != "frshst" }
+      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || !source.in_starting_pack? }
       @sources = Kaminari.paginate_array(@sources).page(params[:n]).per(5)
       @source =  Source.where(twitter_id: params[:id])[0]
     end

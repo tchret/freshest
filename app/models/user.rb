@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:twitter]
 
-  after_create :follow_all, :slack_message
+  after_create :follow_starting_pack, :slack_message
 
   acts_as_follower
 
@@ -53,8 +53,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def follow_all
-    Source.where(user: User.find_by(twitter_id: "frshst")).each do |source|
+  def follow_starting_pack
+    Source.select {|s| s.packs.include? Pack.find_by(slug: "start")}.each do |source|
       self.follow(source)
     end
   end
