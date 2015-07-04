@@ -3,7 +3,7 @@ class Pack < ActiveRecord::Base
   after_create :slugify
 
   def slugify
-    slug = name.downcase.gsub(" ", "_")
+    self.slug = name.downcase.gsub(" ", "_")
     save
   end
 end
