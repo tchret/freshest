@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150704140317) do
     t.integer  "last_post_at_in_minutes"
     t.string   "url"
     t.integer  "user_id"
+    t.integer  "pack_id"
   end
 
   create_table "users", force: :cascade do |t|
