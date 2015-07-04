@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def follow_starting_pack
-    Source.select {|s| s.packs.include? Pack.find_by(name: "start")}.each do |source|
+    Source.select {|s| s.packs.include? Pack.find_by(slug: "start")}.each do |source|
       self.follow(source)
     end
   end
