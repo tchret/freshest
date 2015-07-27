@@ -25,7 +25,7 @@ var SourceTile = React.createClass({
     return (
       <div className='source-tile-container'>
         <div className={tileClasses}>
-        <OverlayTrigger trigger='click' placement='bottom' overlay={
+        <OverlayTrigger trigger='hover' placement='bottom' overlay={
           <Popover className="popover-source">
             <PopoverContent dataSourcePath={this.props.dataSourcePath} />
           </Popover>
@@ -33,7 +33,7 @@ var SourceTile = React.createClass({
           <img src={source.avatar_url} className='shadowed' />
         </OverlayTrigger>
 
-          <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
+          <menu className={toggleMenuClasses} onClick={this.handleClick} onTouch={this.handleClick} type="toolbar">
             <div className="toggle-switch"></div>
             <div className="label-container">
               <label className='label-on'>on</label>
