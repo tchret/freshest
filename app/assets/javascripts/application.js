@@ -4,9 +4,10 @@
 
 //= require react
 //= require react_ujs
+//= require react-bootstrap
+
 //= require headroom.js.js
 //= require pubsub-js
-//= require react-bootstrap
 
 //= require components
 //= require_tree ./app
