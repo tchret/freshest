@@ -30,11 +30,17 @@ var PopoverContent = React.createClass({
           <span>{content.name}</span>
         </h3>
         <div className='text-center source-href'>
-          <a href={content.url}>{content.url}</a>
+          <a href={content.url} target="_blank">{content.stripped_url}</a>
         </div>
-        <p clasName='text-center'>
-          Recommended by {content.suggested ? content.suggester.name : ""}
+        <p className='text-center'>
+          Recommended by:
         </p>
+        <a href={"https://twitter.com/" + (content.suggested ? content.suggester.twitter_id : "")} className="twitter-username" target="_blank">
+          <ul className="list-unstyled list-inline">
+            <li><img src={content.suggested ? content.suggester.picture : ""} className='avatar-user-mini' /></li>
+            <li>@{content.suggested ? content.suggester.twitter_id : ""}</li>
+          </ul>
+        </a>
       </div>
     )
   },

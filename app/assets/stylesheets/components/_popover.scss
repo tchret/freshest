@@ -9,6 +9,7 @@
     a {
       color: black;
     }
+    margin-bottom: 10px;
   }
 
   .source-name {
@@ -27,6 +28,20 @@
     display: block;
     position: relative;
     margin: 20px auto;
+  }
+
+  .avatar-user-mini {
+    width: 30px;
+    border-radius: 50%;
+  }
+
+  .twitter-username {
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    &:hover {
+      // color: #00FFC6 !important;
+    }
   }
 
   .arrow {
