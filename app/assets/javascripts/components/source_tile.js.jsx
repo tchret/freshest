@@ -1,3 +1,6 @@
+var OverlayTrigger = ReactBootstrap.OverlayTrigger;
+var Popover = ReactBootstrap.Popover
+
 var SourceTile = React.createClass({
   getInitialState: function() {
     return {
@@ -11,17 +14,25 @@ var SourceTile = React.createClass({
       "source-tile": true,
       "is-off": !this.state.isOn
     })
+
     toggleMenuClasses = React.addons.classSet({
       "source-tile-menu": true,
       "is-on": this.state.isOn,
       "is-off": !this.state.isOn
     })
+
+
     return (
       <div className='source-tile-container'>
         <div className={tileClasses}>
-          <a href={source.url} target="_blank">
-            <img src={source.avatar_url} className='shadowed' />
-          </a>
+        <OverlayTrigger trigger='click' placement='bottom' overlay={
+          <Popover className="popover-source">
+            <PopoverContent dataSourcePath={this.props.dataSourcePath} />
+          </Popover>
+        }>
+          <img src={source.avatar_url} className='shadowed' />
+        </OverlayTrigger>
+
           <menu className={toggleMenuClasses} onClick={this.handleClick} type="toolbar">
             <div className="toggle-switch"></div>
             <div className="label-container">
