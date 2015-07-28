@@ -30,14 +30,11 @@
   <% javascript_tag do %>
     $(document).ready(function() {
       $('.shadowed').on('mouseenter', function() {
-        var id = $(this).attr('id');
+        var id = $(this).attr('id').slice($(this).attr('id').lastIndexOf("_") + 1, $(this).attr('id').length);
         $(this).click()
-        $('.popover').on('mouseleave', function() {
-          $('#' + id).click()
+        $('#popover_' + id).on('mouseleave', function() {
+          $('#source_' + id).click()
         })
-      })
-      $('.popover').on('mouseleave', function() {
-        $('#' + id).click()
       })
     })
   <% end %>

@@ -25,8 +25,8 @@ var SourceTile = React.createClass({
     return (
       <div className='source-tile-container'>
         <div className={tileClasses}>
-        <OverlayTrigger trigger='click' placement='bottom' overlay={
-          <Popover className="popover-source">
+        <OverlayTrigger trigger='click' rootClose placement='bottom' overlay={
+          <Popover className="popover-source" id={"popover_" + source.id}>
             <PopoverContent dataSourcePath={this.props.dataSourcePath} />
           </Popover>
         }>
