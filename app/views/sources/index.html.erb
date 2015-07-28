@@ -25,3 +25,20 @@
     <div class="clear"></div>
   </div>
 </div>
+
+<%= content_for :after_js do %>
+  <% javascript_tag do %>
+    $(document).ready(function() {
+      $('.shadowed').on('mouseenter', function() {
+        var id = $(this).attr('id');
+        $(this).click()
+        $('.popover').on('mouseleave', function() {
+          $('#' + id).click()
+        })
+      })
+      $('.popover').on('mouseleave', function() {
+        $('#' + id).click()
+      })
+    })
+  <% end %>
+<% end %>
