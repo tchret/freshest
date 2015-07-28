@@ -35,7 +35,7 @@ class Source < ActiveRecord::Base
   end
 
   def stripped_url
-    url.gsub("https://", "").gsub("http://", "").gsub("www.", "")
+    url.gsub("https://", "").gsub("http://", "").gsub("www.", "").split('/').first
   end
 
   def self.update_last_post_at_in_minutes
