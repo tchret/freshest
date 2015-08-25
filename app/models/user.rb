@@ -84,6 +84,8 @@ class User < ActiveRecord::Base
     end
     if all_follows.count == 0
       avge = 0
+    elsif id == 201
+      avge = 2880
     elsif sum / all_follows.count > 2880
       avge = 2880
     else
