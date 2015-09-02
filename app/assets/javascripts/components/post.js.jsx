@@ -31,8 +31,7 @@ var Post = React.createClass({
                     <h4>
                       {source.title}
                     </h4>
-                  <p>
-                    {source.description}
+                  <p dangerouslySetInnerHTML={{__html: source.description}}>
                   </p>
                 </div>
               </div>
