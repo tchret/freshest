@@ -36,7 +36,7 @@ class FreshestWorker
   end
 
   def get_original_link(link)
-    open(link) { |resp|  resp.base_uri.to_s }
+    open(link, allow_redirections: safe) { |resp|  resp.base_uri.to_s }
   end
 
   def url_iframeable?(url)
