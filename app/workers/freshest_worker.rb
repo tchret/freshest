@@ -40,6 +40,6 @@ class FreshestWorker
   end
 
   def url_iframeable?(url)
-    open(url) {|f| !f.meta.has_key?("x-frame-options") }
+    open(url, allow_redirections: safe) {|f| !f.meta.has_key?("x-frame-options") }
   end
 end
