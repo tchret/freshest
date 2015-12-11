@@ -12,7 +12,7 @@ gem "country_select"
 gem "devise"
 gem "pundit"
 gem "paperclip"
-gem 'react-rails', '~> 1.0'
+gem 'react-rails', '1.2.0'
 gem "aws-sdk", "< 2.0"
 gem "twitter"
 gem "rest-client"
@@ -26,7 +26,6 @@ gem "metainspector"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
-gem 'rails-assets-headroom.js'
 gem "omniauth-twitter"
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'jbuilder'
@@ -37,11 +36,13 @@ gem 'sidekiq-failures'
 gem 'sidetiq'
 gem 'rails-assets-pubsub-js'
 gem 'kaminari'
-gem 'rails-assets-headroom.js'
-gem 'rails-assets-react-bootstrap'
 gem 'open_uri_redirections'
-gem 'rails-assets-classnames'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-headroom.js'
+  gem 'rails-assets-react-bootstrap'
+  gem 'rails-assets-classnames'
+end
 
 group :development, :test do
   gem "spring"
