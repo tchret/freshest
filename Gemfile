@@ -39,6 +39,7 @@ gem 'rails-assets-pubsub-js'
 gem 'kaminari'
 gem 'rails-assets-headroom.js'
 gem 'rails-assets-react-bootstrap'
+gem 'open_uri_redirections'
 
 
 group :development, :test do
