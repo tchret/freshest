@@ -31,7 +31,7 @@ var Layout = React.createClass({
       'is-active': this.state.heroPost == null ? false : true
     })
 
-    var crossClasses = classNames ({
+    var crossClasses = classNames({
       "cross-container": true,
       "pointer": true,
       'visible': this.state.heroPost ? true : false,

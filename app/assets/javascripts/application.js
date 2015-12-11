@@ -8,6 +8,7 @@
 
 //= require headroom.js.js
 //= require pubsub-js
+//= require classnames
 
 //= require components
 //= require_tree ./app
