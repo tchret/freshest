@@ -36,10 +36,10 @@ class FreshestWorker
   end
 
   def get_original_link(link)
-    open(link, allow_redirections: safe) { |resp|  resp.base_uri.to_s }
+    open(link, allow_redirections: :safe) { |resp|  resp.base_uri.to_s }
   end
 
   def url_iframeable?(url)
-    open(url, allow_redirections: safe) {|f| !f.meta.has_key?("x-frame-options") }
+    open(url, allow_redirections: :safe) {|f| !f.meta.has_key?("x-frame-options") }
   end
 end
