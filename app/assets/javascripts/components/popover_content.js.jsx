@@ -8,7 +8,7 @@ var PopoverContent = React.createClass({
     var content = this.state.content ? this.state.content : {}
     // console.log(this.state.content != null)
     // console.log(content)
-    var contentClasses = React.addons.classSet({
+    var contentClasses = classNames({
       'popover-source-content': true,
       'is-loaded': this.state.content != null
     })

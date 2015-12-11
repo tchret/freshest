@@ -14,19 +14,19 @@ var ModalConnect = React.createClass({
       $('body').removeClass('no-scroll')
     }
 
-    var modalClasses = React.addons.classSet({
+    var modalClasses = classNames({
       "modl-connect": true,
       "modl": true,
       "active": this.state.opened
     })
 
-    var modalContentClasses = React.addons.classSet({
+    var modalContentClasses = classNames({
       "modl-content": true,
       "pullUp": this.state.opened,
       "hidden": this.state.redirection
     })
 
-    var redirectionClasses = React.addons.classSet({
+    var redirectionClasses = classNames({
       "hidden": !this.state.redirection
     })
 

@@ -10,18 +10,18 @@ var HeroPost = React.createClass({
   render: function() {
     var heroPost = this.props.heroPost
 
-    var loaderClasses = React.addons.classSet({
+    var loaderClasses = classNames({
       'l-loader': true,
       'is-hidden': this.state.iframeLoaded
     })
 
-    var btnClasses = React.addons.classSet({
+    var btnClasses = classNames({
       'button': true,
       'button-wait': true,
       'is-hidden': !this.state.btnArticle
     })
 
-    toggleMenuClasses = React.addons.classSet({
+    toggleMenuClasses = classNames({
       "source-tile-menu hero-switch pointer": true,
       "is-on": this.state.switchIsOn,
       "is-off": !this.state.switchIsOn

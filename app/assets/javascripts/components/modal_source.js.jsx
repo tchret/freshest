@@ -8,14 +8,14 @@ var ModalSource = React.createClass({
 
   render: function(){
 
-    var modalClasses = React.addons.classSet({
+    var modalClasses = classNames({
       "modl-source": true,
       "modl": true,
       "active": this.state.opened,
       'is-submitted': this.state.submitted
     })
 
-    var modalContentClasses = React.addons.classSet({
+    var modalContentClasses = classNames({
       "modl-content": true,
       "pullUp": this.state.opened
     })

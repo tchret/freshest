@@ -26,12 +26,12 @@ var Layout = React.createClass({
       heroPost = ''
     }
 
-    var heroPostClasses = React.addons.classSet({
+    var heroPostClasses = classNames({
       'hero-post-modal': true,
       'is-active': this.state.heroPost == null ? false : true
     })
 
-    var crossClasses = React.addons.classSet ({
+    var crossClasses = classNames ({
       "cross-container": true,
       "pointer": true,
       'visible': this.state.heroPost ? true : false,

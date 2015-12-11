@@ -8,7 +8,7 @@ var Post = React.createClass({
     var source = this.props.source;
     var iframeable = source.iframeable;
     var isCrisp = this.props.crispAverage > source.last_post_at_in_minutes;
-    var containerClasses = React.addons.classSet({
+    var containerClasses = classNames({
       "post-container": true,
       "crisp": isCrisp,
       "container": true

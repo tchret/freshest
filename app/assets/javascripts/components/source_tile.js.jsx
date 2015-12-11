@@ -10,12 +10,12 @@ var SourceTile = React.createClass({
 
   render: function() {
     var source = this.props.source
-    tileClasses = React.addons.classSet({
+    tileClasses = classNames({
       "source-tile": true,
       "is-off": !this.state.isOn
     })
 
-    toggleMenuClasses = React.addons.classSet({
+    toggleMenuClasses = classNames({
       "source-tile-menu": true,
       "is-on": this.state.isOn,
       "is-off": !this.state.isOn
