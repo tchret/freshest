@@ -93,4 +93,8 @@ class User < ActiveRecord::Base
     end
     avge
   end
+
+  def fresh_sources
+    all_follows.map {|subscription| Source.find(subscription.followable_id)}.reject { |source| source.last_post_at.nil? || crisp_average(source, current_user) || !source.title || !source.description }.sort_by(&:last_post_at).reverse
+  end
 end
