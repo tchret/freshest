@@ -7,7 +7,7 @@ class PostsController < ApplicationController
       @sources = current_user.fresh_sources
       @sources = Kaminari.paginate_array(@sources).page(params[:page]).per(5)
     else
-      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || !source.in_starting_pack? }
+      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || !source.in_starting_pack? || !source.title || !source.description }
       @sources = Kaminari.paginate_array(@sources).page(params[:n]).per(5)
     end
   end
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       sources = current_user.fresh_sources
       @sources = Kaminari.paginate_array(sources).page(params[:n]).per(5)
     else
-      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || !source.in_starting_pack? }
+      @sources = Source.all.order(last_post_at: :desc).reject { |source| source.last_post_at.nil? || !source.in_starting_pack? || !source.title || !source.description }
       @sources = Kaminari.paginate_array(@sources).page(params[:n]).per(5)
     end
   end
