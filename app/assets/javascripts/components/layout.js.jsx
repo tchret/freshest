@@ -182,9 +182,10 @@ var Layout = React.createClass({
       $.get('/page?n=' + (that.state.pageLoaded + 1), function(data){
         var posts = that.state.posts;
         data.posts.map(function(post){
-          posts.push(post)
+          if(posts.lastIndexOf(post) == -1) {
+            posts.push(post)
+          }
         })
-
         that.setState({
           posts: posts,
           pageLoaded: that.state.pageLoaded + 1
