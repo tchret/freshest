@@ -5,14 +5,9 @@ class FreshestWorker
 
   recurrence { minutely }
 
+  ERRORS = [EOFError, ActiveRecord::StatementInvalid, OpenURI::HTTPError, NoMethodError, StandardError]
+
   def perform
-    ERRORS = [
-      EOFError,
-      ActiveRecord::StatementInvalid,
-      OpenURI::HTTPError,
-      NoMethodError,
-      StandardError
-    ]
     logger.info "*" * 40
     logger.info "STARTING TASK"
     logger.info "*" * 40
