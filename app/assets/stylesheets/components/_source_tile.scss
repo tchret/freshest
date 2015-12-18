@@ -47,13 +47,18 @@
 
   &:hover {
     z-index: 1;
-    cursor: pointer;
     box-shadow: 0 1px 6px #E3E3E3;
   }
 
   img {
     border-radius: 3px;
     width: 3em;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  menu:hover {
+    cursor: pointer;
   }
 }
 
