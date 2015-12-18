@@ -15,6 +15,7 @@ var SourceTile = React.createClass({
       "is-off": !this.state.isOn
     })
 
+    var position = this.props.reactKey > 2 ? "top" : "bottom"
     toggleMenuClasses = classNames({
       "source-tile-menu": true,
       "is-on": this.state.isOn,
@@ -25,14 +26,13 @@ var SourceTile = React.createClass({
     return (
       <div className='source-tile-container'>
         <div className={tileClasses}>
-        <OverlayTrigger trigger='click' rootClose placement='bottom' overlay={
+        <OverlayTrigger trigger='click' rootClose placement={position} overlay={
           <Popover className="popover-source" id={"popover_" + source.id}>
             <PopoverContent dataSourcePath={this.props.dataSourcePath} />
           </Popover>
         }>
           <img src={source.avatar_url} className='shadowed' id={"source_" + source.id} />
         </OverlayTrigger>
-
           <menu className={toggleMenuClasses} onClick={this.handleClick} onTouch={this.handleClick} type="toolbar">
             <div className="toggle-switch"></div>
             <div className="label-container">

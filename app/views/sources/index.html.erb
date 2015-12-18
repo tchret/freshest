@@ -1,7 +1,6 @@
 <%= content_for :title do %>
   Freshest - Short-lived news from the modern Web
 <% end %>
-
 <div class="container">
   <div class="dashboard">
       <%= react_component('Dashboard', {
@@ -12,7 +11,6 @@
             follow_path: follow_source_path(source),
             stop_following_path: stop_following_source_path(source),
             dataSourcePath: data_source_path(source)
-
           }
         end,
         toggleable: user_signed_in?,
@@ -20,22 +18,7 @@
         oauthPath: user_omniauth_authorize_path(:twitter),
         currentUser: current_user,
         userSignedIn: user_signed_in?
-
       })%>
     <div class="clear"></div>
   </div>
 </div>
-
-<%= content_for :after_js do %>
-  <% javascript_tag do %>
-    $(document).ready(function() {
-      $('.shadowed').on('mouseenter', function() {
-        var id = $(this).attr('id').slice($(this).attr('id').lastIndexOf("_") + 1, $(this).attr('id').length);
-        $(this).click()
-        $('#popover_' + id).on('mouseleave', function() {
-          $('#source_' + id).click()
-        })
-      })
-    })
-  <% end %>
-<% end %>

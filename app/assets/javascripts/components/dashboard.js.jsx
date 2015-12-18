@@ -15,14 +15,16 @@ var Dashboard = React.createClass({
       <div>
       {modal}
         <div className='dashboard'>
-          {this.props.sources.map(function (source) {
+          {this.props.sources.map(function(source, index) {
             return(<SourceTile
               source={source.infos}
               parent={this} isOn={source.isOn}
               follow_path={source.follow_path}
               toggleable={that.props.toggleable}
               stop_following_path={source.stop_following_path}
-              dataSourcePath={source.dataSourcePath} />)
+              dataSourcePath={source.dataSourcePath}
+              key={index}
+              reactKey={index} />)
           }, that)}
         </div>
       </div>
