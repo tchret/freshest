@@ -25,7 +25,6 @@ var PopoverContent = React.createClass({
           <div className='popover-header' style={bannerStyle}></div>
         </div>
         <img src={content.avatar} className='avatar avatar-xl' />
-
         <h3 className='source-name text-center'>
           <span>{content.name}</span>
         </h3>
