@@ -62,7 +62,6 @@ class Source < ActiveRecord::Base
           source.article_url = resp.base_uri.to_s
           source.save
         end
-
       end
     end
   end
@@ -71,7 +70,7 @@ class Source < ActiveRecord::Base
     Source.all.each do |source|
       if source.article_url
         source.iframeable = open(source.article_url) {|f| !f.meta.has_key?("x-frame-options") }
-        puts  source.iframeable
+        puts source.iframeable
         source.save
       end
     end

@@ -115,7 +115,6 @@ var Layout = React.createClass({
                 </div>
               </h4>
               <VisibilitySensor onChange={this.loadMorePost} active={this.state.allPostsLoaded ? false : true}/>
-
             </div>
           </div>
         <div className={heroPostClasses} onClick={this.removeHeroPostState}>
@@ -195,8 +194,8 @@ var Layout = React.createClass({
   },
 
   stopPropagation: function(e){
-      e.stopPropagation();
-      e.nativeEvent.stopImmediatePropagation();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
   }
 })
 
