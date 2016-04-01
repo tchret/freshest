@@ -83,3 +83,4 @@ production:
   database: thefreshest_production
   username: thefreshest
   password: <%= ENV['THEFRESHEST_DATABASE_PASSWORD'] %>
+  pool: 10
