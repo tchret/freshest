@@ -1,5 +1,5 @@
 namespace :freshest do
-  desc "TODO"
+  desc "Refresh posts"
   task refresh: :environment do
     FreshestWorker.perform_async
   end
